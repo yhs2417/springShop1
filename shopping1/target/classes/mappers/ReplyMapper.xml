@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="ReplyMapper">
+
+	<resultMap id="ReplyResultMap" type="ReplyVO">
+		<id property="replyNo" column="reply_no" />
+		<result property="boardNo" column ="board_no"/>
+		<result property="replyText" column ="reply_Text"/>
+		<result property="replyWriter" column ="reply_writer"/>
+		<result property="regDate" column ="reg_date"/>
+		<result property="updateDate" column ="update_date"/>
+		
+	</resultMap>
+
+	<select id="list" parameterType="java.util.Map" resultMap="ReplyResultMap">
+		
+		select tt.* from 
+		(select @ROWNUM:=@ROWNUM+1 as NUM, a.* 
+		from board_reply a,(select @ROWNUM:=0) b 
+		where board_no=#{boardNo} order by reply_no DESC) tt
+		<![CDATA[WHERE NUM>=#{startRow} and NUM<=#{endRow}]]>
+		
+	</select>
+	
+	<select id="countReplies" resultType="int">
+		select count(*) 
+		from board_reply
+		where board_no=#{boardNo}
+		
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO board_reply (
+			board_no, reply_text, reply_writer
+		)values 
+		(#{boardNo},#{replyText},#{replyWriter})
+	</insert>
+	
+	<update id="update">
+		UPDATE board_reply 
+		SET reply_text=#{replyText}, update_date= NOW()
+		WHERE reply_no=#{replyNo}
+	</update>
+	
+	<delete id="delete">
+		DELETE FROM board_reply
+		Where reply_no=#{replyNo}
+	</delete>
+	
+</mapper>

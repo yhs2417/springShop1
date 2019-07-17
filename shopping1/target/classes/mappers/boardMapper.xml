@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="BoardMapper">
+
+<!--  ALIES  적용하기 .TYPE은  BOARDVO 만 쓰면됨. -->
+	<resultMap id="BoardResultMap" type="boardVO">
+		<id property="boardNo" column="board_no" />
+		<result property="title" column ="title"/>
+		<result property="content" column ="content"/>
+		<result property="writer" column ="writer"/>
+		<result property="regDate" column ="regDate"/>
+		<result property="viewCnt" column ="viewCnt"/>
+		
+	</resultMap>
+	<insert id="insert">
+		 INSERT INTO mvc_board (title,content,writer) values (#{title},#{content},#{writer})
+	</insert>
+
+	<select id="getArticle" resultMap="BoardResultMap">
+		SELECT * FROM mvc_board WHERE board_no=#{boardNo}
+	</select>
+	
+	<update id="update">
+		update mvc_board set title=#{title},content=#{content} WHERE board_no=#{boardNo}
+	</update>
+	
+	<delete id="delete" parameterType="int">
+		delete from mvc_board WHERE board_no=#{boardNo}
+	</delete>
+
+	<select id="countArticles" resultType="int">
+		select count(*) 
+		from mvc_board
+		<include refid="search" />
+	</select>
+
+	<select id="boardAll" resultMap="BoardResultMap">
+		 select tt.* from 
+		 (select @ROWNUM:=@ROWNUM+1 as NUM, a.* 
+		 from mvc_board a,(select @ROWNUM:=0) b 
+		 <include refid="search" /> order by board_no DESC) tt 
+		 <![CDATA[WHERE NUM>=#{startRow} and NUM<=#{endRow}]]>
+		
+	</select>
+	
+	<update id="updateViewCnt">
+		UPDATE mvc_board
+		SET view_cnt=view_cnt+1
+		WHERE board_no=#{boardNo}
+	</update>
+	
+	<select id="countReplies" resultType='int'>
+		select count(*) from 
+		mvc_board join board_reply 
+		on mvc_board.board_no=board_reply.board_no 
+		where mvc_board.board_no=#{boardNo};
+	</select>
+	<!-- 동적sql처리 -->
+
+	<!--  중복 쿼리  -->
+	<sql id="search">
+		<if test="condition !=''">
+			<if test="condition == 'title'">
+			where title like CONCAT('%',#{keyword},'%') 
+			</if>
+			<if test="condition == 'writer'">
+			where writer like CONCAT('%',#{keyword},'%') 
+			</if>
+			<if test="condition == 'content'">
+			where content like CONCAT('%',#{keyword},'%') 
+			</if>
+		</if>
+	</sql>
+	
+</mapper>
+
+ 
