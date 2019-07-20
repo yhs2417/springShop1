@@ -75,38 +75,44 @@
 
 		<div class="pt-5" id="studio">
 			<div class="row">
-				<div class=" col-sm-6 col-md-3 border-left border-dark text-center">
-					<a href="" data-toggle="tooltip" data-placement="bottom"
-						title="eeeeeeeees"><i class="fas fa-apple-alt fa-7x  "></i></a> <br>
+				<div class=" col-sm-6 col-md-3 border-left border-dark pt-3 text-center">
+					<a href="" ><i class="fas fa-home fa-5x text-body  "></i></a><br>
 					<br>회사소개
 				</div>
 				<div
 					class=" col-sm-6 col-md-3 border-left border-dark 
 		text-center pt-3">
-					<a href=""><i class="fas fa-baby-carriage fa-7x  "></i></a> <br>
+					<a href=""><i class="fas fa-comments fa-5x text-body "></i></a> <br>
 					<br>Contact
 				</div>
 				<div
 					class=" col-sm-6 col-md-3 border-left 
 border-dark text-center pt-3">
-					<a href=""><i class="fas fa-arrow-alt-circle-down fa-7x  "></i></a>
+					<a href=""><i class="fas fa-edit fa-5x text-body "></i></a>
 					<br> <br>공지사항
 				</div>
 				<div
 					class=" col-sm-6 col-md-3 border-left 
 border-dark text-center pt-3">
-					<a href=""><i class="fas fa-baseball-ball fa-7x  "></i></a> <br>
+					<a href=""><i class="fas fa-address-book fa-5x text-body "></i></a> <br>
 					<br>.
 				</div>
 			</div>
 		</div>
 
-		<div class="mt-5 px-5" id="site">
+		<div class="mt-5 px-5" id="computer">
 
 			<div style="width: 100%" class="my-5 border-top" id="why">
-				<h3 class="text-secondary pt-2">sites</h3>
+				<h3 class="text-secondary pt-2">추천 Computer &nbsp;&nbsp;
+				<a href="#carouselCom" data-slide="prev">
+					<i class="fas fa-angle-left text-body"></i>
+				</a>
+				<a href="#carouselCom" data-slide="next">
+				<i class="fas fa-angle-right text-body"></i>
+				</a>
+				 </h3> 
 				<br>
-				<div id="carousel2" class="carousel" data-ride="carousel">
+				<div id="carouselCom" class="carousel" data-ride="carousel">
 
 					<div class="carousel-inner">
 						<div class="carousel-item active">
@@ -182,17 +188,101 @@ border-dark text-center pt-3">
 							</div>
 						</div>
 					</div>
-
-					<a class="carousel-control-prev" href="#carousel2" role="button"
-						data-slide="prev"> <i
-						class="fas fa-angle-double-left text-dark fa-lg"></i>
-					</a> <a class="carousel-control-next" href="#carousel2" role="button"
-						data-slide="next"> <i
-						class="fas fa-angle-double-right text-dark fa-lg"></i>
-					</a>
+ 
 				</div>
 			</div>
+			 
+			 
+			 
+				<div style="width: 100%" class="my-5 border-top" id="why">
+				<h3 class="text-secondary pt-2">추천 NoteBook&nbsp;&nbsp;
+				<a href="#carouselNote" data-slide="prev">
+					<i class="fas fa-angle-left text-body"></i>
+				</a>
+				<a href="#carouselNote" data-slide="next">
+				<i class="fas fa-angle-right text-body"></i>
+				</a></h3>
+				<br>
+				<div id="carouselNote" class="carousel" data-ride="carousel">
 
+					<div class="carousel-inner">
+						<div class="carousel-item active">
+							<div class="card-deck">
+								<div class="card" style="max-height: 250px">
+									<div class="card-header">헤더1</div>
+									<div class="card-body">바디</div>
+								</div>
+								<div class="card" style="max-height: 250px">
+									<div class="card-header">헤더2</div>
+									<div class="card-body">바디</div>
+								</div>
+								<div class="card" style="max-height: 250px">
+									<div class="card-header">헤더3</div>
+									<div class="card-body">바디</div>
+								</div>
+								<div class="card" style="max-height: 250px">
+									<div class="card-header">헤더4</div>
+									<div class="card-body">바디</div>
+								</div>
+								<div class="card" style="max-height: 250px">
+									<div class="card-header">헤더5</div>
+									<div class="card-body">바디</div>
+								</div>
+							</div>
+						</div>
+						<div class="carousel-item">
+							<div class="card-deck">
+								<div class="card" style="max-height: 250px">
+									<div class="card-header">헤더4</div>
+									<div class="card-body">바디</div>
+								</div>
+								<div class="card" style="max-height: 250px">
+									<div class="card-header">헤더5</div>
+									<div class="card-body">바디</div>
+								</div>
+								<div class="card" style="max-height: 250px">
+									<div class="card-header">헤더6</div>
+									<div class="card-body">바디</div>
+								</div>
+								<div class="card" style="max-height: 250px">
+									<div class="card-header">헤더7</div>
+									<div class="card-body">바디</div>
+								</div>
+								<div class="card" style="max-height: 250px">
+									<div class="card-header">헤더5</div>
+									<div class="card-body">바디</div>
+								</div>
+							</div>
+						</div>
+						<div class="carousel-item">
+							<div class="card-deck">
+								<div class="card" style="max-height: 250px">
+									<div class="card-header">헤더7</div>
+									<div class="card-body">바디</div>
+								</div>
+								<div class="card" style="max-height: 250px">
+									<div class="card-header">헤더8</div>
+									<div class="card-body">바디</div>
+								</div>
+								<div class="card" style="max-height: 250px">
+									<div class="card-header">헤더39</div>
+									<div class="card-body">바디</div>
+								</div>
+								<div class="card" style="max-height: 250px">
+									<div class="card-header">헤더14</div>
+									<div class="card-body">바디</div>
+								</div>
+								<div class="card" style="max-height: 250px">
+									<div class="card-header">헤더16</div>
+									<div class="card-body">바디</div>
+								</div>
+							</div>
+						</div>
+					</div>
+ 
+				</div>
+			</div> 
+			 
 			<div class="pt-4">
 				<div class="row">
 					<div class="col-md-6 border-right">

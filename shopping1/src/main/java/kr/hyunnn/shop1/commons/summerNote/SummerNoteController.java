@@ -24,25 +24,19 @@ public class SummerNoteController
 		.getRealPath("resources/images/uploads/");
 		
 		UUID uuid = UUID.randomUUID();
-		
-		String org_filename = file.getOriginalFilename();
-		String str_filename = uuid.toString() + org_filename;
+		String filename = uuid.toString() +file.getOriginalFilename();
 		System.out.println(path);
-		System.out.println("원본 파일명 : " + org_filename);
-		System.out.println("저장할 파일명 : " + str_filename);
+		System.out.println("저장할 파일명 : " +filename);
 
-		//String filepath = path + str_filename;
-		//System.out.println("파일경로 : " + filepath);
-
-		File f = new File(path,str_filename);
+		File f = new File(path,filename);
 		
 		FileCopyUtils.copy(file.getInputStream(),
 						new FileOutputStream(f));
 		//file.transferTo(f);
 		
-		System.out.println("리턴할 url1 :"+"resources/images/uploads/"+str_filename);
+		System.out.println("리턴할 url1 :"+"resources/images/uploads/"+filename);
 	
-		return "resources/images/uploads/"+str_filename;
+		return "resources/images/uploads/"+filename;
 		//위주소로 db에 저장하면 됨. 
 	}
 	

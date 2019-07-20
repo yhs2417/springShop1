@@ -26,8 +26,11 @@ body {
 	background-color: red
 }
 
-#user_info_menu a .active {
-	background-color: red
+ 
+#manage ul a.active
+{ 	background-color: white; 
+	font-weight : bold;
+	text-decoration:underline
 }
 #carousel2 .card:hover {
 	border: 1px solid red;
@@ -37,7 +40,8 @@ body {
 	margin-right: -15px
 }
 
-#current { color : red }
+.current { color : red }
+
 #pages { color : black }
 	
     @media (max-width: 767px)

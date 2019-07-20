@@ -13,6 +13,7 @@ public class ProductVO
 	private Date regDate ;
 	private String category;
 	private String companyName;
-	private String thumNail;
 	private String explain1;
+	private String explain2;
+	private String thumNail;
 }

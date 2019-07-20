@@ -52,13 +52,13 @@
 
 						<li class="nav-item dropdown"><a
 							class="nav-link dropdown-toggle" href="#" role="button"
-							data-toggle="dropdown"> 취미</a>
+							data-toggle="dropdown"> 1</a>
 							<div class="dropdown-menu">
-								<a class="dropdown-item" href="#">메뉴1</a> <a
-									class="dropdown-item" href="#">메뉴2</a>
+								<a class="dropdown-item" href="#">2</a> <a
+									class="dropdown-item" href="#">3</a>
 
 							</div>
-						<li class='nav-item'><a class='nav-link' href=''>메뉴1</a></li>
+						<li class='nav-item'><a class='nav-link' href=''>4</a></li>
 
 					</ul>
 				</div>
@@ -129,14 +129,14 @@
 
 						<li class="nav-item dropdown"><a
 							class="nav-link dropdown-toggle" href="#" role="button"
-							data-toggle="dropdown"> 취미</a>
+							data-toggle="dropdown"> 1</a>
 							<div class="dropdown-menu">
 								<a class="dropdown-item" href="#">메뉴1</a> <a
 									class="dropdown-item" href="#">메뉴2</a>
 
 							</div>
-						<li class='nav-item'><a class='nav-link' href=''>공부</a></li>
-						<li class='nav-item'><a class='nav-link' href=''>재무분석</a></li>
+						<li class='nav-item'><a class='nav-link' href=''>2</a></li>
+						<li class='nav-item'><a class='nav-link' href=''>3</a></li>
 					</ul>
 				</div>
 
@@ -152,11 +152,6 @@
 			</div>
 		</nav>
 	</div>
-
-
-
-
-
 
 
 

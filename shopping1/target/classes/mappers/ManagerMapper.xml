@@ -2,7 +2,8 @@
 
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-    
+  
+ <!-- <mapper namespace="mapper1"> --> 
 <mapper namespace="kr.hyunnn.shop1.Manager.repository.IManagerDAO">
 
 	<resultMap id="ResultMap1" type="CategoryVO">
@@ -16,6 +17,18 @@
 		<result property="companyName" column ="company_name"/>	
 	</resultMap>
 	
+	<resultMap id="ResultMap3" type="ProductVO">
+		<id property="productId" column="product_id" />
+		<result property="productName" column ="product_name"/>
+		<result property="price" column ="price"/>	
+		<result property="regDate" column ="reg_date"/>
+		<result property="category" column ="category"/>
+		<result property="companyName" column ="company_name"/>
+		<result property="thumNail" column ="thumnail"/>
+		<result property="explain1" column ="explain1"/>
+		<result property="explain2" column ="explain2"/>
+	</resultMap>
+
 	<select id="selectCategory" resultMap="ResultMap1">
 		select * from product_category
 	</select>
@@ -24,5 +37,43 @@
 		select * from company 
 		where category=#{category}
 	</select>
+	
+	<insert id="productInsert">
+		insert into product(product_name,price,category,company_name,explain1,explain2,thumnail) values
+		(#{productName},#{price},#{category},#{companyName},#{explain1},#{explain2},#{thumNail})
+	</insert>
 
+	<select id="productList" parameterType="java.util.Map" resultMap="ResultMap3">
+		select tt.* from 
+		(select @ROWNUM:=@ROWNUM+1 as NUM, a.* 
+		from product a,(select @ROWNUM:=0) b 
+		where category=#{category} order by product_id DESC) tt
+		<![CDATA[WHERE NUM>=#{startRow} and NUM<=#{endRow}]]>
+	</select>
+	
+	<update id="productUpdate">
+		update product 
+		set 
+		product_name=#{productName},
+		price=#{price},
+		reg_date=now(),
+		explain1=#{explain1},
+		explain2=#{explain2}<include refid="thum"/>
+		where product_id=#{productId}
+	</update>
+	
+	<sql id="thum">
+		<if test="thumNail !='' ">
+			,thumnail=thumNail
+		</if>
+	</sql>
+	
+	<delete id="productDelete">
+		delete from product 
+		where product_id=#{productId}
+	</delete>
+	
+	<select id="countProducts" resultType="int">
+		select count(*) from product where category=#{category}
+	</select>
 </mapper>
