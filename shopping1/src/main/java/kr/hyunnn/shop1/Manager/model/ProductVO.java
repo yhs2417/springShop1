@@ -16,4 +16,5 @@ public class ProductVO
 	private String explain1;
 	private String explain2;
 	private String thumNail;
+	private int recommend;
 }

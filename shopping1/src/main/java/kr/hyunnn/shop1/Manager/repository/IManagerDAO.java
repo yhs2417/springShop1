@@ -22,4 +22,8 @@ public interface IManagerDAO {
 	public void productUpdate(ProductVO vo) throws Exception;
 	public void productDelete(int productId) throws Exception;
 	public int countProducts(String category) throws Exception;
+	
+	public List<ProductVO> getRecommendProduct(String category) throws Exception;
+
+	
 }

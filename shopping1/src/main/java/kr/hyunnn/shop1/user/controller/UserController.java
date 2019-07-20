@@ -44,7 +44,7 @@ public class UserController {
 	@PostMapping("/info")
 	public String updateUser(@RequestBody UserVO vo,HttpSession session) throws Exception
 	{
-		System.out.println(vo);
+		
 		//session.removeAttribute("login");
 		
 		//session.invalidate(); //로그아웃됨.

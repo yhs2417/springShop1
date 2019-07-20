@@ -1,6 +1,7 @@
 package kr.hyunnn.shop1.Manager.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.stereotype.Service;
 
@@ -19,6 +20,7 @@ public interface IManagerService
 	public void productUpdate(ProductVO vo) throws Exception;
 	public void productDelete(int productId) throws Exception;
 	public int countProducts(String category) throws Exception;
+	public List<ProductVO> getRecommendProduct(String category) throws Exception;
 
 
 }

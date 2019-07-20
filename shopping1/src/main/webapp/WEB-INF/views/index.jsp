@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-
+<!--동기화-->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -9,10 +9,10 @@
 
 <jsp:include page="include/staticHead.jsp" />
 
-<!-- 
+<!--
 <frameset rows="90px,*" frameborder="0">
 	<frame name="header" src="<c:url value='/include/header.jsp'/>">
-	<frame name="main" src="<c:url value='/board/boardList.jsp'/>">	
+	<frame name="main" src="<c:url value='/board/boardList.jsp'/>">
 </frameset>
   -->
 
@@ -80,19 +80,19 @@
 					<br>회사소개
 				</div>
 				<div
-					class=" col-sm-6 col-md-3 border-left border-dark 
+					class=" col-sm-6 col-md-3 border-left border-dark
 		text-center pt-3">
 					<a href=""><i class="fas fa-comments fa-5x text-body "></i></a> <br>
 					<br>Contact
 				</div>
 				<div
-					class=" col-sm-6 col-md-3 border-left 
+					class=" col-sm-6 col-md-3 border-left
 border-dark text-center pt-3">
 					<a href=""><i class="fas fa-edit fa-5x text-body "></i></a>
 					<br> <br>공지사항
 				</div>
 				<div
-					class=" col-sm-6 col-md-3 border-left 
+					class=" col-sm-6 col-md-3 border-left
 border-dark text-center pt-3">
 					<a href=""><i class="fas fa-address-book fa-5x text-body "></i></a> <br>
 					<br>.
@@ -110,90 +110,17 @@ border-dark text-center pt-3">
 				<a href="#carouselCom" data-slide="next">
 				<i class="fas fa-angle-right text-body"></i>
 				</a>
-				 </h3> 
+				 </h3>
 				<br>
-				<div id="carouselCom" class="carousel" data-ride="carousel">
 
-					<div class="carousel-inner">
-						<div class="carousel-item active">
-							<div class="card-deck">
-								<div class="card" style="max-height: 250px">
-									<div class="card-header">헤더1</div>
-									<div class="card-body">바디</div>
-								</div>
-								<div class="card" style="max-height: 250px">
-									<div class="card-header">헤더2</div>
-									<div class="card-body">바디</div>
-								</div>
-								<div class="card" style="max-height: 250px">
-									<div class="card-header">헤더3</div>
-									<div class="card-body">바디</div>
-								</div>
-								<div class="card" style="max-height: 250px">
-									<div class="card-header">헤더4</div>
-									<div class="card-body">바디</div>
-								</div>
-								<div class="card" style="max-height: 250px">
-									<div class="card-header">헤더5</div>
-									<div class="card-body">바디</div>
-								</div>
-							</div>
-						</div>
-						<div class="carousel-item">
-							<div class="card-deck">
-								<div class="card" style="max-height: 250px">
-									<div class="card-header">헤더4</div>
-									<div class="card-body">바디</div>
-								</div>
-								<div class="card" style="max-height: 250px">
-									<div class="card-header">헤더5</div>
-									<div class="card-body">바디</div>
-								</div>
-								<div class="card" style="max-height: 250px">
-									<div class="card-header">헤더6</div>
-									<div class="card-body">바디</div>
-								</div>
-								<div class="card" style="max-height: 250px">
-									<div class="card-header">헤더7</div>
-									<div class="card-body">바디</div>
-								</div>
-								<div class="card" style="max-height: 250px">
-									<div class="card-header">헤더5</div>
-									<div class="card-body">바디</div>
-								</div>
-							</div>
-						</div>
-						<div class="carousel-item">
-							<div class="card-deck">
-								<div class="card" style="max-height: 250px">
-									<div class="card-header">헤더7</div>
-									<div class="card-body">바디</div>
-								</div>
-								<div class="card" style="max-height: 250px">
-									<div class="card-header">헤더8</div>
-									<div class="card-body">바디</div>
-								</div>
-								<div class="card" style="max-height: 250px">
-									<div class="card-header">헤더39</div>
-									<div class="card-body">바디</div>
-								</div>
-								<div class="card" style="max-height: 250px">
-									<div class="card-header">헤더14</div>
-									<div class="card-body">바디</div>
-								</div>
-								<div class="card" style="max-height: 250px">
-									<div class="card-header">헤더16</div>
-									<div class="card-body">바디</div>
-								</div>
-							</div>
-						</div>
-					</div>
- 
+				<div id="carouselCom" class="carousel" data-ride="carousel">
+					<!-- 추천제품 올곳 -->
+
 				</div>
 			</div>
-			 
-			 
-			 
+
+
+
 				<div style="width: 100%" class="my-5 border-top" id="why">
 				<h3 class="text-secondary pt-2">추천 NoteBook&nbsp;&nbsp;
 				<a href="#carouselNote" data-slide="prev">
@@ -204,85 +131,11 @@ border-dark text-center pt-3">
 				</a></h3>
 				<br>
 				<div id="carouselNote" class="carousel" data-ride="carousel">
+  					<!-- 추천제품 올곳 -->
 
-					<div class="carousel-inner">
-						<div class="carousel-item active">
-							<div class="card-deck">
-								<div class="card" style="max-height: 250px">
-									<div class="card-header">헤더1</div>
-									<div class="card-body">바디</div>
-								</div>
-								<div class="card" style="max-height: 250px">
-									<div class="card-header">헤더2</div>
-									<div class="card-body">바디</div>
-								</div>
-								<div class="card" style="max-height: 250px">
-									<div class="card-header">헤더3</div>
-									<div class="card-body">바디</div>
-								</div>
-								<div class="card" style="max-height: 250px">
-									<div class="card-header">헤더4</div>
-									<div class="card-body">바디</div>
-								</div>
-								<div class="card" style="max-height: 250px">
-									<div class="card-header">헤더5</div>
-									<div class="card-body">바디</div>
-								</div>
-							</div>
-						</div>
-						<div class="carousel-item">
-							<div class="card-deck">
-								<div class="card" style="max-height: 250px">
-									<div class="card-header">헤더4</div>
-									<div class="card-body">바디</div>
-								</div>
-								<div class="card" style="max-height: 250px">
-									<div class="card-header">헤더5</div>
-									<div class="card-body">바디</div>
-								</div>
-								<div class="card" style="max-height: 250px">
-									<div class="card-header">헤더6</div>
-									<div class="card-body">바디</div>
-								</div>
-								<div class="card" style="max-height: 250px">
-									<div class="card-header">헤더7</div>
-									<div class="card-body">바디</div>
-								</div>
-								<div class="card" style="max-height: 250px">
-									<div class="card-header">헤더5</div>
-									<div class="card-body">바디</div>
-								</div>
-							</div>
-						</div>
-						<div class="carousel-item">
-							<div class="card-deck">
-								<div class="card" style="max-height: 250px">
-									<div class="card-header">헤더7</div>
-									<div class="card-body">바디</div>
-								</div>
-								<div class="card" style="max-height: 250px">
-									<div class="card-header">헤더8</div>
-									<div class="card-body">바디</div>
-								</div>
-								<div class="card" style="max-height: 250px">
-									<div class="card-header">헤더39</div>
-									<div class="card-body">바디</div>
-								</div>
-								<div class="card" style="max-height: 250px">
-									<div class="card-header">헤더14</div>
-									<div class="card-body">바디</div>
-								</div>
-								<div class="card" style="max-height: 250px">
-									<div class="card-header">헤더16</div>
-									<div class="card-body">바디</div>
-								</div>
-							</div>
-						</div>
-					</div>
- 
 				</div>
-			</div> 
-			 
+			</div>
+
 			<div class="pt-4">
 				<div class="row">
 					<div class="col-md-6 border-right">
@@ -314,8 +167,130 @@ border-dark text-center pt-3">
 
 	<script src="<c:url value='/resources/js/common.js'/>"></script>
 
+<script id="recommandedComputer" type="text/x-handlebars-template">
+<div class="carousel-inner">
+
+<div class="carousel-item active">
+<div class="card-deck row">
+{{#computer}}   {{!--5번 인덱스까지지해당 --}}
+	{{#loopCheck @index}}		
+		<div class="card col-md-2 border-0">
+			<img src="{{thumNail}}"  class="card-img-top">
+
+			<div class="card-body border">
+			  <h5 class="card-title">{{companyName}}</h5>
+			  <h6 class="card-subtitle mb-2 text-muted">제품명 : {{productName}}</h6>
+			  <h6 class="card-subtitle mb-2 text-muted">{{price}} 원</h6>
+			  소개 : {{explain1}}
+			  <a href="#" class="btn btn-secondary">자세히 보기</a>
+			</div>
+		</div>
+	{{/loopCheck}}
+{{/computer}}
+</div>
+</div>
+
+<div class="carousel-item">
+<div class="card-deck row">
+{{#computer}}  {{!--6~10번 루프까지해당 --}}
+		{{#loopCheck @index}}
+
+		{{else}}
+		<div class="card col-md-2 border-0">
+			<img src="{{thumNail}}" class="card-img-top">
+
+			<div class="card-body border"> 
+			  <h5 class="card-title">{{companyName}}</h5>
+			  <h6 class="card-subtitle mb-2 text-muted">제품명 : {{productName}}</h6>
+			  <h6 class="card-subtitle mb-2 text-muted">{{price}} 원</h6>
+			   소개 : {{explain1}}
+			  <a href="#" class="btn btn-secondary">자세히 보기</a>
+			</div>
+		</div>		
+		{{/loopCheck}}
+{{/computer}}
+</div>
+</div>
+</div>		
+</script>
+
+<script id="recommandedNotebook" type="text/x-handlebars-template">
+<div class="carousel-inner">
+
+<div class="carousel-item active">
+<div class="card-deck row">
+{{#notebook}}   {{!--5번 인덱스까지지해당 --}}
+	{{#loopCheck @index}}		
+		<div class="card col-md-2 border-0">
+			<img src="{{thumNail}}"  class="card-img-top">
+
+			<div class="card-body border">
+			  <h5 class="card-title">{{companyName}}</h5>
+			  <h6 class="card-subtitle mb-2 text-muted">제품명 : {{productName}}</h6>
+			  <h6 class="card-subtitle mb-2 text-muted">{{price}} 원</h6>
+			  소개 : {{explain1}}
+			  <a href="#" class="btn btn-secondary">자세히 보기</a>
+			</div>
+		</div>
+	{{/loopCheck}}
+{{/notebook}}
+</div>
+</div>
+
+<div class="carousel-item">
+<div class="card-deck row">
+{{#notebook}}  {{!--6~10번 루프까지해당 --}}
+		{{#loopCheck @index}}
+
+		{{else}}
+		<div class="card col-md-2 border-0">
+			<img src="{{thumNail}}" class="card-img-top">
+
+			<div class="card-body border"> 
+			  <h5 class="card-title">{{companyName}}</h5>
+			  <h6 class="card-subtitle mb-2 text-muted">제품명 : {{productName}}</h6>
+			  <h6 class="card-subtitle mb-2 text-muted">{{price}} 원</h6>
+			   소개 : {{explain1}}
+			  <a href="#" class="btn btn-secondary">자세히 보기</a>
+			</div>
+		</div>		
+		{{/loopCheck}}
+{{/notebook}}
+</script>
+
 	<script type="text/javascript">
-		$(document).ready(function() {
+		$(document).ready(function(){
+			
+			Handlebars.registerHelper("loopCheck",function(index,options)
+				{
+				if(index <= 4)
+					{
+						return options.fn(this);
+					}
+				else
+				{
+					return options.inverse(this);
+					}
+				});
+			
+			$.getJSON("/shop1/manager/recommended",function(data)
+					{
+						let template = $('#recommandedComputer').html();
+						let ctemplate = Handlebars.compile(template);
+						let html = ctemplate(data);
+						$("#carouselCom").html(html);	
+						
+						let template2 = $('#recommandedNotebook').html();
+						let ctemplate2 = Handlebars.compile(template2);
+						let html2 = ctemplate2(data);
+						$("#carouselNote").html(html2);	
+						
+					})
+			
+		
+
+			
+
 			$('#carousel1').on('slide.bs.carousel', function() {
 				$('#indicatior1 li a').removeClass('active')
 

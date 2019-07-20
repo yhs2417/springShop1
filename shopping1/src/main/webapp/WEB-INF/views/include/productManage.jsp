@@ -32,12 +32,12 @@
 				</div>
 			</div>
 		</div><!-- btn-toolbar -->
-		
+
 
 		<c:forEach var="i" items="${category}" varStatus="status2">
-			 
+
 			<div class="tab-pane fade pt-3" id="${i.category}">
-		 
+
 
 			<div class='table-responsive'>
 				<table class='table table-striped table-hover table-sm text-center'>
@@ -46,6 +46,7 @@
 							<th style="width: 2%" scope='col'><input type="checkbox"
 								id="allCheck"></th>
 							<th style="width: 1%" scope='col'>No</th>
+							<th style="width: 4%" scope='col'></th>
 
 							<th style="width: 10%" scope='col'>상품명</th>
 							<th style="width: 10%" scope='col'>가격</th>
@@ -66,14 +67,14 @@
 			<!-- class='table-responsive'>끝 -->
 
 			<!-- 페이징 오는 부분 -->
-			
+
 				<ul class="pagination justify-content-center productPaging">
-					 
+
 				</ul>
-			
+
 			</div><!--tab-pane 끝 -->
-		</c:forEach>	
-	
+		</c:forEach>
+
 	</div>
 	<!-- 텝content 끝 -->
 

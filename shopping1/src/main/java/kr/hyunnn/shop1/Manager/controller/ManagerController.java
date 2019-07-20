@@ -148,4 +148,16 @@ public class ManagerController
 		
 		return "success";
 	}
+	
+	@GetMapping("/recommended")
+	public Map<String,Object> recommended() throws Exception
+	{
+		Map<String, Object> map=new HashMap<String, Object>();
+		map.put("computer",service.getRecommendProduct("computer"));
+		map.put("notebook",service.getRecommendProduct("NoteBook"));
+		 
+		System.out.println("추천상품 데이터"+map);
+		
+		return map;
+	}
 }

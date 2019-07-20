@@ -64,6 +64,12 @@
 <input type="checkbox" class="chkBox" id={{productId}}>
 </th>
 <td>{{productId}}</td>
+<td>
+	{{#if recommend}}
+		추천
+	{{/if}}
+</td>
+
 <td>{{productName}}</td>
 <td>{{price}}
 </td>

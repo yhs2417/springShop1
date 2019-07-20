@@ -67,5 +67,11 @@ public class ManagerService implements IManagerService
 		 
 		return dao.countProducts(category);
 	}
+
+	@Override
+	public List<ProductVO> getRecommendProduct(String category) throws Exception {
+		
+		return dao.getRecommendProduct(category);
+	}
 	
 }

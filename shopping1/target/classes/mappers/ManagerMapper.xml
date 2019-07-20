@@ -27,6 +27,8 @@
 		<result property="thumNail" column ="thumnail"/>
 		<result property="explain1" column ="explain1"/>
 		<result property="explain2" column ="explain2"/>
+		<result property="recommend" column ="recommend"/>
+		
 	</resultMap>
 
 	<select id="selectCategory" resultMap="ResultMap1">
@@ -75,5 +77,10 @@
 	
 	<select id="countProducts" resultType="int">
 		select count(*) from product where category=#{category}
+	</select>
+	
+	<select id="getRecommendProduct" resultMap="ResultMap3">
+		select * from product
+		where category=#{category} and recommend=1
 	</select>
 </mapper>

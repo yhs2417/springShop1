@@ -10,7 +10,8 @@
 
   <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.css" rel="stylesheet">
 <meta name='viewport' content="width=device-width,initail-scale=1">	
-
+<!--현재쓰는 익스플로러를 최신버젼으로 처리 -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
 <style>
 body {
 	font-family: 'Helvetica Neue', Helvetica, Arial, "맑은 고딕",
