@@ -3,8 +3,10 @@ package kr.hyunnn.shop1.Manager.controller;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.UUID;
 
 import javax.servlet.http.HttpSession;
@@ -30,6 +32,7 @@ import kr.hyunnn.shop1.Manager.service.IManagerService;
 import kr.hyunnn.shop1.Manager.service.ManagerService;
 import kr.hyunnn.shop1.commons.criteria.Criteria;
 import kr.hyunnn.shop1.commons.criteria.Paging;
+import kr.hyunnn.shop1.commons.criteria.SearchCriteria;
 
 @RestController
 @RequestMapping("/manager")
@@ -83,20 +86,27 @@ public class ManagerController
 		return new ModelAndView("redirect:/manager");
 	}
 	
-	@GetMapping("/productList/{category}/{pg}")
+	@GetMapping("/productList/{category}/{pg}/{align}/{condition}/{keyword}")
 	public Map<String,Object> productList(
-						@PathVariable String category,
-						@PathVariable int pg) throws Exception
-	{	System.out.println("상품 조회 진입"+category+pg);
-		Criteria cri= new Criteria();
+						@PathVariable String category,@PathVariable int pg,
+						@PathVariable String align,@PathVariable String condition,
+						@PathVariable String keyword) throws Exception
+	{	
+		System.out.println("상품 조회 진입"+category+pg+align+condition+keyword);
+		SearchCriteria cri= new SearchCriteria();
 		cri.setPg(pg);
-		cri.setPerPage(8);
+		//cri.setPerPage(10);
+		cri.setAlign(align);
+		cri.setCondition(condition);
+		cri.setKeyword(keyword);
 		
-		int totalA=service.countProducts(category);
+		int totalA=service.countProducts(category,cri); //cri는 검색조건
 		
 		Paging paging = new Paging(cri, totalA);
 		
-		List<ProductVO> product=service.productList(category,paging);
+		List<ProductVO> product=service.productList(
+				category,paging,cri); //뒤 cri는 정렬, 검색용
+		
 		System.out.println("Product조회 내용출력"+product);
 		
 		Map<String,Object> map=new HashMap<>();
@@ -160,4 +170,39 @@ public class ManagerController
 		
 		return map;
 	}
+	
+	@PutMapping("/recommendUpdate/{category}")
+	public String recommendUpdate(@RequestBody List<String> array,@PathVariable String category) throws Exception
+	{
+		System.out.println("추천상품 추가 진입"+array+category);
+		
+		service.recommendInit(category); //해당 카테고리의 추천상품을 일단 다 초기화
+		for(String i : array)
+		{
+			service.recommendUpdate(Integer.parseInt(i));
+		}
+		 
+		return "success";
+	}
+	
+	@GetMapping("/recommendedList/{category}")
+	public List<Integer> recommendedList(@PathVariable String category) throws Exception
+	{
+		System.out.println("추천상품 id얻기 진입"+category);
+		return service.recommendedList(category);
+		
+	}
+	
+	@PutMapping("/recommendDel")
+	public String recommendDelete(@RequestBody List<String> array) throws Exception
+	{
+		System.out.println("추천상품 제거 진입"+array);
+	 
+		for(String i : array)
+		{
+			service.recommendDelete(Integer.parseInt(i));
+		}
+		return "success";
+	}
+	
 }

@@ -44,14 +44,55 @@
 		insert into product(product_name,price,category,company_name,explain1,explain2,thumnail) values
 		(#{productName},#{price},#{category},#{companyName},#{explain1},#{explain2},#{thumNail})
 	</insert>
-
+		
+	<select id="countProducts" resultType="int">
+		select count(*) from product
+		<include refid="search"/> 
+		
+	</select>
+	
 	<select id="productList" parameterType="java.util.Map" resultMap="ResultMap3">
 		select tt.* from 
 		(select @ROWNUM:=@ROWNUM+1 as NUM, a.* 
 		from product a,(select @ROWNUM:=0) b 
-		where category=#{category} order by product_id DESC) tt
+		<include refid="search"/> 
+		<include refid="alignment"/> ) tt
 		<![CDATA[WHERE NUM>=#{startRow} and NUM<=#{endRow}]]>
 	</select>
+	
+	<sql id="alignment">
+		<if test="align==null">
+			order by product_id DESC
+		</if> 
+		<if test="align!=null">   
+			<if test="align=='priceDesc'">
+				order by price DESC
+			</if>
+			<if test="align=='priceAsc'">
+				order by price ASC
+			</if>
+			<if test="align=='regDateAsc'">
+				order by reg_date ASC
+			</if>
+			<if test="align=='regDateDesc'">
+				order by reg_date DESC
+			</if>
+		</if>
+	</sql>
+	
+	<sql id="search">
+		<if test="condition == null">
+			where category=#{category}
+		</if>
+		<if test="condition !=null">
+			<if test="condition=='productName'">
+				where category=#{category} and product_name like CONCAT('%',#{keyword},'%')
+			</if>
+			<if test="condition=='companyName'">
+				where category=#{category} and company_name like CONCAT('%',#{keyword},'%')
+			</if>
+		</if>
+	</sql>
 	
 	<update id="productUpdate">
 		update product 
@@ -74,13 +115,24 @@
 		delete from product 
 		where product_id=#{productId}
 	</delete>
-	
-	<select id="countProducts" resultType="int">
-		select count(*) from product where category=#{category}
-	</select>
+
 	
 	<select id="getRecommendProduct" resultMap="ResultMap3">
 		select * from product
 		where category=#{category} and recommend=1
 	</select>
+	
+	<select id="recommendedList" parameterType="String" resultType="int">
+		select product_id from product where recommend=1 and category=#{category}
+	</select>
+	
+	<update id="recommendInit">
+		update product set recommend=0 where category=#{category}
+	</update>
+	<update id="recommendUpdate" parameterType="int">
+		update product set recommend=1 where product_id=#{productId}
+	</update>
+	<update id="recommendDelete">
+		update product set recommend=0 where product_id=#{productId}
+	</update>
 </mapper>

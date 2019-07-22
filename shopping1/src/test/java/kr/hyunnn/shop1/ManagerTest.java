@@ -23,15 +23,15 @@ public class ManagerTest {
 	@Test
 	public void insert()throws Exception
 	{
-		for(int i=1; i<120;i ++)
+		for(int i=1; i<20;i ++)
 		{
 			ProductVO vo =new ProductVO();
-			vo.setCategory("NoteBook");
+			vo.setCategory("computer");
 			vo.setCompanyName("samsung");
-			vo.setExplain1("aaaaa");
-			vo.setExplain2("bbbbbbbb");
-			vo.setPrice(12451111);
-			vo.setProductName("abc"+i);
+			vo.setExplain1("제품 간략설명 "+ i);
+			vo.setExplain2("제품 상세설명" +i);
+			vo.setPrice(i*1000);
+			vo.setProductName("삼성 모델"+i);
 			vo.setThumNail("resources/images/uploads/d2ded927-e6ff-4f0c-b63e-1436e07cbcaffacebook.png");
 			
 			dao.productInsert(vo);

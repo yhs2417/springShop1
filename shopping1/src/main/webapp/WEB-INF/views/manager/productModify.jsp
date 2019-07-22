@@ -3,9 +3,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
-<!-- 탭패널2 -->
-<div class="tab-pane fade" id="manage">
+<!-- 탭패널 (상품관리(수정, 삭제, 추천상품 등록))-->
 
+<div class="tab-pane fade" id="manage">
+	<!--카테고리 리스트-->
 	<ul class="nav nav-pills nav-fill" id="productMenu">
 
 		<c:forEach var="i" items="${category}" varStatus="status">
@@ -13,6 +14,8 @@
 				data-toggle="pill" href="#${i.category}">${i.category} </a></li>
 		</c:forEach>
 	</ul>
+
+	<!--각 카테고리 리스트-->
 	<div class="tab-content pt-4">
 		<!-- 각 탭 공통 ui -->
 		<div class="btn-toolbar justify-content-end">
@@ -21,30 +24,32 @@
 				<button type="button" class="btn btn-white dropdown-toggle"
 					data-toggle="dropdown">정렬</button>
 				<div class="dropdown-menu">
+					<a class="dropdown-item" href="#">추천상품</a>
 					<a class="dropdown-item" href="#">고가순</a> <a class="dropdown-item"
 						href="#">저가순</a> <a class="dropdown-item" href="#">최신 등록순</a> <a
 						class="dropdown-item" href="#">오래된 등록순</a>
 
 				</div>
 				<div class="btn-group pl-2 btn-group-sm">
-					<button type="button" class="btn btn-white">선택상품 추천상품 등록</button>
-					<button type="button" class="btn btn-danger">선택 삭제</button>
-				</div>
+					<button type="button" id="recommendAddBtn" class="btn btn-white">추천상품(최대10개)로 추가</button>
+					<button type="button" id="recommendDelBtn" class="btn btn-danger">추천상품에서 제거</button>
+ 				</div>
 			</div>
-		</div><!-- btn-toolbar -->
+		</div><!-- 각 탭 공통 ui 끝 -->
 
+		<!--각 카테고리 리스트(폼만 만들어 놓고, 각 카테로리 버튼 클릭시
+		데이터 불러오고 반영되게 수정하는 게 나을듯...)-->
 
 		<c:forEach var="i" items="${category}" varStatus="status2">
 
 			<div class="tab-pane fade pt-3" id="${i.category}">
-
 
 			<div class='table-responsive'>
 				<table class='table table-striped table-hover table-sm text-center'>
 					<thead class='thead-light'>
 						<tr>
 							<th style="width: 2%" scope='col'><input type="checkbox"
-								id="allCheck"></th>
+								class="allCheck"></th>
 							<th style="width: 1%" scope='col'>No</th>
 							<th style="width: 4%" scope='col'></th>
 

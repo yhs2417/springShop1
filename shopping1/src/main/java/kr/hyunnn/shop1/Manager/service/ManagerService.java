@@ -13,6 +13,7 @@ import kr.hyunnn.shop1.Manager.model.ProductVO;
 import kr.hyunnn.shop1.Manager.repository.IManagerDAO;
 import kr.hyunnn.shop1.Manager.repository.ManagerDAO;
 import kr.hyunnn.shop1.commons.criteria.Paging;
+import kr.hyunnn.shop1.commons.criteria.SearchCriteria;
 
 @Service
 public class ManagerService implements IManagerService
@@ -40,13 +41,16 @@ public class ManagerService implements IManagerService
 	}
 
 	@Override
-	public List<ProductVO> productList(String category,Paging paging) throws Exception {
+	public List<ProductVO> productList(String category,Paging paging,SearchCriteria cri) throws Exception {
 		System.out.println("productListservice 진입");
 		Map<String, Object> map=new HashMap<>();
 		map.put("category",category);
 		map.put("startRow",paging.getStartRow());
 		map.put("endRow",paging.getEndRow());
-			
+		map.put("align",cri.getAlign());
+		map.put("condition",cri.getCondition());
+		map.put("keyword",cri.getKeyword());
+		System.out.println("서비스에서 align값 확인"+cri.getAlign()+cri.getCondition());
 		return dao.productList(map);
 	}
 
@@ -63,9 +67,14 @@ public class ManagerService implements IManagerService
 	}
 
 	@Override
-	public int countProducts(String category) throws Exception {
-		 
-		return dao.countProducts(category);
+	public int countProducts(String category,SearchCriteria cri) throws Exception {
+		
+		Map<String, Object> map =new HashMap<String, Object>();
+		map.put("category",category);
+		map.put("condition",cri.getCondition());
+		map.put("keyword",cri.getKeyword());
+		
+		return dao.countProducts(map);
 	}
 
 	@Override
@@ -73,5 +82,28 @@ public class ManagerService implements IManagerService
 		
 		return dao.getRecommendProduct(category);
 	}
-	
+
+	@Override
+	public List<Integer> recommendedList(String category) throws Exception {
+ 		
+		return dao.recommendedList(category);
+	}
+
+	@Override
+	public void recommendUpdate(int productId) throws Exception {
+		 dao.recommendUpdate(productId);
+	}
+
+	@Override
+	public void recommendInit(String category) throws Exception {
+	 
+		dao.recommendInit(category);
+	}
+
+	@Override
+	public void recommendDelete(int productId) throws Exception {
+		 
+		dao.recommendDelete(productId);
+	}
+
 }

@@ -44,8 +44,8 @@ public class UserController {
 	@PostMapping("/info")
 	public String updateUser(@RequestBody UserVO vo,HttpSession session) throws Exception
 	{
-		
-		//session.removeAttribute("login");
+		//아마 웹에서 세션에서 조회시 pw는 저절로 암호화되서 출력되는듯. 
+		session.removeAttribute("login");
 		
 		//session.invalidate(); //로그아웃됨.
 		System.out.println(vo);

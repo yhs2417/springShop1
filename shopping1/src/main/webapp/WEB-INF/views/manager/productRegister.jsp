@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
-<!-- 탭패널1 -->
+<!-- 상품등록 탭패널-->
 <div class="tab-content col-md-10">
 	<div class="tab-pane fade show active" id="register">
 
@@ -33,7 +33,7 @@
 					<div class="form-group row">
 						<label for="category"
 							class="col-md-2
-           					 col-form-label">분류</label> 
+           					 col-form-label">분류</label>
            				<select
 							class="form-control col-md-5 categorySelect" name="category">
 							<option selected>분류..</option>
@@ -69,7 +69,7 @@
 					</div>
 				</div>	<!-- collapse end -->
 			</div>	<!-- list-group end -->
-		
+
 
 			<div class="list-group">
 				<a href="#" class="list-group-item list-group-item-action"
@@ -92,10 +92,10 @@
 						</div>
 					</div>
 				</div><!-- collapse end -->
-				
+
 			</div>	<!-- list-group end -->
-		
+
 		</form>
 	</div><!-- tab-pane -->
- 
+
 <!-- 탭패널 1 끝 -->

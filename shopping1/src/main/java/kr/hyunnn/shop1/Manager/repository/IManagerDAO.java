@@ -21,9 +21,12 @@ public interface IManagerDAO {
 	public List<ProductVO> productList(Map<String, Object> map) throws Exception;
 	public void productUpdate(ProductVO vo) throws Exception;
 	public void productDelete(int productId) throws Exception;
-	public int countProducts(String category) throws Exception;
+	public int countProducts(Map<String, Object> map) throws Exception;
 	
 	public List<ProductVO> getRecommendProduct(String category) throws Exception;
+	public List<Integer> recommendedList(String category) throws Exception;
+	public void recommendUpdate(int productId) throws Exception;
+	public void recommendInit(String category) throws Exception;
+	public void recommendDelete(int productId) throws Exception;
 
-	
 }
