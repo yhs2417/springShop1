@@ -78,7 +78,7 @@
 <!--상품리스트 템플릿-->
 <script id="ProductsTemplate" type="text/x-handlebars-template">
 {{#product}}
-<div class="card">
+<div class="card" id='{{productId}}'>
 	
 	<img class='card-img-top img-thumbnail' 
 		src="<c:url value='/{{thumNail}}'/>">
@@ -90,14 +90,13 @@
  			{{/if}}
 			{{productName}}
 		</h5>
-		{{price}}원 <br>
-		{{companyName}}<br>
-		{{explain1}}<br>
-	  
-		<a class='btn btn-primary productDetailBtn' 
-				id='{{productId}}' href="detail?id={{productId}}">
-			자세히
-		</a>
+		
+		<h6 class="text-muted"> 제조사 : {{companyName}} </h6> 
+		{{{explain1}}} <br>
+		<h6 class="text-danger">
+			{{#comma price}} {{/comma}} 원 
+		</h6>
+	 
 	</div>
 </div>
 {{/product}}
@@ -238,4 +237,12 @@ $("#searchBtn").on("click",function()
 	getProducts(1);
 	
 });
+
+
+$('.products').on("click",".card",function(){
+	let productId=$(this).attr('id');
+	console.log("제품 자세히 보기 클릭됨 id="+productId);
+	
+	self.location="detail?id="+productId
+})
 </script>

@@ -88,7 +88,8 @@
 					<div class="form-group row pt-4">
 						<div class="col-md-9">
 
-							<button type="submit" id="registerBtn" class="btn btn-white">등록하기</button>
+							<button type="submit" id="registerBtn" 
+							class="btn btn-danger">등록하기</button>
 						</div>
 					</div>
 				</div><!-- collapse end -->

@@ -67,7 +67,7 @@
 				data-toggle='tab' class="nav-link text-white rounded-0"> 문구5</a></li>
 		</ul>
  
-		<div class="pt-5">
+		<div class="pt-5 ">
 			<div class="row">
 				<div class=" col-sm-6 col-md-3 border-left border-dark pt-3 text-center">
 					<a href="#introduce" class="animatescroll" ><i class="fas fa-home fa-5x text-body  "></i></a><br>
@@ -82,7 +82,7 @@
 				<div
 					class=" col-sm-6 col-md-3 border-left
 border-dark text-center pt-3">
-					<a href=""><i class="fas fa-edit fa-5x text-body "></i></a>
+					<a href="" onclick="alert('준비중입니다.')"><i class="fas fa-edit fa-5x text-body "></i></a>
 					<br> <br>공지사항
 				</div>
 				<div
@@ -95,9 +95,9 @@ border-dark text-center pt-3">
 		</div>
 
 		<!-- 컴퓨터 추천 -->
-		<div class="mt-5 px-5" id="desktop">
+		<div class="mt-5 px-5 " id="desktop">
 
-			<div style="width: 100%" class="my-5 border-top" id="why">
+			<div style="width: 100%" class="my-5  border-top border-dark">
 				<h3 class="text-secondary pt-2">추천 desktop &nbsp;&nbsp;
 				
 					<a href="#carouselCom" data-slide="prev">
@@ -112,7 +112,7 @@ border-dark text-center pt-3">
 				<h5 class="text-right">	
 					
 					<a href="<c:url value='/product/list?category=computer'/>"> 
-					<small class="text-body">상품 더 보기</small> </a>
+					<small class="text-primary">상품 더 보기</small> </a>
 				 </h5>
 				<br>
 
@@ -123,7 +123,7 @@ border-dark text-center pt-3">
 			</div>
 
 			<!-- 노트북 추천 -->
-				<div style="width: 100%" class="my-5 border-top" id="why">
+				<div style="width: 100%" class="my-5 border-top border-dark">
 				<h3 class="text-secondary pt-2">추천 NoteBook  &nbsp;&nbsp;
 					<a href="#carouselNote" data-slide="prev">
 						<i class="fas fa-angle-left text-body"></i>
@@ -135,7 +135,7 @@ border-dark text-center pt-3">
 				
 				<h5 class="text-right">
 					<a href="<c:url value='/product/list?category=NoteBook'/>"> 
-					<small class="text-body">상품 더 보기</small> </a>
+					<small class="text-primary">상품 더 보기</small> </a>
 				</h5>
 				<br>
 				<div id="carouselNote" class="carousel" data-ride="carousel">
@@ -145,7 +145,7 @@ border-dark text-center pt-3">
 			</div>
 
 			<!-- 회사 소개란 -->
-			<div class="pt-4" id="introduce">
+			<div class="pt-4 border-top border-dark" id="introduce">
 				<div class="row">
 					<div class="col-md-6 border-right">
 						<h3 class="text-secondary">회사소개</h3>
@@ -177,7 +177,7 @@ border-dark text-center pt-3">
 			</div> <!-- 회사소개 끝 -->
 		
 			<!-- contact -->
-			<div class="pt-4 mb-5" id="contact">
+			<div class="pt-4 mb-5 border-top border-bottom border-dark" id="contact">
 				<h3 class="text-secondary ">Contact</h3>
 				
 				<div class="form-group row pl-3 pt-3">
@@ -209,7 +209,7 @@ border-dark text-center pt-3">
 
 <script src="<c:url value='/resources/js/common.js'/>"></script>
 
-<!-- 컴퓨터 추천란 template -->
+<!-- 데스크톱 추천란 template -->
 <script id="recommandedComputer" type="text/x-handlebars-template">
 <div class="carousel-inner">
 <div class="carousel-item active">
@@ -217,15 +217,16 @@ border-dark text-center pt-3">
 {{#computer}}   {{!--5번 인덱스까지지 루프 --}}
 	{{#loopCheck @index}}
 			
-		<div class="card col-md-2">
+		<div class="card col-md-2" id={{productId}}>
 			<img src="{{thumNail}}"  class="card-img-top">
 
 			<div class="card-body">
 			  <h5 class="card-title">{{companyName}}</h5>
-			  <h6 class="card-subtitle mb-2 text-muted">제품명 : {{productName}}</h6>
-			  <h6 class="card-subtitle mb-2 text-muted">{{price}} 원</h6>
-			  소개 : {{explain1}}
-			  <a href="product/detail?id={{productId}}" class="btn btn-secondary">자세히 보기</a>
+			  <h6 class="card-subtitle mb-2 text-muted">제품명 {{productName}}</h6>
+			  <h6 class="card-subtitle mb-2 text-danger">
+				{{#comma price}} {{/comma}} 원</h6>
+			  {{{explain1}}} 
+			  
 			</div>
 		</div>
 	{{/loopCheck}}
@@ -239,15 +240,17 @@ border-dark text-center pt-3">
 		{{#loopCheck @index}}
 
 		{{else}}
-		<div class="card col-md-2">
+		<div class="card col-md-2" id={{productId}}>
 			<img src="{{thumNail}}" class="card-img-top">
 
 			<div class="card-body"> 
 			  <h5 class="card-title">{{companyName}}</h5>
 			  <h6 class="card-subtitle mb-2 text-muted">제품명 : {{productName}}</h6>
-			  <h6 class="card-subtitle mb-2 text-muted">{{price}} 원</h6>
-			   소개 : {{explain1}}
-			  <a href="product/detail?id={{productId}}" class="btn btn-secondary">자세히 보기</a>
+			  <h6 class="card-subtitle mb-2 text-danger">
+				{{#comma price}} {{/comma}} 원
+			 </h6>
+			   {{{explain1}}}
+		 
 			</div>
 		</div>		
 		{{/loopCheck}}
@@ -266,15 +269,16 @@ border-dark text-center pt-3">
 <div class="card-deck row">
 {{#notebook}}   {{!--5번 인덱스까지지해당 --}}
 	{{#loopCheck @index}}		
-		<div class="card col-md-2">
+		<div class="card col-md-2" id={{productId}}>
 			<img src="{{thumNail}}"  class="card-img-top">
 
 			<div class="card-body">
 			  <h5 class="card-title">{{companyName}}</h5>
 			  <h6 class="card-subtitle mb-2 text-muted">제품명 : {{productName}}</h6>
-			  <h6 class="card-subtitle mb-2 text-muted">{{price}} 원</h6>
-			  소개 : {{explain1}}
-			  <a href="product/detail?id={{productId}}" class="btn btn-secondary">자세히 보기</a>
+			  <h6 class="card-subtitle mb-2 text-danger">
+				{{#comma price}} {{/comma}} 원
+				</h6>
+			  {{{explain1}}}
 			</div>
 		</div>
 	{{/loopCheck}}
@@ -288,15 +292,16 @@ border-dark text-center pt-3">
 		{{#loopCheck @index}}
 
 		{{else}}
-		<div class="card col-md-2">
+		<div class="card col-md-2" id={{productId}}>
 			<img src="{{thumNail}}" class="card-img-top">
 
 			<div class="card-body"> 
 			  <h5 class="card-title">{{companyName}}</h5>
 			  <h6 class="card-subtitle mb-2 text-muted">제품명 : {{productName}}</h6>
-			  <h6 class="card-subtitle mb-2 text-muted">{{price}} 원</h6>
-			   소개 : {{explain1}}
-			  <a href="product/detail?id={{productId}}" class="btn btn-secondary">자세히 보기</a>
+			  <h6 class="card-subtitle mb-2 text-danger">
+				{{#comma price}} {{/comma}} 원
+				</h6>
+			   {{{explain1}}}
 			</div>
 		</div>		
 		{{/loopCheck}}
@@ -306,43 +311,59 @@ border-dark text-center pt-3">
 <script type="text/javascript">
 $(document).ready(function(){
 	
-	//if문 헬퍼
-	Handlebars.registerHelper("loopCheck",function(index,options)
-		{
-		if(index <= 4)
-			{
-				return options.fn(this);
-			}
-		else
-		{
-			return options.inverse(this);
-			}
-		});
-	
-	$.getJSON("/shop1/manager/recommended",function(data)
-			{
-				let template = $('#recommandedComputer').html();
-				let ctemplate = Handlebars.compile(template);
-				let html = ctemplate(data);
-				$("#carouselCom").html(html);	
-				
-				let template2 = $('#recommandedNotebook').html();
-				let ctemplate2 = Handlebars.compile(template2);
-				let html2 = ctemplate2(data);
-				$("#carouselNote").html(html2);	
-				
-			})
-
-	$('#carousel1').on('slide.bs.carousel', function() {
-		$('#indicatior1 li a').removeClass('active')
-
-	});
-	$('#carousel1').on('slid.bs.carousel', function()
+//if문 헬퍼
+Handlebars.registerHelper("loopCheck",function(index,options)
 	{
-		let current = $('.carousel-item.active').index();
-		$('#indicatior1 li a').eq(current).addClass('active')
-	});
+	if(index <= 4)
+		{
+			return options.fn(this);
+		}
+	else
+	{
+		return options.inverse(this);
+		}
+});
+
+$.getJSON("/shop1/manager/recommended",function(data)
+		{
+			let template = $('#recommandedComputer').html();
+			let ctemplate = Handlebars.compile(template);
+			let html = ctemplate(data);
+			$("#carouselCom").html(html);	
+			
+			let template2 = $('#recommandedNotebook').html();
+			let ctemplate2 = Handlebars.compile(template2);
+			let html2 = ctemplate2(data);
+			$("#carouselNote").html(html2);	
+			
+})//getjson
+
+$('#carousel1').on('slide.bs.carousel', function() {
+	$('#indicatior1 li a').removeClass('active')
+
+});
+	
+$('#carousel1').on('slid.bs.carousel', function()
+{
+	let current = $('.carousel-item.active').index();
+	$('#indicatior1 li a').eq(current).addClass('active')
+});
+
+$('#carouselCom').on("click",".card",function(){
+	let productId=$(this).attr('id');
+	console.log("제품 자세히 보기 클릭됨 id="+productId);
+	
+	self.location="product/detail?id="+productId
 })
+
+$('#carouselNote').on("click",".card",function(){
+	let productId=$(this).attr('id');
+	console.log("제품 자세히 보기 클릭됨 id="+productId);
+	
+	self.location="product/detail?id="+productId 
+})
+
+})//readyfunction
 </script>
 </body>
 </html>

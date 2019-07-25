@@ -34,7 +34,7 @@ public class ReviewController
 		System.out.println("리뷰 리스트 조회 진입"+cri+"페이지:"+pg+"아이디:"+productId);
 		
 		cri.setPg(pg);
-		
+		cri.setPerPage(6);
 		int totalA=service.countReviews(productId);
 		
 		Paging paging=new Paging(cri,totalA);
@@ -43,7 +43,8 @@ public class ReviewController
 				productId,paging,cri);  //cri는 정렬용
 		
 		System.out.println("리뷰조회 내용출력"+review);
-		
+		System.out.println("리뷰조회 날짜출력"+review.get(0).getRegDate().getTime());
+
 		Map<String,Object> map=new HashMap<>();
 		map.put("review",review);
 		map.put("paging",paging);

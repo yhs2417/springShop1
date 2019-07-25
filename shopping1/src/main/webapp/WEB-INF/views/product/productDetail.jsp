@@ -27,14 +27,21 @@
 					<label class="col-md-2 col-form-label border-right">제품명</label>
 					<label class="col-md-3 col-form-label  border-right" >${product.productName} </label> 
 					<label class="col-md-2 col-form-label border-right">가격</label>
-					<label class="col-md-3 col-form-label" >${product.price} </label> 
+					<label class="col-md-3 col-form-label" > 
+						<fmt:formatNumber value="${product.price}" pattern="#,###"/> 원
+					</label> 
 			</div>
 		 
 			<div class="form-group row">
 					<label class="col-md-2 col-form-label border-right">제조사</label>
 					<label class="col-md-3 col-form-label  border-right" >${product.companyName} </label> 
-					<label class="col-md-2 col-form-label border-right">등록일</label>
-					<label class="col-md-3	col-form-label" >${product.regDate} </label> 
+					<label class="col-md-2 col-form-label border-right">
+						등록일
+					</label>
+					<label class="col-md-3	col-form-label" >
+						<fmt:formatDate value='${product.regDate}' 
+							pattern="YYYY-MM-dd"/> 
+					</label> 
 			</div>
 			 
 			<div class="form-group row">
@@ -148,7 +155,9 @@
 
 
 <jsp:include page="../include/mainFooter.jsp" />
-
+  
+<script src="<c:url value='/resources/js/SimpleDateFormat.js'/>"></script>
+ 
 <script src="<c:url value='/resources/js/common.js'/>"></script>
 
 <!--리뷰리스트 템플릿-->
@@ -159,12 +168,16 @@
 	<a href="#review{{reviewId}}" class="mr-0 list-group-item list-group-item-action"
 			data-toggle="collapse">
 		<div class="row">
-			<div class='col-md-6'>{{header}}</div>
+			<div class='col-md-6'>
+				{{header}}
+			</div>
 			<div class='col-md-3 pt-1 text-center'>
-					{{userId}}
+				{{userId}}
 			</div>
-			<div class='col-md-3 pt-1 text-center'>{{regDate}}</div>
+			<div class='col-md-3 pt-1 text-center'>
+				{{#dating regDate}} {{/dating}}
 			</div>
+		</div>
 		</a>
 		
 		<div class="collapse mx-4 my-4" id="review{{reviewId}}">
@@ -423,7 +436,7 @@ $('#addCart').on("click",function(){
 	console.log("장바구니 클릭됨");
 	if('${login.userId}'=='')
 	{
-		alert("장바구니는 로그인이 필요합니다");
+		alert("로그인이 필요합니다");
 	}
 	
 	else{

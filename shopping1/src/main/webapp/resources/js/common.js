@@ -65,6 +65,18 @@ Handlebars.registerHelper("comma",function(x,options){
 	return Number(x).toLocaleString(); 
 })
 
+Handlebars.registerHelper("dating",function(x,options){
+	let date=new Date(x); 
+	let dateFormat=new simpleDateFormat("yy-MM-dd/hh:mm");
+	return  dateFormat.format(date); 
+})
+
+Handlebars.registerHelper('breaklines', function(text) {
+    text = Handlebars.Utils.escapeExpression(text);
+    text = text.replace(/(\r\n|\n|\r)/gm, '<br>');
+    return new Handlebars.SafeString(text);
+});
+
 
 //summerNote설정
 $('.summerNote').summernote({

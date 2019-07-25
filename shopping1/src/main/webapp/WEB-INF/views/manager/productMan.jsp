@@ -73,11 +73,11 @@
 	</td>
 
 	<td>{{productName}}</td>
-	<td>{{price}}
+	<td>{{#comma price}}{{/comma}}
 	</td>
 	<td>{{category}}</td>
 	<td>{{companyName}}</td>
-	<td>{{explain1}}</td>
+	<td>{{{explain1}}}</td>
 
 	<td hidden>
 	{{explain2}}
@@ -96,6 +96,7 @@
 	</tr>
 	{{/product}}
 </script>
+
 
 <script>
 //redirect 메세지
@@ -181,45 +182,6 @@ function getProducts(page)
           	console.log("product lists success") 
 			} 
 		}); //ajax
-	/*	
-	$.getJSON("/shop1/manager/productList/"+category+"/"+page,
-			function(data) {
-				console.log(data);
-
-				//상품정보 div에 반영
-				let template = $('#ProductListTemplate').html();
-				let ctemplate = Handlebars.compile(template);
-				let html = ctemplate(data);
-				$(".productList").html(html);
-
-				//페이징 반영
-				let str2="";
-				if(data.paging.startPg>10)
-				{
-	          	 str2+="<li><a href='"+(data.paging.startPg-1)+"'>이전</a></li>"
-				}
-
-	          	for(let i=data.paging.startPg ; i<=data.paging.endPg ; i++)
-			  	{
-	          		 if(data.paging.cri.pg===i)
-	          		{
-	          			str2+="<li class='page-item'><a class='current page-link' href='"+i+"'>"+i+"</a></li>";
-	          		}
-	          		 else if(data.paging.cri.pg!==i)
-	          		{
-	          			str2+="<li class='page-item'><a href='"+i+"'class='page-link'>"+i+"</a></li>";
-	          		}
-			  	}
-
-	          	if(data.paging.endPg<data.paging.totalP)
-				{
-	          	 str2+="<li><a href='"+(data.paging.endPg+1)+"'>다음</a></li>"
-				}
-
-	          	$(".productPaging").html(str2);
-				console.log("product list success");
-			});//gjson 끝  */
-
 };//getProducts(page) 끝
 
 //최상단 카테고리 클릭시 해당 카테고리 자료 불러오기
@@ -228,9 +190,16 @@ $('#productMenu a').on("click",function()
 	category = $(this).text(); //현재 카테고리 변수
 	
 	console.log(category + "의 내역 불러오기");
-	getProducts(1);
+	
 	checkedIds = new Set(); //체크된 행 넣는 set초기화(페이지 바뀌어도 유지)
-
+	
+	//기존 정렬, 검색 초기화
+	align=""; 
+	condition="";
+	keyword="";
+	$('.keyword1').val('');
+	$('#Align').val('');
+	getProducts(1);
 })
  		
 //페이징 클릭
@@ -249,13 +218,13 @@ $("#Align").on("change",function()
 });
 
 //검색어 입력시
-$("#searchingBtn").on("click",function()
+$(".searchingBtn").on("click",function()
 {
-	console.log("검색 조건="+$('#condition1').val());
-	console.log("검색어="+$('#keyword1').val());
-
-	condition=$('#condition1').val(); //페이지 바뀌어도 이값로 계속 유지되도록
-	keyword=$('#keyword1').val();
+	//페이지 바뀌어도 이값로 계속 유지되도록
+	condition=$(this).prev().prev().val(); 
+	keyword=$(this).prev().val();
+	console.log("검색 조건="+condition);
+	console.log("검색어="+keyword);
 	getProducts(1);
 	
 });

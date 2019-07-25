@@ -75,7 +75,7 @@ pageEncoding="UTF-8"%>
                   <div class="form-group row">
                     <div class="col-md-9 offset-md-3">
                       <button type="reset" class="btn btn-white">다시작성</button>
-                      <button type="button" id="signUpBtn" class="btn btn-white">회원가입</button>
+                      <button type="button" id="signUpBtn" class="btn btn-danger">회원가입</button>
                     </div>
                   </div>
                 </form>
@@ -205,7 +205,7 @@ pageEncoding="UTF-8"%>
         success: function (result) {
           console.log("result: " + result);
           if (result === "success") {
-            alert("회원가입 성공되었습니다");
+            alert("회원가입 되었습니다");
             self.location = "/shop1";
           }
         }

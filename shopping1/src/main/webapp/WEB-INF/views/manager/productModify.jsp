@@ -10,8 +10,11 @@
 	<ul class="nav nav-pills nav-fill" id="productMenu">
 
 		<c:forEach var="i" items="${category}" varStatus="status">
-			<li class="nav-item border"><a class="nav-link text-body"
-				data-toggle="pill" href="#${i.category}">${i.category} </a></li>
+			<li class="nav-item border">
+				<a class="nav-link text-body"
+					data-toggle="pill" href="#${i.category}">${i.category}
+				</a>
+			</li>
 		</c:forEach>
 	</ul>
 
@@ -32,8 +35,12 @@
 			 
 			<div class="btn-group btn-group-sm offset-md-5">
 				<div class="btn-group btn-group-sm pl-5">
-					<button type="button" id="recommendAddBtn" class="btn btn-white">추천상품(최대10개)로 추가</button>
-					<button type="button" id="recommendDelBtn" class="btn btn-danger">추천상품에서 제거</button>
+					<button type="button" id="recommendAddBtn" 
+						class="btn btn-white">선택을 추천(최대10개)로 추가
+					</button>
+					<button type="button" id="recommendDelBtn" 
+						class="btn btn-danger">추천상품에서 제거
+					</button>
  				</div>
 			</div>
 		</div>	
@@ -53,7 +60,7 @@
 							<th style="width: 2%" scope='col'><input type="checkbox"
 								class="allCheck"></th>
 							<th style="width: 1%" scope='col'>No</th>
-							<th style="width: 4%" scope='col'></th>
+							<th style="width: 8%" scope='col'>추천</th>
 
 							<th style="width: 10%" scope='col'>상품명</th>
 							<th style="width: 10%" scope='col'>가격</th>
@@ -80,10 +87,10 @@
 					<option selected value='productName'>제품명</option>
 					<option value='companyName'>제조사</option>
 				</select>
-				<input type="text" id="keyword1" placeholder="검색어"
-						class="form-control col-md-4 mr-2">
-				<input type="button" id="searchingBtn" value="검색"
-				class="form-control col-md-1 ">
+				<input type="text" placeholder="검색어"
+						class="keyword1 form-control col-md-4 mr-2">
+				<input type="button"  value="검색"
+				class="form-control col-md-1 searchingBtn">
 			</div>
 			
 			<!-- 페이징 오는 부분 -->

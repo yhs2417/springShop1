@@ -47,11 +47,12 @@ pageEncoding="UTF-8"%>
                 <div class="custom-control custom-checkbox">
                   <input type="checkbox" class="custom-control-input" checked="checked" id="autoLogin" name="autoLogin">
                     <label class="custom-control-label" for="autoLogin">자동로그인</label>
-
+					<!--  
                     <a href="#">
-                      <img src="<c:url value='/resources/images/facebook.png'/>"></a>
+                      <img src="<c:url value='/resources/images/facebook.png'/>">
+                     </a>-->
 
-                      <button type="button" id="loginBtn" class="ml-3 btn btn-white">로그인</button>
+                      <button type="button" id="loginBtn" class="ml-3 btn btn-danger">로그인</button>
 
                     </div>
                   </div>
@@ -114,7 +115,7 @@ $('#loginBtn').on("click", function () {
         console.log(data);
 
         if (data === "success") {
-          alert("어서오세요");
+          //alert("어서오세요");
           self.location = "/shop1/";
         } else if (data === "idFail") {
           $('#userId').removeClass("is-valid");

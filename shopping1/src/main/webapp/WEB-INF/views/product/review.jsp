@@ -88,3 +88,4 @@
 
 </ul>
 
+<!-- 템플릿은 productDetail.jsp -->

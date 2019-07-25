@@ -14,17 +14,17 @@
 
 	<h4 class="border-bottom mx-5 py-3 ">장바구니</h4>
 
-	<div class='container pt-3' style="min-height: 500px">
+	<div class='container pt-3' style="min-height: 700px">
 
-		<div class="card mt-5">
+		<div class="card mt-5" >
 			<div class="card-header bg-warning text-white py-1">장바구니</div>
 			<div class="card-body">
-				<div class="table-responsive px-2">
+				<div class="table-responsive px-2" style="min-height:500px" >
 					<table class="table table-hover">
 						<thead class="border">
 							<tr>
 								<th scope="col" style="width: 10%"> </th>
-								<th scope="col" style="width: *%">제품명</th>
+								<th scope="col" style="width: 20%">제품명</th>
 								<th scope="col" style="width: 15%">단가</th>
 								<th scope="col" style="width: 20%">수량</th>
 								<th scope="col" style="width: 15%">금액</th>
@@ -97,7 +97,7 @@ productvo=ProductVO(productId, productName, companyName, explain1, explain2, thu
 			{{/multiply}}
 			 
 		</td>
-		<td class="border-left row">
+		<td class="row">
 			<div class="btn-group ">
 				<button type="button" class="cartCountMod btn btn-link"
 						id="{{cartId}}"	>
@@ -116,6 +116,14 @@ productvo=ProductVO(productId, productName, companyName, explain1, explain2, thu
 	<td class="font-weight-bold">합계금액</td>
 	<td class="font-weight-bold text-danger" 
 		id="totalPrice">
+	</td>
+	<td></td>
+</tr>
+<tr>
+	<td colspan="5"></td>
+	<td>
+		<a href="#" class="btn btn-warning" 
+			onclick="alert('준비중입니다')"> 주문하기 </a>
 	</td>
 </tr>
 </script>
