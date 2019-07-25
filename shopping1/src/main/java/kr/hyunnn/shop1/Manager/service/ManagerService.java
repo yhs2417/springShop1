@@ -44,13 +44,16 @@ public class ManagerService implements IManagerService
 	public List<ProductVO> productList(String category,Paging paging,SearchCriteria cri) throws Exception {
 		System.out.println("productListservice 진입");
 		Map<String, Object> map=new HashMap<>();
+		
 		map.put("category",category);
 		map.put("startRow",paging.getStartRow());
 		map.put("endRow",paging.getEndRow());
 		map.put("align",cri.getAlign());
 		map.put("condition",cri.getCondition());
 		map.put("keyword",cri.getKeyword());
-		System.out.println("서비스에서 align값 확인"+cri.getAlign()+cri.getCondition());
+		
+		System.out.println("서비스에서인수값 확인"+category+cri.getAlign()+cri.getCondition()+cri.getKeyword());
+		
 		return dao.productList(map);
 	}
 
@@ -105,5 +108,7 @@ public class ManagerService implements IManagerService
 		 
 		dao.recommendDelete(productId);
 	}
+
+
 
 }

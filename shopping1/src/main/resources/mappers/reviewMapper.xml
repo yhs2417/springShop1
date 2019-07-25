@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="kr.hyunnn.shop1.review.repository.IReviewDAO">
+
+	<resultMap id="ReviewMap" type="ReviewVO">
+		<id property="reviewId" column="review_id" />
+		<result property="productId" column ="product_id"/>
+		<result property="userId" column ="user_id"/>
+		<result property="content" column ="content"/>
+		<result property="regDate" column ="reg_date"/>
+		<result property="header" column ="header"/>
+		
+	</resultMap>
+	
+	<select id="countReviews" parameterType="int" resultType="int">
+		select count(*) from reviews where product_id=#{productId}
+	</select>
+	
+	<select id="reviewList" parameterType="java.util.Map" resultMap="ReviewMap">
+		select tt.* from 
+		(select @ROWNUM:=@ROWNUM+1 as NUM, a.* 
+		from reviews a,(select @ROWNUM:=0) b 
+		where product_id=#{productId}
+		<include refid="alignment"/>) tt
+		<![CDATA[WHERE NUM>=#{startRow} and NUM<=#{endRow}]]>
+	</select>
+	
+	<sql id="alignment">
+		<if test="align==''">
+			order by reg_date DESC
+		</if> 
+		<if test="align!=''">   
+			<if test="align=='rateDesc'">
+				order by rate DESC
+			</if>
+			<if test="align=='rateAsc'">
+				order by rate ASC
+			</if>
+			<if test="align=='regDateAsc'">
+				order by reg_date ASC
+			</if>
+			<if test="align=='regDateDesc'">
+				order by reg_date DESC
+			</if>
+			 
+		</if>
+	</sql>
+	
+	<insert id="reviewRegister">
+		insert into 
+		reviews(content,product_id,user_id,header)
+ 		values
+ 		(#{content},#{productId},#{userId},#{header});
+	</insert>
+	
+	<delete id="reviewDelete">
+		delete from reviews
+		where review_id=#{reviewId}
+	</delete>
+	
+	<update id="reviewModiry">
+		update reviews
+		set
+		content=#{content},header=#{header}
+		where review_id=#{reviewId}
+	</update>
+	
+	
+	
+</mapper>    

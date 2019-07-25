@@ -16,13 +16,13 @@
 	<jsp:include page="include/mainHeader2.jsp" />
 	
 
-	<div class="container-fruid" id="wayPoint">
+	<div class="container-fruid">
 
 		<!-- 메인 캐러셀 -->
 		<div id="carousel1" class="carousel slide carousel-fade"
 			style="width: 100%; padding-top: -1px; margin-right:-10px">
 			<!-- 캐러셀 이미지 -->
-			<div class="carousel-inner">
+			<div class="carousel-inner  ">
 				<div class="carousel-item active">
 					<img src="<c:url value='/resources/images/pic1.jpg'/>"
 						style="width: 100%; max-height: 450px">
@@ -51,7 +51,7 @@
 			</a>
 		</div>
 
-		<ul id="indicatior1" class="nav bg-dark nav-pills nav-fill">
+		<ul id="indicatior1" class=" wayPoint  nav bg-dark nav-pills nav-fill">
 			<li class="nav-item"><a href="#carousel1" data-slide-to="0"
 				data-toggle='tab' class="nav-link active text-white rounded-0"> 문구1</a></li>
 
@@ -67,16 +67,16 @@
 				data-toggle='tab' class="nav-link text-white rounded-0"> 문구5</a></li>
 		</ul>
  
-		<div class="pt-5" id="studio">
+		<div class="pt-5">
 			<div class="row">
 				<div class=" col-sm-6 col-md-3 border-left border-dark pt-3 text-center">
-					<a href="" ><i class="fas fa-home fa-5x text-body  "></i></a><br>
+					<a href="#introduce" class="animatescroll" ><i class="fas fa-home fa-5x text-body  "></i></a><br>
 					<br>회사소개
 				</div>
 				<div
 					class=" col-sm-6 col-md-3 border-left border-dark
 		text-center pt-3">
-					<a href=""><i class="fas fa-comments fa-5x text-body "></i></a> <br>
+					<a href="#contact" class="animatescroll"><i class="fas fa-comments fa-5x text-body "></i></a> <br>
 					<br>Contact
 				</div>
 				<div
@@ -95,19 +95,25 @@ border-dark text-center pt-3">
 		</div>
 
 		<!-- 컴퓨터 추천 -->
-		<div class="mt-5 px-5" id="computer">
+		<div class="mt-5 px-5" id="desktop">
 
 			<div style="width: 100%" class="my-5 border-top" id="why">
-				<h3 class="text-secondary pt-2">추천 Computer &nbsp;&nbsp;
+				<h3 class="text-secondary pt-2">추천 desktop &nbsp;&nbsp;
+				
 					<a href="#carouselCom" data-slide="prev">
 						<i class="fas fa-angle-left text-body"></i>
 					</a>
 					<a href="#carouselCom" data-slide="next">
 					<i class="fas fa-angle-right text-body"></i>
 					</a>
+				
+				</h3>
+				
+				<h5 class="text-right">	
 					
-					<a href="<c:url value='/product/list?category=computer'/>"> <small>상품 더 보기</small> </a>
-				 </h3>
+					<a href="<c:url value='/product/list?category=computer'/>"> 
+					<small class="text-body">상품 더 보기</small> </a>
+				 </h5>
 				<br>
 
 				<div id="carouselCom" class="carousel" data-ride="carousel">
@@ -118,13 +124,19 @@ border-dark text-center pt-3">
 
 			<!-- 노트북 추천 -->
 				<div style="width: 100%" class="my-5 border-top" id="why">
-				<h3 class="text-secondary pt-2">추천 NoteBook&nbsp;&nbsp;
-				<a href="#carouselNote" data-slide="prev">
-					<i class="fas fa-angle-left text-body"></i>
-				</a>
-				<a href="#carouselNote" data-slide="next">
-				<i class="fas fa-angle-right text-body"></i>
-				</a></h3>
+				<h3 class="text-secondary pt-2">추천 NoteBook  &nbsp;&nbsp;
+					<a href="#carouselNote" data-slide="prev">
+						<i class="fas fa-angle-left text-body"></i>
+					</a>
+					<a href="#carouselNote" data-slide="next">
+					<i class="fas fa-angle-right text-body"></i>
+					</a>
+				 </h3>
+				
+				<h5 class="text-right">
+					<a href="<c:url value='/product/list?category=NoteBook'/>"> 
+					<small class="text-body">상품 더 보기</small> </a>
+				</h5>
 				<br>
 				<div id="carouselNote" class="carousel" data-ride="carousel">
   					<!-- 추천제품 올곳 -->
@@ -133,37 +145,69 @@ border-dark text-center pt-3">
 			</div>
 
 			<!-- 회사 소개란 -->
-			<div class="pt-4">
+			<div class="pt-4" id="introduce">
 				<div class="row">
 					<div class="col-md-6 border-right">
-						<h5 class="text-secondary">why??</h5>
+						<h3 class="text-secondary">회사소개</h3>
 						<br>
 
 						<div class="list-group list-group-flush">
 							<a href="#" class="list-group-item list-group-item-action"
-								data-toggle="collapse"> 이유1</a>
+								data-toggle="collapse"> 제목1</a>
 							<div class="collapse show mx-4 my-4" id="cl1">내용1</div>
 							<a href="#" class="list-group-item list-group-item-action"
-								data-toggle="collapse"> 이유2</a>
+								data-toggle="collapse"> 제목2</a>
 							<div class="collapse show mx-4 my-4" id="id2">내용2</div>
-							<a href="#" class="list-group-item list-group-item-action"
-								data-toggle="collapse"> 이유3</a>
-							<div class="collapse show mx-4 my-4" id="id3">내용3</div>
-
 						</div>
 					</div>
-					<div id="contact" class="col-md-5 offset-md-1">
-
-						<h5 class="text-dark">contact</h5>
+					
+					<div  class="col-md-6">
+						<h5 class="text-secondary"> </h5>
+						<br>
+						<div class="list-group list-group-flush pt-4">
+							<a href="#" class="list-group-item list-group-item-action"
+								data-toggle="collapse"> 제목3</a>
+							<div class="collapse show mx-4 my-4" id="cl1">내용3</div>
+							<a href="#" class="list-group-item list-group-item-action"
+								data-toggle="collapse"> 제목4</a>
+							<div class="collapse show mx-4 my-4" id="id2">내용4</div>
+						</div>
 					</div>
 				</div>
-			</div>
-		</div>
-	</div>
-	
-	<jsp:include page="include/mainFooter.jsp" />
+			</div> <!-- 회사소개 끝 -->
+		
+			<!-- contact -->
+			<div class="pt-4 mb-5" id="contact">
+				<h3 class="text-secondary ">Contact</h3>
+				
+				<div class="form-group row pl-3 pt-3">
+					<label class="col-md-2 col-form-label">회사 이메일</label>
 
-	<script src="<c:url value='/resources/js/common.js'/>"></script>
+					<input type="text" class="form-control col-md-5" 
+							value="example@company.com">
+				</div>
+				<div class="form-group row pl-3 ">
+					<label class="col-md-2 col-form-label">제목</label>
+
+					<input type="text" class="form-control col-md-5" >  
+							
+				</div>
+				<div class="form-group row pl-3 ">
+					<label class="col-md-2 col-form-label">내용</label>
+
+					<textarea rows="8" class="form-control col-md-5" >
+					</textarea>	  
+				</div>
+						
+			</div> <!-- contact 끝 -->
+		
+	
+	</div>
+</div>
+
+<jsp:include page="include/mainFooter.jsp" />
+
+<script src="<c:url value='/resources/js/common.js'/>"></script>
 
 <!-- 컴퓨터 추천란 template -->
 <script id="recommandedComputer" type="text/x-handlebars-template">
@@ -181,7 +225,7 @@ border-dark text-center pt-3">
 			  <h6 class="card-subtitle mb-2 text-muted">제품명 : {{productName}}</h6>
 			  <h6 class="card-subtitle mb-2 text-muted">{{price}} 원</h6>
 			  소개 : {{explain1}}
-			  <a href="#" class="btn btn-secondary">자세히 보기</a>
+			  <a href="product/detail?id={{productId}}" class="btn btn-secondary">자세히 보기</a>
 			</div>
 		</div>
 	{{/loopCheck}}
@@ -203,7 +247,7 @@ border-dark text-center pt-3">
 			  <h6 class="card-subtitle mb-2 text-muted">제품명 : {{productName}}</h6>
 			  <h6 class="card-subtitle mb-2 text-muted">{{price}} 원</h6>
 			   소개 : {{explain1}}
-			  <a href="#" class="btn btn-secondary">자세히 보기</a>
+			  <a href="product/detail?id={{productId}}" class="btn btn-secondary">자세히 보기</a>
 			</div>
 		</div>		
 		{{/loopCheck}}
@@ -230,7 +274,7 @@ border-dark text-center pt-3">
 			  <h6 class="card-subtitle mb-2 text-muted">제품명 : {{productName}}</h6>
 			  <h6 class="card-subtitle mb-2 text-muted">{{price}} 원</h6>
 			  소개 : {{explain1}}
-			  <a href="#" class="btn btn-secondary">자세히 보기</a>
+			  <a href="product/detail?id={{productId}}" class="btn btn-secondary">자세히 보기</a>
 			</div>
 		</div>
 	{{/loopCheck}}
@@ -252,7 +296,7 @@ border-dark text-center pt-3">
 			  <h6 class="card-subtitle mb-2 text-muted">제품명 : {{productName}}</h6>
 			  <h6 class="card-subtitle mb-2 text-muted">{{price}} 원</h6>
 			   소개 : {{explain1}}
-			  <a href="#" class="btn btn-secondary">자세히 보기</a>
+			  <a href="product/detail?id={{productId}}" class="btn btn-secondary">자세히 보기</a>
 			</div>
 		</div>		
 		{{/loopCheck}}

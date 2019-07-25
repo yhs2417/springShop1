@@ -12,7 +12,7 @@
 <jsp:include page="../include/plugin-JS.jsp" />
 <jsp:include page="../include/mainHeader.jsp" />
 
-<h4 class="border-bottom mx-5 py-3" id="wayPoint">상품 목록</h4>
+<h4 class="border-bottom mx-5 py-3 wayPoint">상품 목록</h4>
 
 <div class='container pt-3' style="min-height: 500px">
 		<!-- 정렬기준
@@ -105,13 +105,65 @@
 
 category='${category}'; //JSP에서 넘긴값
 //이후 select선택시 그 선택값으로 유지되도록
-align=null
-condition=null
-keyword=null
+align="";
+condition="";
+keyword="";
 
 //상품목록 불러오기 함수구현
-function getProducts(page,category,align,condition,keyword)
+function getProducts(page)
 {
+	$.ajax({
+		type : "POST",
+		url : "/shop1/manager/productList/"+category+"/"+page,
+		dataType : "json",
+		headers : {
+			"Content-type" : "application/json",
+			"X-HTTP-Method-Override" : "POST"
+		},
+		data : JSON.stringify({
+			align: align,
+			condition:condition,
+			keyword:keyword
+		}),
+		success : function(data) {
+			console.log(data);
+			
+			//상품정보 div에 반영
+			let template = $('#ProductsTemplate').html();
+			let ctemplate = Handlebars.compile(template);
+			let html = ctemplate(data);
+			$(".products").html(html);
+
+			//페이징 반영
+			let str="";
+			if(data.paging.startPg>10)
+			{
+          	 str+="<li><a href='"+(data.paging.startPg-1)+"'>이전</a></li>"
+			}
+
+          	for(let i=data.paging.startPg ; i<=data.paging.endPg ; i++)
+		  	{
+          		 if(data.paging.cri.pg===i)
+          		{
+          			str+="<li class='page-item'><a class='current page-link' href='"+i+"'>"+i+"</a></li>";
+          		}
+          		 else if(data.paging.cri.pg!==i)
+          		{
+          			str+="<li class='page-item'><a href='"+i+"'class='page-link'>"+i+"</a></li>";
+          		}
+		  	}
+
+          	if(data.paging.endPg<data.paging.totalP)
+			{
+          	 str+="<li><a href='"+(data.paging.endPg+1)+"'>다음</a></li>"
+			}
+
+          	$(".paging").html(str);
+			
+          	console.log("product lists success") 
+			} 
+		}); //ajax
+	/*	
 	$.getJSON("/shop1/manager/productList/"+category+"/"
 			+page+"/"+align+"/"+condition+"/"+keyword,
 			function(data) {
@@ -150,26 +202,26 @@ function getProducts(page,category,align,condition,keyword)
 	          	$(".paging").html(str);
 				
 	          	console.log("product lists success");
-			});//gjson 끝
+			});//gjson 끝*/
 
 };//getProducts(page) 끝
 
 //처음 시작시 1페이지 불러오기
-getProducts(1,category)
+getProducts(1)
 
 //페이징 클릭시
 $(".pagination").on("click","li a",function(e)
 { 	
 	e.preventDefault();
-	getProducts($(this).attr("href"),category,align,condition,keyword);
+	getProducts($(this).attr("href"));
 });
 
-//정렬 선택시condition
+//정렬 선택시 
 $("#productAlign").on("change",function()
 {
 	console.log("정렬선택됨 옵션="+$(this).val());
 	align=$(this).val();//페이지 바뀌어도 이값로 계속 유지되도록
-	getProducts(1,category,$(this).val());
+	getProducts(1);
 	
 });
 
@@ -181,7 +233,7 @@ $("#searchBtn").on("click",function()
 
 	condition=$('#condition').val(); //페이지 바뀌어도 이값로 계속 유지되도록
 	keyword=$('#keyword').val();
-	getProducts(1,category,align,condition,keyword);
+	getProducts(1);
 	
 });
 </script>

@@ -1,9 +1,6 @@
-
-
 //animatescroll
 $('a.animatescroll').on("click", function() {
 		let x = $(this).attr("href")
-		console.log(x)
 		$(x).animatescroll();
 });
 	
@@ -14,7 +11,7 @@ $('.carousel').carousel({
 $('[data-toggle="tooltip"]').tooltip();
 
 //wayPoint
-$('#wayPoint').waypoint(function(direction) {
+$('.wayPoint').waypoint(function(direction) {
 	if (direction === 'down') {
 		$('#firstNav').attr("style", "visibility:hidden");
 		$('#secondNav').attr("style", "visibility:visible");
@@ -24,10 +21,32 @@ $('#wayPoint').waypoint(function(direction) {
 	offset : '10'
 });
 
-$('#wayPoint').waypoint(function(direction) {
+$('.wayPoint').waypoint(function(direction) {
 	if (direction === 'up') {
 		$('#firstNav').attr("style", "visibility:visible;width:100%;position:absolute;z-index:100");
 		$('#secondNav').attr("style", "visibility:hidden");
+		$('#btn_top').css("visibility", "hidden");
+	}
+}, {
+	offset : '10'
+});//#wayPoint end
+
+$('#productDetailAndReview').waypoint(function(direction) {
+	if (direction === 'down') {
+		 
+		$('#btn_top').css("visibility", "visible");
+		$('.detailHidden').css("visibility", "visible");
+		$('.detailVisible').css("visibility", "hidden");
+
+	}
+}, {
+	offset : '10'
+});
+
+$('#productDetailAndReview').waypoint(function(direction) {
+	if (direction === 'up') {
+		$('.detailHidden').css("visibility", "hidden");
+		$('.detailVisible').css("visibility", "visible");
 		$('#btn_top').css("visibility", "hidden");
 	}
 }, {

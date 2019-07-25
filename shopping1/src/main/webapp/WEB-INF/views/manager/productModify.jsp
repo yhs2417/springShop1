@@ -18,24 +18,26 @@
 	<!--각 카테고리 리스트-->
 	<div class="tab-content pt-4">
 		<!-- 각 탭 공통 ui -->
-		<div class="btn-toolbar justify-content-end">
-			<div class="btn-group btn-group-sm">
-
-				<button type="button" class="btn btn-white dropdown-toggle"
-					data-toggle="dropdown">정렬</button>
-				<div class="dropdown-menu">
-					<a class="dropdown-item" href="#">추천상품</a>
-					<a class="dropdown-item" href="#">고가순</a> <a class="dropdown-item"
-						href="#">저가순</a> <a class="dropdown-item" href="#">최신 등록순</a> <a
-						class="dropdown-item" href="#">오래된 등록순</a>
-
-				</div>
-				<div class="btn-group pl-2 btn-group-sm">
+		
+		<div class="form-group row pt-2 pl-3">
+       		 		
+			<select	class="form-control col-md-2" id="Align">
+				<option selected value=''>정렬기준</option>
+				<option value='recommend'>추천순</option>
+				<option value='priceDesc'>고가순</option>
+				<option value='priceAsc'>저가순</option>
+				<option value='regDateDesc'>최신등록순</option>
+				<option value='regDateAsc'>오래된 등록순</option>
+			</select>
+			 
+			<div class="btn-group btn-group-sm offset-md-5">
+				<div class="btn-group btn-group-sm pl-5">
 					<button type="button" id="recommendAddBtn" class="btn btn-white">추천상품(최대10개)로 추가</button>
 					<button type="button" id="recommendDelBtn" class="btn btn-danger">추천상품에서 제거</button>
  				</div>
 			</div>
-		</div><!-- 각 탭 공통 ui 끝 -->
+		</div>	
+		<!-- 각 탭 공통 ui 끝 -->
 
 		<!--각 카테고리 리스트(폼만 만들어 놓고, 각 카테로리 버튼 클릭시
 		데이터 불러오고 반영되게 수정하는 게 나을듯...)-->
@@ -70,13 +72,26 @@
 				</table>
 			</div>
 			<!-- class='table-responsive'>끝 -->
-
+			
+			<!-- 검색어 -->
+			<div class="form-group row pt-5">
+       		 		
+				<select	class="form-control col-md-1 offset-md-3" id="condition1">
+					<option selected value='productName'>제품명</option>
+					<option value='companyName'>제조사</option>
+				</select>
+				<input type="text" id="keyword1" placeholder="검색어"
+						class="form-control col-md-4 mr-2">
+				<input type="button" id="searchingBtn" value="검색"
+				class="form-control col-md-1 ">
+			</div>
+			
 			<!-- 페이징 오는 부분 -->
 
 				<ul class="pagination justify-content-center productPaging">
 
 				</ul>
-
+			
 			</div><!--tab-pane 끝 -->
 		</c:forEach>
 

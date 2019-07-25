@@ -12,5 +12,8 @@
  		<typeAlias type="kr.hyunnn.shop1.Manager.model.CategoryVO" alias="CategoryVO" />
  		<typeAlias type="kr.hyunnn.shop1.Manager.model.CompanyVO" alias="CompanyVO" />
  		<typeAlias type="kr.hyunnn.shop1.Manager.model.ProductVO" alias="ProductVO" />
+ 	 	<typeAlias type="kr.hyunnn.shop1.review.model.ReviewVO" alias="ReviewVO" />
+ 	 	<typeAlias type="kr.hyunnn.shop1.cart.model.CartVO" alias="CartVO" />
+ 		
  	</typeAliases>
 </configuration>

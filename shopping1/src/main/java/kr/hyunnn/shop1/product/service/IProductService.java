@@ -8,7 +8,7 @@ import kr.hyunnn.shop1.Manager.model.ProductVO;
 
 @Service
 public interface IProductService {
-	public List<ProductVO> getProductList(String category) throws Exception;
 
+	public ProductVO productDetail(int productId) throws Exception;
 
 }

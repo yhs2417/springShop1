@@ -3,7 +3,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
     
-<mapper namespace="kr.hyunnn.shop1.Manager.repository.IProductDAO">
+<mapper namespace="kr.hyunnn.shop1.product.repository.IProductDAO">
     <resultMap id="ResultMap1" type="ProductVO">
 		<id property="productId" column="product_id" />
 		<result property="productName" column ="product_name"/>
@@ -17,7 +17,9 @@
 		<result property="recommend" column ="recommend"/>
 		
 	</resultMap>
-	
+	<select id="productDetail" parameterType="int" resultMap="ResultMap1">
+		select * from product where product_id=#{productId}
+	</select>
 	 
     
 </mapper>

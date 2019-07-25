@@ -6,5 +6,6 @@ import kr.hyunnn.shop1.Manager.model.ProductVO;
 
 public interface IProductDAO {
 
-	public List<ProductVO> getProductList(String category) throws Exception;
+	public ProductVO productDetail(int productId) throws Exception;
+
 }

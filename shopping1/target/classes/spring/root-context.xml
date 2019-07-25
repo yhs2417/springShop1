@@ -43,8 +43,10 @@
 </bean>
 
 <mybatis-spring:scan base-package="kr.hyunnn.shop1.user.repository"/>
-
 <mybatis-spring:scan base-package="kr.hyunnn.shop1.Manager.repository"/>
+<mybatis-spring:scan base-package="kr.hyunnn.shop1.review.repository"/>
+<mybatis-spring:scan base-package="kr.hyunnn.shop1.product.repository"/>
+<mybatis-spring:scan base-package="kr.hyunnn.shop1.cart.repository"/>
 
 
 </beans>

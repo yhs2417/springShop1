@@ -63,14 +63,17 @@ public class ManagerController
 								ProductVO vo,RedirectAttributes red) throws Exception
 	{
 		System.out.println("상품등록진입"+vo);
+		 /*
 		String path=session.getServletContext()
-		.getRealPath("resources/images/uploads/");
+		 .getRealPath("resources/images/uploads/");
+		 System.out.println("context경로:"+path); */
 		
+		String path="C:\\Users\\yhs24\\git\\springShop1\\shopping1\\src\\main\\webapp\\resources\\images\\uploads\\"; 
+				 
 		UUID uuid = UUID.randomUUID();
 		
 		String filename = uuid.toString() + img.getOriginalFilename();
 		
-		System.out.println(path);
 		System.out.println("저장할 파일명 : " + filename);
 
 		File f = new File(path,filename);
@@ -79,26 +82,20 @@ public class ManagerController
 
 		vo.setThumNail("resources/images/uploads/"+filename);
 		System.out.println("상품등록 service 전 vo"+vo);
-		vo.setPrice(123456);
 		service.productInsert(vo);
 		System.out.println("상품등록 service성공");
 		red.addFlashAttribute("redirectMsg","상품을 등록하였습니다");
 		return new ModelAndView("redirect:/manager");
 	}
 	
-	@GetMapping("/productList/{category}/{pg}/{align}/{condition}/{keyword}")
+	@PostMapping("/productList/{category}/{pg}")
 	public Map<String,Object> productList(
 						@PathVariable String category,@PathVariable int pg,
-						@PathVariable String align,@PathVariable String condition,
-						@PathVariable String keyword) throws Exception
+						@RequestBody SearchCriteria cri) throws Exception
 	{	
-		System.out.println("상품 조회 진입"+category+pg+align+condition+keyword);
-		SearchCriteria cri= new SearchCriteria();
+		System.out.println("상품 조회 진입"+category+pg+cri);
 		cri.setPg(pg);
 		//cri.setPerPage(10);
-		cri.setAlign(align);
-		cri.setCondition(condition);
-		cri.setKeyword(keyword);
 		
 		int totalA=service.countProducts(category,cri); //cri는 검색조건
 		

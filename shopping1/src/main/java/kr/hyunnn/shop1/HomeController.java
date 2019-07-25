@@ -20,8 +20,7 @@ import kr.hyunnn.shop1.Manager.service.IManagerService;
 public class HomeController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
-	@Autowired
-	private IManagerService service;
+	 
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) throws Exception{
@@ -33,9 +32,6 @@ public class HomeController {
 		String formattedDate = dateFormat.format(date);
 		
 		model.addAttribute("serverTime", formattedDate );
-		
-		
-	
 		return "index";
 	}
 	

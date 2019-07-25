@@ -25,10 +25,9 @@ public class AutoLoginInterceptor extends HandlerInterceptorAdapter
 	{
  
 		System.out.println("자동로그인 인터셉터 작동");
-		
-		Cookie loginCookie = WebUtils.getCookie(request, "loginCookie");
-		
+
 		HttpSession session = request.getSession();
+		Cookie loginCookie = WebUtils.getCookie(request, "loginCookie");
 		
 		if(loginCookie !=null)
 		{

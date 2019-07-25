@@ -1,6 +1,6 @@
 package kr.hyunnn.shop1.Manager.repository;
 
-import java.util.List;
+import java.util.*;
 import java.util.Map;
 
 import org.springframework.stereotype.Repository;
@@ -12,7 +12,6 @@ import kr.hyunnn.shop1.commons.criteria.Paging;
 
 
 public interface IManagerDAO {
-
 	public List<CategoryVO> selectCategory() throws Exception;
 
 	public List<CompanyVO> selectCompany(String category) throws Exception;
@@ -28,5 +27,4 @@ public interface IManagerDAO {
 	public void recommendUpdate(int productId) throws Exception;
 	public void recommendInit(String category) throws Exception;
 	public void recommendDelete(int productId) throws Exception;
-
 }

@@ -44,8 +44,8 @@ body {
 	margin-right: -15px
 }
 
-.current { color : red }
-
+.page-item a { color : black}
+.page-item a.current { color : red }
 #pages { color : black }
  
 @media (max-width: 767px) 

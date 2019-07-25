@@ -12,7 +12,7 @@
 <jsp:include page="../include/plugin-JS.jsp" />
 <jsp:include page="../include/mainHeader.jsp" />
 
-<h4 class="border-bottom mx-5 py-3" id="wayPoint">상품 관리</h4>
+<h4 class="border-bottom mx-5 py-3 wayPoint">상품 관리</h4>
 
 
 <div class='container pt-3' style="min-height: 500px">
@@ -103,6 +103,11 @@ if ('${redirectMsg}' != "")
 {
 	alert('${redirectMsg}')
 };
+
+align="";
+condition="";
+keyword="";
+
 //상품등록 form의 select 에 카테고리 불러오기
 $('.categorySelect').on("change",function()
 {
@@ -122,19 +127,61 @@ $.getJSON(
 		});//getjson
 }) //#category.change()끝
 
-//최상단 카테고리 클릭시 해당 카테고리 자료 불러오기
-$('#productMenu a').on("click",function()
-{
-	category = $(this).text(); //현재 카테고리
-	console.log(category + "의 내역 불러오기");
-	getProducts(1,category);
-	checkedIds = new Set(); //체크된 행 넣는 set초기화(페이지 바뀌어도 유지)
-
-})
- 		
 //상품목록 불러오기 함수구현
-function getProducts(page,category)
+function getProducts(page)
 {
+	$.ajax({
+		type : "POST",
+		url : "/shop1/manager/productList/"+category+"/"+page,
+		dataType : "json",
+		headers : {
+			"Content-type" : "application/json",
+			"X-HTTP-Method-Override" : "POST"
+		},
+		data : JSON.stringify({
+			align: align,
+			condition:condition,
+			keyword:keyword
+		}),
+		success : function(data) {
+			console.log(data);
+			
+			//상품정보 div에 반영
+			let template = $('#ProductListTemplate').html();
+			let ctemplate = Handlebars.compile(template);
+			let html = ctemplate(data);
+			$(".productList").html(html);
+
+			//페이징 반영
+			let str="";
+			if(data.paging.startPg>10)
+			{
+          	 str+="<li><a href='"+(data.paging.startPg-1)+"'>이전</a></li>"
+			}
+
+          	for(let i=data.paging.startPg ; i<=data.paging.endPg ; i++)
+		  	{
+          		 if(data.paging.cri.pg===i)
+          		{
+          			str+="<li class='page-item'><a class='current page-link' href='"+i+"'>"+i+"</a></li>";
+          		}
+          		 else if(data.paging.cri.pg!==i)
+          		{
+          			str+="<li class='page-item'><a href='"+i+"'class='page-link'>"+i+"</a></li>";
+          		}
+		  	}
+
+          	if(data.paging.endPg<data.paging.totalP)
+			{
+          	 str+="<li><a href='"+(data.paging.endPg+1)+"'>다음</a></li>"
+			}
+
+          	$(".productPaging").html(str);
+			
+          	console.log("product lists success") 
+			} 
+		}); //ajax
+	/*	
 	$.getJSON("/shop1/manager/productList/"+category+"/"+page,
 			function(data) {
 				console.log(data);
@@ -171,18 +218,49 @@ function getProducts(page,category)
 
 	          	$(".productPaging").html(str2);
 				console.log("product list success");
-			});//gjson 끝
+			});//gjson 끝  */
 
 };//getProducts(page) 끝
 
+//최상단 카테고리 클릭시 해당 카테고리 자료 불러오기
+$('#productMenu a').on("click",function()
+{
+	category = $(this).text(); //현재 카테고리 변수
+	
+	console.log(category + "의 내역 불러오기");
+	getProducts(1);
+	checkedIds = new Set(); //체크된 행 넣는 set초기화(페이지 바뀌어도 유지)
+
+})
+ 		
 //페이징 클릭
 $(".pagination").on("click","li a",function(e)
-		{ e.preventDefault();
-			getProducts($(this).attr("href"),category);
+{
+	e.preventDefault();
+	getProducts($(this).attr("href"));
+});
+//정렬 선택시 
+$("#Align").on("change",function()
+{
+	console.log("정렬선택됨 옵션="+$(this).val());
+	align=$(this).val();//페이지 바뀌어도 이값로 계속 유지되도록
+	getProducts(1);
+	
+});
+
+//검색어 입력시
+$("#searchingBtn").on("click",function()
+{
+	console.log("검색 조건="+$('#condition1').val());
+	console.log("검색어="+$('#keyword1').val());
+
+	condition=$('#condition1').val(); //페이지 바뀌어도 이값로 계속 유지되도록
+	keyword=$('#keyword1').val();
+	getProducts(1);
+	
 });
 
 //모두 선택 체크 버튼 클릭시
-
 $('.allCheck').on("click", function() 
 {
 	console.log("allcheck클릭됨"+$(this).prop("checked"));

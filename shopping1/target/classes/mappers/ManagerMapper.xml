@@ -54,17 +54,16 @@
 	<select id="productList" parameterType="java.util.Map" resultMap="ResultMap3">
 		select tt.* from 
 		(select @ROWNUM:=@ROWNUM+1 as NUM, a.* 
-		from product a,(select @ROWNUM:=0) b 
-		<include refid="search"/> 
-		<include refid="alignment"/> ) tt
+		from product a,(select @ROWNUM:=0) b <include refid="search"/> 
+		<include refid="alignment"/>) tt
 		<![CDATA[WHERE NUM>=#{startRow} and NUM<=#{endRow}]]>
 	</select>
 	
 	<sql id="alignment">
-		<if test="align==null">
+		<if test="align==''">
 			order by product_id DESC
 		</if> 
-		<if test="align!=null">   
+		<if test="align!=''">   
 			<if test="align=='priceDesc'">
 				order by price DESC
 			</if>
@@ -77,14 +76,17 @@
 			<if test="align=='regDateDesc'">
 				order by reg_date DESC
 			</if>
+			<if test="align=='recommend'">
+				order by recommend DESC
+			</if>
 		</if>
 	</sql>
 	
 	<sql id="search">
-		<if test="condition == null">
+		<if test="condition==''">
 			where category=#{category}
 		</if>
-		<if test="condition !=null">
+		<if test="condition !=''">
 			<if test="condition=='productName'">
 				where category=#{category} and product_name like CONCAT('%',#{keyword},'%')
 			</if>
@@ -135,4 +137,8 @@
 	<update id="recommendDelete">
 		update product set recommend=0 where product_id=#{productId}
 	</update>
+	
+	
+
+
 </mapper>
