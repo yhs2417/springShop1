@@ -17,7 +17,7 @@
 <div class='container pt-3' style="min-height: 500px">
 
 	<div class="form-row pl-3">
-		<div class="form-group col-md-3 mr-3" >
+		<div class="form-group col-md-4" >
 			<img src="<c:url value='/${product.thumNail}'/>" 
 			width=100% height=100% class="img-fruid"/>
 		</div>

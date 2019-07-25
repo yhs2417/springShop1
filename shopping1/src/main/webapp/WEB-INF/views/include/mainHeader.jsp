@@ -55,7 +55,7 @@
 								</a>
 									<div class="dropdown-menu">
 										<a class="dropdown-item" href="<c:url value='/manager'/>">상품관리</a> 
-										<a class="dropdown-item" href="#">회원관리</a>
+										 
 										<a class="dropdown-item" href="<c:url value='/cart/info'/>">장바구니</a> 
 											
 										<a class="dropdown-item" href="<c:url value='/user/info'/>">정보수정</a> 

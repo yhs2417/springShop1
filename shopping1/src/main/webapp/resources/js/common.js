@@ -53,6 +53,19 @@ $('#productDetailAndReview').waypoint(function(direction) {
 	offset : '10'
 });//#wayPoint end
 
+
+//공용 핸들바 함수
+Handlebars.registerHelper("multiply",function(x,y,options){
+	let res=Number(x)*Number(y)
+	return res.toLocaleString(); 
+})
+
+Handlebars.registerHelper("comma",function(x,options){
+ 
+	return Number(x).toLocaleString(); 
+})
+
+
 //summerNote설정
 $('.summerNote').summernote({
 	height : 300,

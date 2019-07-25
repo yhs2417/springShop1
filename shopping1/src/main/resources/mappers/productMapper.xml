@@ -15,8 +15,8 @@
 		<result property="explain1" column ="explain1"/>
 		<result property="explain2" column ="explain2"/>
 		<result property="recommend" column ="recommend"/>
-		
 	</resultMap>
+	
 	<select id="productDetail" parameterType="int" resultMap="ResultMap1">
 		select * from product where product_id=#{productId}
 	</select>

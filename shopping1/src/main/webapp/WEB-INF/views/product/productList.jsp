@@ -80,7 +80,8 @@
 {{#product}}
 <div class="card">
 	
-	<img class='card-img-top img-thumbnail' src='{{thumNail}}'>
+	<img class='card-img-top img-thumbnail' 
+		src="<c:url value='/{{thumNail}}'/>">
 	
 	<div class='card-body'>
 		<h5 class='card-title'>
@@ -93,9 +94,10 @@
 		{{companyName}}<br>
 		{{explain1}}<br>
 	  
-		<button class='btn btn-default productDetailBtn' id='{{productId}}'>
+		<a class='btn btn-primary productDetailBtn' 
+				id='{{productId}}' href="detail?id={{productId}}">
 			자세히
-		</button>
+		</a>
 	</div>
 </div>
 {{/product}}
