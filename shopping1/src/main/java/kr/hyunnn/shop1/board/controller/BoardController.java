@@ -1,5 +1,5 @@
 package kr.hyunnn.shop1.board.controller;
-//2
+//3
 public class BoardController {
 
 	
