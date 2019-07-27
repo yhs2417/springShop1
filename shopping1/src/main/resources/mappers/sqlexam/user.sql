@@ -10,4 +10,6 @@ create table user
 alter table user add column session_id char(50) not null default 'none';
 alter table user add column session_limit date;
 
- alter table user add addr2 varchar(100);
+ alter table user add addr2 varchar(300);
+alter table user add addr1 varchar(300); 
+alter table user add addr_num varchar(20);

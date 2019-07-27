@@ -51,8 +51,8 @@
 			</a>
 		</div>
 
-		<ul id="indicatior1" class=" wayPoint  nav bg-dark nav-pills nav-fill">
-			<li class="nav-item"><a href="#carousel1" data-slide-to="0"
+		<ul id="indicatior1" class="nav bg-dark nav-pills nav-fill">
+			<li class="nav-item"   ><a href="#carousel1" data-slide-to="0"
 				data-toggle='tab' class="nav-link active text-white rounded-0"> 문구1</a></li>
 
 			<li class="nav-item"><a href="#carousel1" data-slide-to="1"
@@ -67,7 +67,8 @@
 				data-toggle='tab' class="nav-link text-white rounded-0"> 문구5</a></li>
 		</ul>
  
-		<div class="pt-5 ">
+		<div class="pt-5"  id="wayPoint"  >
+		
 			<div class="row">
 				<div class=" col-sm-6 col-md-3 border-left border-dark pt-3 text-center">
 					<a href="#introduce" class="animatescroll" ><i class="fas fa-home fa-5x text-body  "></i></a><br>
@@ -364,6 +365,9 @@ $('#carouselNote').on("click",".card",function(){
 })
 
 })//readyfunction
+
+console.log = function(){}
+
 </script>
 </body>
 </html>

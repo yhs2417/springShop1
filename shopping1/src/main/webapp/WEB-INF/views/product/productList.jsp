@@ -12,7 +12,7 @@
 <jsp:include page="../include/plugin-JS.jsp" />
 <jsp:include page="../include/mainHeader.jsp" />
 
-<h4 class="border-bottom mx-5 py-3 wayPoint">상품 목록</h4>
+<h4 class="border-bottom mx-5 py-3" id="wayPoint">상품 목록</h4>
 
 <div class='container pt-3' style="min-height: 500px">
 		<!-- 정렬기준
@@ -245,4 +245,7 @@ $('.products').on("click",".card",function(){
 	
 	self.location="detail?id="+productId
 })
+
+  console.log = function(){}
+
 </script>

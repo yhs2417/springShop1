@@ -11,7 +11,7 @@ pageEncoding="UTF-8"%>
   <jsp:include page="../include/plugin-JS.jsp"/>
   <jsp:include page="../include/mainHeader.jsp"/>
 
-  <h4 class="border-bottom mx-5 py-3 wayPoint">
+  <h4 class="border-bottom mx-5 py-3" id="wayPoint">
     회원가입</h4>
 
   <div class='container pt-3'>
@@ -94,7 +94,7 @@ pageEncoding="UTF-8"%>
   const getIdCheck = RegExp(/^[a-zA-Z0-9]{4,14}$/);
   const getPwCheck = RegExp(/([a-zA-Z0-9].*[!,@,#,$,%,^,&,*,?,_,~])|([!,@,#,$,%,^,&,*,?,_,~].*[a-zA-Z0-9])/);
   //폼 다 true로 변환되야 가입됨.
-  let chk1 = false,
+ 	chk1 = false,
     chk2 = false;
 
   //ID 입력값 검증.
@@ -110,9 +110,12 @@ pageEncoding="UTF-8"%>
 
       $('#userId').removeClass("is-valid")
       $('#userId').addClass("is-invalid")
-      chk1 =//ID 중복확인 비동기 처리(유효성 검사후 )
-      false;
-    } else {
+      //ID 중복확인 비동기 처리(유효성 검사후 )
+      chk1 =  false;
+    
+    } 
+    else 
+    {
       $.ajax({
         type: "POST",
         url: "/shop1/user/idCheck",
@@ -214,6 +217,8 @@ pageEncoding="UTF-8"%>
       alert('입력정보를 다시 확인하세요.');
     }
   }); //signupbtn 끝
+  
+  console.log = function(){}
 </script>
 </body>
 </html>

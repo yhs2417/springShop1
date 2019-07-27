@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+        
+<configuration>
+	<typeAliases>
+ 		<typeAlias type="kr.hyunnn.shop1.board.model.BoardVO" alias="boardVO" />
+ 		<typeAlias type="kr.hyunnn.shop1.reply.model.ReplyVO" alias="ReplyVO" />
+ 		<typeAlias type="kr.hyunnn.shop1.user.model.UserVO" alias="UserVO" />
+ 		<typeAlias type="kr.hyunnn.shop1.Manager.model.CategoryVO" alias="CategoryVO" />
+ 		<typeAlias type="kr.hyunnn.shop1.Manager.model.CompanyVO" alias="CompanyVO" />
+ 		<typeAlias type="kr.hyunnn.shop1.Manager.model.ProductVO" alias="ProductVO" />
+ 	 	<typeAlias type="kr.hyunnn.shop1.review.model.ReviewVO" alias="ReviewVO" />
+ 	 	<typeAlias type="kr.hyunnn.shop1.cart.model.CartVO" alias="CartVO" />
+ 		
+ 	</typeAliases>
+</configuration>

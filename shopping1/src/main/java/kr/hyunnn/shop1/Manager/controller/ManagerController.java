@@ -63,12 +63,12 @@ public class ManagerController
 								ProductVO vo,RedirectAttributes red) throws Exception
 	{
 		System.out.println("상품등록진입"+vo);
-		 /*
+		 
 		String path=session.getServletContext()
 		 .getRealPath("resources/images/uploads/");
-		 System.out.println("context경로:"+path); */
+		System.out.println("context경로+이미지경로:"+path); 
 		
-		String path="C:\\Users\\yhs24\\git\\springShop1\\shopping1\\src\\main\\webapp\\resources\\images\\uploads\\"; 
+		//String path="C:\\Users\\yhs24\\git\\springShop1\\shopping1\\src\\main\\webapp\\resources\\images\\uploads\\"; 
 				 
 		UUID uuid = UUID.randomUUID();
 		
