@@ -72,7 +72,7 @@
 			<div class="row">
 				<div class=" col-sm-6 col-md-3 border-left border-dark pt-3 text-center">
 					<a href="#introduce" class="animatescroll" ><i class="fas fa-home fa-5x text-body  "></i></a><br>
-					<br>회사소개
+					<br>회사 소개
 				</div>
 				<div
 					class=" col-sm-6 col-md-3 border-left border-dark
