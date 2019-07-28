@@ -13,7 +13,10 @@
 		<org.springframework-version>5.0.8.RELEASE</org.springframework-version>
 		<org.aspectj-version>1.6.10</org.aspectj-version>
 		<org.slf4j-version>1.6.6</org.slf4j-version>
+		<project.build.sourceEncoding>utf-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>utf-8</project.reporting.outputEncoding>
 	</properties>
+	 
 	<dependencies>
 		<!-- Spring -->
 		<!-- https://mvnrepository.com/artifact/commons-fileupload/commons-fileupload -->
@@ -275,19 +278,7 @@
 				</configuration>
 			</plugin>
 
-			<plugin>
-
-				<groupId>org.apache.maven.plugins</groupId>
-
-				<artifactId>maven-resources-plugin</artifactId>
-
-				<configuration>
-
-					<encoding>UTF-8</encoding>
-
-				</configuration>
-
-			</plugin>
+			 
 		</plugins>
 	</build>
 </project>
