@@ -33,7 +33,7 @@ import kr.hyunnn.shop1.Manager.service.ManagerService;
 import kr.hyunnn.shop1.commons.criteria.Criteria;
 import kr.hyunnn.shop1.commons.criteria.Paging;
 import kr.hyunnn.shop1.commons.criteria.SearchCriteria;
-
+//x
 @RestController
 @RequestMapping("/manager")
 public class ManagerController 
