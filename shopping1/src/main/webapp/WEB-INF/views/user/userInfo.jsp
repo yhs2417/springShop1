@@ -11,7 +11,7 @@ pageEncoding="UTF-8"%>
 <jsp:include page="../include/plugin-JS.jsp"/>
 <jsp:include page="../include/mainHeader.jsp"/>
 
-<h4 class="border-bottom mx-5 py-3" id="wayPoint">
+<h4 class="border-bottom mx-5 py-3 wayPoint">
 	회원정보 관리</h4>
 
 <!--회원의 개인관리 -->
