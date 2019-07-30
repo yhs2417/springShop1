@@ -67,7 +67,7 @@
 				data-toggle='tab' class="nav-link text-white rounded-0"> 문구5</a></li>
 		</ul>
  
-		<div class="pt-5"  id="wayPoint"  >
+		<div class="pt-5 wayPoint"  >
 		
 			<div class="row">
 				<div class=" col-sm-6 col-md-3 border-left border-dark pt-3 text-center">

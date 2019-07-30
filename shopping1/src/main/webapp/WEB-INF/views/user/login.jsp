@@ -11,7 +11,7 @@ pageEncoding="UTF-8"%>
     <jsp:include page="../include/plugin-JS.jsp"/>
     <jsp:include page="../include/mainHeader.jsp"/>
 
-    <h4 class="border-bottom mx-5 py-3" id="wayPoint">
+    <h4 class="border-bottom mx-5 py-3 wayPoint">
       로그인</h4>
 
     <div class='container pt-3' style="height:400px">

@@ -2,6 +2,7 @@
 $('a.animatescroll').on("click", function() {
 		let x = $(this).attr("href")
 		$(x).animatescroll();
+		$('body').animatescroll();
 });
 	
 $('.carousel').carousel({
@@ -11,7 +12,7 @@ $('.carousel').carousel({
 $('[data-toggle="tooltip"]').tooltip();
 
 //wayPoint
-$('#wayPoint').waypoint(function(direction) {
+$('.wayPoint').waypoint(function(direction) {
 	if (direction === 'down') {
 		$('#firstNav').attr("style", "visibility:hidden");
 		$('#secondNav').attr("style", "visibility:visible");
@@ -21,7 +22,7 @@ $('#wayPoint').waypoint(function(direction) {
 	offset : '10'
 });
 
-$('#wayPoint').waypoint(function(direction) {
+$('.wayPoint').waypoint(function(direction) {
 	if (direction === 'up') {
 		$('#firstNav').attr("style", "visibility:visible;width:100%;position:absolute;z-index:100");
 		$('#secondNav').attr("style", "visibility:hidden");

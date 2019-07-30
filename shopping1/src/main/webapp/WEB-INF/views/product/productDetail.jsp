@@ -7,7 +7,7 @@
 <html>
 <jsp:include page="../include/staticHead.jsp" />
 
-<body id="wayPoint">
+<body class="wayPoint">
 
 <jsp:include page="../include/plugin-JS.jsp" />
 <jsp:include page="../include/mainHeader.jsp" />
