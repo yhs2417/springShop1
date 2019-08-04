@@ -7,8 +7,12 @@
 		and Filters -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value>classpath:/spring/root-context.xml</param-value>
-		
+
+		<param-value>
+			classpath:/spring/root-context.xml,
+			classpath:/spring/security-context.xml
+		</param-value>
+ 
 	</context-param>
 
 	<!-- Creates the Spring Container shared by all Servlets and Filters -->
@@ -16,7 +20,13 @@
 		<listener-class>org.springframework.web.context.ContextLoaderListener
 		</listener-class>
 	</listener>
+	<listener>
 
+		<listener-class>org.springframework.security.web.session.HttpSessionEventPublisher
+		</listener-class>
+
+	</listener>
+	
 	<!-- Processes application requests -->
 	<servlet>
 		<servlet-name>appServlet</servlet-name>
@@ -24,7 +34,11 @@
 		</servlet-class>
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
-			<param-value>classpath:/spring/servlet-context.xml</param-value>
+			<param-value>
+				classpath:/spring/servlet-context.xml
+				
+			</param-value>
+
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
@@ -33,6 +47,28 @@
 		<servlet-name>appServlet</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
+
+	<!-- HTTPS적용
+	<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>secureApp</web-resource-name>
+			<url-pattern>/*</url-pattern>
+		</web-resource-collection>
+		<user-data-constraint>
+			<transport-guarantee>CONFIDENTIAL</transport-guarantee>
+		</user-data-constraint>
+	</security-constraint> 
+-->
+	<!-- 메소드 제한  -->
+	<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>restricted methods</web-resource-name>
+			<url-pattern>/*</url-pattern>
+			<http-method>OPTIONS</http-method>
+			<http-method>TRACE</http-method>
+		</web-resource-collection>
+
+	</security-constraint>
 
 	<filter>
 		<filter-name>encodingFilter</filter-name>
@@ -63,6 +99,16 @@
 		<filter-name>hiddenHttpMethodFilter</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
-
-
+	
+	<!-- spring security -->
+	<filter>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<filter-class>
+			org.springframework.web.filter.DelegatingFilterProxy
+		</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
 </web-app>
