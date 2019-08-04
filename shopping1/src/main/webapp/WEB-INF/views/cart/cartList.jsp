@@ -34,27 +34,15 @@
 						<tbody id="cartLists" >
 							
 							<!-- 카트 내용 올곳 --> 
-							
-							
 
 						</tbody>
 					</table>
 				</div>
 			</div>
-		</div>
-
-
-
-
-
-
-
-
+		</div> <!-- card -->
 	</div>
 	<!-- container end -->
-
-
-
+	
 	<jsp:include page="../include/mainFooter.jsp" />
 
 	<script src="<c:url value='/resources/js/common.js'/>"></script>
@@ -63,7 +51,6 @@
 cartId=1, userId, productId, count=103, 
 productvo=ProductVO(productId, productName, companyName, explain1, explain2, thumNail=resources/images/uploads/bd2a5b43-b4e6-4cb5-8267-29f08848e2a1sec_SM-T800NZWKKOO_007_front_white.jpg, recommend=1)
 -->
-
 <script id="cartListTemplate" type="text/x-handlebars-template">
 {{#cart}}
 <tr>
@@ -71,7 +58,11 @@ productvo=ProductVO(productId, productName, companyName, explain1, explain2, thu
 		<img src="<c:url value='/{{productvo.thumNail}}'/>"
 				width=100% height=100%/>
 	</td>
-	<td>{{productvo.productName}}</td>
+	<td>
+		<a href="/shop1/product/detail?id={{productvo.productId}}"> 
+		{{productvo.productName}} 
+		</a>
+	</td>
 	<td>
 	 	 {{#comma productvo.price}}
 		{{/comma}}
@@ -122,8 +113,8 @@ productvo=ProductVO(productId, productName, companyName, explain1, explain2, thu
 <tr>
 	<td colspan="5"></td>
 	<td>
-		<a href="#" class="btn btn-warning" 
-			onclick="alert('준비중입니다')"> 주문하기 </a>
+		<a href="#" class="btn btn-warning" id="order"
+			 > 주문하기 </a>
 	</td>
 </tr>
 </script>
@@ -146,7 +137,16 @@ function getCartList()
 }		
 		
 getCartList();		
-		
+
+$('#cartLists').on("click","#order",function(){
+	
+let res=confirm("주문 하시겠습니까?");
+	if( res )
+	{
+		self.location="/shop1/order/info" 
+	} 
+});
+
 $('#cartLists').on("click",".productPlusCount", function() {
 	
 	console.log("더하기 버튼 클릭됨");

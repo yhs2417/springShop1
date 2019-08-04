@@ -1,4 +1,4 @@
- create table reviews(
+create table reviews(
 review_id int primary key auto_increment,
 content varchar(2000) not null,
  product_id int not null,

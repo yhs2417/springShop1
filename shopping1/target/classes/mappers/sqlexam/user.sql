@@ -5,11 +5,9 @@ create table user
 	user_pwd char(120) not null,
 	user_name char(120) not null,
 	regdate timestamp default now()
+	session_id char(50) not null default 'none',
+	session_limit date,
+	addr2 varchar(300),
+	addr1 varchar(300),
+	addr_num varchar(20)
 );
-	
-alter table user add column session_id char(50) not null default 'none';
-alter table user add column session_limit date;
-
- alter table user add addr2 varchar(300);
-alter table user add addr1 varchar(300); 
-alter table user add addr_num varchar(20);

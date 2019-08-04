@@ -12,8 +12,6 @@ category varchar(30) not null,
 
  alter table company add constraint pro_category_fk foreign key(category) references product_category(category);
 
- alter table company drop foreign key category_id_fk;
-
 insert into company(category, company_name)values ("NoteBook", "samsung");
 
 SELECT constraint_name, constraint_type

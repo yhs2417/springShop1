@@ -48,26 +48,31 @@ body {
 .page-item a.current { color : red }
 #pages { color : black }
  
-@media (max-width: 767px) 
-{
-	.card-columns { column-count: 2;}
-	 #menu .nav-item .nav-link {padding-left:5px; padding-right:5px}
+@media (min-width: 576px) {
+    .card-columns {
+        column-count: 2;
+    }
+     #menu .nav-item .nav-link {padding-left:5px; padding-right:5px}
  	#nav1 {padding-left:1px ; padding-right:1px ;}
 }
-	
+
 @media (min-width: 768px) {
-    .card-columns { column-count: 3;}
+    .card-columns {
+        column-count: 3;
+    }
 }
-	
-@media (min-width: 992px) 
-{
-	.card-columns {    column-count: 5;}
+
+@media (min-width: 992px) {
+    .card-columns {
+        column-count: 4;
+    }
 }
-	
-@media (min-width: 1200px) 
-{
-    .card-columns {   column-count: 5;}
-} 	
+
+@media (min-width: 1200px) {
+    .card-columns {
+        column-count: 5;
+    }
+}	
 </style>
 
 </head>

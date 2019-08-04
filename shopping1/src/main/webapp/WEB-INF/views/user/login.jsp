@@ -14,7 +14,7 @@ pageEncoding="UTF-8"%>
     <h4 class="border-bottom mx-5 py-3" id="wayPoint">
       로그인</h4>
 
-    <div class='container pt-3' style="height:400px">
+    <div class='container pt-3' style="min-height:500px">
 
       <!--login form-->
       <form action="" method="post" name="loginForm">
@@ -59,6 +59,7 @@ pageEncoding="UTF-8"%>
                 </div>
               </form>
 
+</div><!-- container -->
 <jsp:include page="../include/mainFooter.jsp"/>
 
 <script src="<c:url value='/resources/js/common.js'/>"></script>
@@ -103,7 +104,7 @@ $('#loginBtn').on("click", function () {
     console.log(autoLogin);
 
     $.ajax({
-      type: "post",
+      type: "POST",
       url: "/shop1/user/loginCheck",
       headers: {
         "Content-Type": "application/json",
