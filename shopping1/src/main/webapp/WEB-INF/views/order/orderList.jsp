@@ -32,7 +32,7 @@
 						</thead>
 						<tbody id="orderLists">
 
-							<!-- 주문내용 올곳 -->
+							<!-- 주문내용들어 올곳 -->
 						</tbody>
 					</table>
 				</div>

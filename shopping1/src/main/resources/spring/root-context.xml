@@ -50,7 +50,7 @@
  -->
 <mybatis-spring:scan base-package="kr.hyunnn.shop1.**.repository"/>
 
-<!-- DB연결정보 암호화 라이브러리 빈 등록 -->
+<!-- DB연결정보 암호화 라이브러리 빈 등록 함-->
    <bean id="encryptorConfig"
       class="org.jasypt.encryption.pbe.config.EnvironmentPBEConfig">
       <property name="algorithm" value="PBEWithMD5AndDES" />

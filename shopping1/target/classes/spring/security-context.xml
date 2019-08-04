@@ -10,9 +10,6 @@
 		  <security:form-login />
 
     <security:logout />
-
-
-
 		<security:session-management invalid-session-url="/" 
 			session-fixation-protection="migrateSession">
 		<security:concurrency-control max-sessions="1"

@@ -34,7 +34,7 @@
 	
 	<mvc:interceptors>
 		<mvc:interceptor>
-			<mvc:mapping path="/**/" /> <!-- 싸이트들오자마자 -->
+			<mvc:mapping path="/**/" /> <!-- 싸이트들오자마자 적용-->
 		
 			<beans:bean id="autoLoginInterceptor" 
 			class="kr.hyunnn.shop1.commons.interceptor.AutoLoginInterceptor"/>

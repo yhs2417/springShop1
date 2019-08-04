@@ -11,3 +11,4 @@ create table user
 	addr1 varchar(300),
 	addr_num varchar(20)
 );
+--

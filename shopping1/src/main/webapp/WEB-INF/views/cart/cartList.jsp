@@ -33,7 +33,7 @@
 						</thead>
 						<tbody id="cartLists" >
 							
-							<!-- 카트 내용 올곳 --> 
+							<!-- 카트 내용 들어올곳 --> 
 
 						</tbody>
 					</table>

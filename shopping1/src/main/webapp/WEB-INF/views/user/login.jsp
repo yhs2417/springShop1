@@ -40,7 +40,7 @@ pageEncoding="UTF-8"%>
               <div class="form-group col-md-3 border-left"></div>
 
             </div>
-            <!--자동로그인과 제출버튼-->
+            <!--자동로그인과 제출버튼.-->
             <div class="form-row py-3 text-center">
               <div class="form-group col-md-6 offset-md-3">
 

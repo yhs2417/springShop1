@@ -6,7 +6,8 @@
 <mapper namespace="kr.hyunnn.shop1.order.repository.IOrderDAO">
 
 <insert id="addOrder" parameterType="java.util.Map">
-		insert into orders(user_id,product_id,count) 
+		insert into 
+		orders(user_id,product_id,count) 
 		values
 		(#{userId},#{productId},#{count});
 	</insert>

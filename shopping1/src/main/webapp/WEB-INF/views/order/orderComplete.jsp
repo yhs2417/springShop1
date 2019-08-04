@@ -23,7 +23,7 @@
 			주문이 완료되었습니다</h3><br><br>
 			
 			<a class="btn btn-secondary" href="/shop1"> 홈으로</a>
-			<a class="btn btn-secondary" onclick="alert('준비중입니다')"> 주문내역조회</a>
+			<a class="btn btn-secondary" onclick="alert('준비중입니다.')"> 주문내역조회</a>
 					
 		</div> 
 	
