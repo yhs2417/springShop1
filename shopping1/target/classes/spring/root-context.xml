@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
-	xsi:schemaLocation="http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
-		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
-		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:context="http://www.springframework.org/schema/context"
+   xmlns:tx="http://www.springframework.org/schema/tx"
+   xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
+   xsi:schemaLocation="http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
+      http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+      http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+      http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
 
 <context:component-scan base-package="kr.hyunnn.shop1" />
-
-<context:property-placeholder location="classpath:/spring/jdbc.properties"/>
 
 <bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
 
@@ -41,12 +41,36 @@
 <bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 	<property name="dataSource" ref="ds"/>
 </bean>
-
+<!-- 
 <mybatis-spring:scan base-package="kr.hyunnn.shop1.user.repository"/>
 <mybatis-spring:scan base-package="kr.hyunnn.shop1.Manager.repository"/>
 <mybatis-spring:scan base-package="kr.hyunnn.shop1.review.repository"/>
 <mybatis-spring:scan base-package="kr.hyunnn.shop1.product.repository"/>
 <mybatis-spring:scan base-package="kr.hyunnn.shop1.cart.repository"/>
+ -->
+<mybatis-spring:scan base-package="kr.hyunnn.shop1.**.repository"/>
 
+<!-- DB연결정보 암호화 라이브러리 빈 등록 함-->
+   <bean id="encryptorConfig"
+      class="org.jasypt.encryption.pbe.config.EnvironmentPBEConfig">
+      <property name="algorithm" value="PBEWithMD5AndDES" />
+      <property name="passwordEnvName" value="APP_ENCRYPTION_PASSWORD" />      
+   </bean>
+
+   <bean id="encryptor"
+      class="org.jasypt.encryption.pbe.StandardPBEStringEncryptor">
+      <property name="config" ref="encryptorConfig" />
+      <property name="password" value="test" /> 
+   </bean>
+
+	<bean
+      class="org.jasypt.spring31.properties.EncryptablePropertyPlaceholderConfigurer">
+      <constructor-arg ref="encryptor" />
+      <property name="locations">
+         <list>
+            <value>classpath:/spring/jdbc.properties</value>
+         </list>
+      </property>
+   </bean>
 
 </beans>

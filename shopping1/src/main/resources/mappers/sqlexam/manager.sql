@@ -4,7 +4,7 @@
 
 insert into product_category(category) values ("computer");
 
------------------
+-------------------
 create table company(
  company_id int primary key auto_increment,
 category varchar(30) not null,

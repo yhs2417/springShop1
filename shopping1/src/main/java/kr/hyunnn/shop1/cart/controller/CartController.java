@@ -30,7 +30,7 @@ public class CartController {
 	@GetMapping("/info")
 	public ModelAndView IntoCart(HttpSession session) throws Exception
 	{
-		System.out.println("장바구나 jsp진입");
+		System.out.println("장바구나 jsp에 진입함");
 		return new ModelAndView("cart/cartList");
 	}
 	
