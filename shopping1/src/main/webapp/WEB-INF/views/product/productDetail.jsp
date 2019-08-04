@@ -66,10 +66,11 @@
 					<button type="button" id="addCart" class="btn btn-warning mr-1">
 						장바구니담기
 					</button>
+					<!-- 
 					<button type="button" id="" class="btn btn-white" 
 							onclick="alert('준비중입니다')">
 						구매하기
-					</button>
+					</button> -->
 				</div>
 				
 			</div><!-- btn-toolbar -->
