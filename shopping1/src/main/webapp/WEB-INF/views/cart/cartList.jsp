@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html>
 <jsp:include page="../include/staticHead.jsp" />
-
+<!-- body -->
 <body id="wayPoint">
 
 	<jsp:include page="../include/plugin-JS.jsp" />
