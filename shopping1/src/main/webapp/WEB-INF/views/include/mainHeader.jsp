@@ -6,7 +6,7 @@
 	<!-- Top으로 가는버튼 -->
 	<div id="btn_top"
 		style="position: fixed; bottom: 0; right: 0; width: 60px; height: 80px; z-index: 99; visibility: hidden">
-		<a href="#wayPoint" class="animatescroll"> <i
+		<a href="#" onclick="$('body').animatescroll()"> <i
 			class="fas fa-arrow-up fa-2x text-body"></i>
 		</a>
 	</div>
