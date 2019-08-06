@@ -15,7 +15,7 @@
 <h4 class="border-bottom mx-5 py-3" id="wayPoint">상품 목록</h4>
 
 <div class='container pt-3' style="min-height: 500px">
-		<!-- 정렬기준
+		<!-- 정렬기준.
 		<div class="btn-toolbar justify-content-end pr-5">
 			<div class="btn-group btn-group-sm">
 

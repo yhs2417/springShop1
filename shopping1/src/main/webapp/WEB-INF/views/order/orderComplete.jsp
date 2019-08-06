@@ -29,7 +29,7 @@
 	
 
 
-	</div><!-- container -->
+	</div><!-- container. -->
 	
 	
 <jsp:include page="../include/mainFooter.jsp" />

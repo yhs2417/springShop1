@@ -30,7 +30,7 @@ pageEncoding="UTF-8"%>
 
 		<div class="tab-content col-md-10">
 
-			<!-- 탭패널 (회원정보 수정)-->
+			<!-- 탭패널. (회원정보 수정)-->
 			<div class="tab-pane fade show active" id="infoModify">
 				<form action="" method="post" name="modifyInfoForm">
 

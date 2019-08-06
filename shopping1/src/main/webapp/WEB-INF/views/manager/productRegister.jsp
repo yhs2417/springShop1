@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
-<!-- 상품등록 탭패널-->
+<!-- 상품등록 탭패널.-->
 <div class="tab-content col-md-10">
 	<div class="tab-pane fade show active" id="register">
 

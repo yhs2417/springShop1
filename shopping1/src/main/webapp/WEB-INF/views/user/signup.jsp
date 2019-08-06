@@ -16,7 +16,7 @@ pageEncoding="UTF-8"%>
 
   <div class='container pt-3'>
 
-    <!--회원가입 폼-->
+    <!--회원가입 폼.-->
     <form action="" method="post" name="signUpForm">
 
       <fieldset class="form-group">

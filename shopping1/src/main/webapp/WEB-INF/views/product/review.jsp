@@ -16,7 +16,7 @@
 			value="후기작성" id="reviewRegister" > 
 </div>
 
-<!-- 리뷰 등록 모달 -->
+<!-- 리뷰 등록 모달. -->
 <div class='modal fade' id="reviewModal">
 		<div class='modal-dialog modal-dialog-centered'>
 			<div class='modal-content'>
