@@ -18,10 +18,10 @@
 
 	<div class="container-fruid">
 
-		<!-- 메인 캐러셀 -->
+		<!-- 메인 캐러셀1 -->
 		<div id="carousel1" class="carousel slide carousel-fade"
 			style="width: 100%; padding-top: -1px; margin-right:-10px">
-			<!-- 캐러셀 이미지 -->
+			<!-- 캐러셀 이미지. -->
 			<div class="carousel-inner  ">
 				<div class="carousel-item active">
 					<img src="<c:url value='/resources/images/pic1.jpg'/>"
