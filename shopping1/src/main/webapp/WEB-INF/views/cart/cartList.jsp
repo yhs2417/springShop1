@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html>
 <jsp:include page="../include/staticHead.jsp" />
-<!-- body -->
+
 <body id="wayPoint">
 
 	<jsp:include page="../include/plugin-JS.jsp" />
@@ -39,20 +39,10 @@
 					</table>
 				</div>
 			</div>
-		</div>
-
-
-
-
-
-
-
-
+		</div> <!-- card -->
 	</div>
 	<!-- container end -->
-
-
-
+	
 	<jsp:include page="../include/mainFooter.jsp" />
 
 	<script src="<c:url value='/resources/js/common.js'/>"></script>
@@ -61,7 +51,6 @@
 cartId=1, userId, productId, count=103, 
 productvo=ProductVO(productId, productName, companyName, explain1, explain2, thumNail=resources/images/uploads/bd2a5b43-b4e6-4cb5-8267-29f08848e2a1sec_SM-T800NZWKKOO_007_front_white.jpg, recommend=1)
 -->
-
 <script id="cartListTemplate" type="text/x-handlebars-template">
 {{#cart}}
 <tr>
@@ -69,7 +58,11 @@ productvo=ProductVO(productId, productName, companyName, explain1, explain2, thu
 		<img src="<c:url value='/{{productvo.thumNail}}'/>"
 				width=100% height=100%/>
 	</td>
-	<td>{{productvo.productName}}</td>
+	<td>
+		<a href="/shop1/product/detail?id={{productvo.productId}}"> 
+		{{productvo.productName}} 
+		</a>
+	</td>
 	<td>
 	 	 {{#comma productvo.price}}
 		{{/comma}}
@@ -120,8 +113,8 @@ productvo=ProductVO(productId, productName, companyName, explain1, explain2, thu
 <tr>
 	<td colspan="5"></td>
 	<td>
-		<a href="#" class="btn btn-warning" 
-			onclick="alert('준비중입니다')"> 주문하기 </a>
+		<a href="#" class="btn btn-warning" id="order"
+			 > 주문하기 </a>
 	</td>
 </tr>
 </script>
@@ -144,7 +137,14 @@ function getCartList()
 }		
 		
 getCartList();		
-		
+$('#cartLists').on("click","#order",function(){
+	
+let res=confirm("주문 하시겠습니까?");
+	if( res )
+	{
+		self.location="/shop1/order/info" 
+	} 
+});
 $('#cartLists').on("click",".productPlusCount", function() {
 	
 	console.log("더하기 버튼 클릭됨");
@@ -161,7 +161,6 @@ $('#cartLists').on("click",".productPlusCount", function() {
 	
 	totalPriceRenew();
 })
-
 //수량빼기 버튼
 $('#cartLists').on("click",".productMinusCount", function() {
 	let count = Number($(this).parent().prev().val());
@@ -178,7 +177,6 @@ $('#cartLists').on("click",".productMinusCount", function() {
 		totalPriceRenew();
 	}
 })
-
 $('#cartLists').on("change",".productCount", function(){
 	console.log("수량  변경됨");
 	let count=Number($(this).val());
@@ -191,7 +189,6 @@ $('#cartLists').on("change",".productCount", function(){
 	totalPriceRenew();
 	
 });
-
 //총 가격 합 계산
 function totalPriceRenew()
 {
@@ -204,7 +201,6 @@ function totalPriceRenew()
 	 console.log(sumPrice.toLocaleString());
 	 $('#totalPrice').text(sumPrice.toLocaleString());
 }
-
 //각 행 수량 변경 수정 저장
 $("#cartLists").on("click",".cartCountMod",function(){
 	let cartId=$(this).attr("id");
@@ -230,7 +226,6 @@ $("#cartLists").on("click",".cartCountMod",function(){
 		}
 	})//ajax
 })
-
 //각 행 삭제
 $("#cartLists").on("click",".cartDelRow",function(){
 	let res=confirm("해당 상품을 장바구니에서 삭제하시겠습니까?");
@@ -256,7 +251,5 @@ $("#cartLists").on("click",".cartDelRow",function(){
 	})//ajax	
 	}//if
 });
-
 console.log = function(){}
-
 </script>
