@@ -43,7 +43,7 @@ public class ReviewController
 				productId,paging,cri);  //cri는 정렬용
 		
 		System.out.println("리뷰조회 내용출력"+review);
-		System.out.println("리뷰조회 날짜출력"+review.get(0).getRegDate().getTime());
+		//System.out.println("리뷰조회 날짜출력"+review.get(0).getRegDate().getTime());
 
 		Map<String,Object> map=new HashMap<>();
 		map.put("review",review);
