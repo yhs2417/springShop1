@@ -33,13 +33,7 @@
 						</thead>
 						<tbody id="cartLists" >
 							
-<<<<<<< HEAD
-							<!-- 카트 내용 올곳 --> 
-							
-							
-=======
-							<!-- 카트 내용 들어올곳 --> 
->>>>>>> branch 'Develop' of https://github.com/yhs2417/springShop1.git
+							<!-- 카트 내용 이 들어올곳 --> 
 
 						</tbody>
 					</table>

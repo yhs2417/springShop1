@@ -16,7 +16,7 @@ pageEncoding="UTF-8"%>
 
     <div class='container pt-3' style="height:400px">
 
-      <!--login form-->
+      <!--login form.-->
       <form action="" method="post" name="loginForm">
 
         <div class="form-row">

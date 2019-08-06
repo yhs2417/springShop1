@@ -59,7 +59,7 @@
 							<i class="fas fa-minus"></i>
 						</button>
 					</div>
-			</div><!-- form-group row -->
+			</div><!-- form-group row. -->
 			
 			<div class="btn-toolbar justify-content-end">	
 				<div class="btn-group">

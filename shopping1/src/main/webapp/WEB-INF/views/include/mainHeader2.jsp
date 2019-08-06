@@ -2,7 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 	
-	<!-- 초기상태 내비바 -->
+	<!-- 초기상태 내비바. -->
 	<div class="container-fluid">
 
 		<nav style="visibility: visible ;position:absolute;z-index:100;

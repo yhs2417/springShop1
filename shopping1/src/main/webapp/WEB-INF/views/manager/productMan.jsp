@@ -19,7 +19,7 @@
 
 <div class="row">
 
-	 <!-- 좌측 메뉴 -->
+	 <!-- 좌측 메뉴. -->
 	<div class="col-md-2 list-group list-group-flush">
 		<a
 			class="list-group-item list-group-item-action

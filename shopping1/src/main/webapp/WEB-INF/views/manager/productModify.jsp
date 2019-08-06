@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
-<!-- 탭패널 (상품관리(수정, 삭제, 추천상품 등록))-->
+<!-- 탭패널 (상품관리(수정, 삭제, 추천상품 등록)).-->
 
 <div class="tab-pane fade" id="manage">
 	<!--카테고리 리스트-->

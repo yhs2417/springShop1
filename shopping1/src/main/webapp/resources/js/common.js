@@ -1,4 +1,4 @@
-//animatescroll
+//animatescroll..
 $('a.animatescroll').on("click", function() {
 		let x = $(this).attr("href")
 		$(x).animatescroll();
