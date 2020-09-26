@@ -4,145 +4,136 @@ pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
 <html>
-<jsp:include page="../include/staticHead.jsp"/>
+<jsp:include page="../include/htmlHeader.jsp"/>
 
 <body>
+	<jsp:include page="../include/hiddenMenu.jsp" />
+	<jsp:include page="../include/mainHeader.jsp"/>
 
-<jsp:include page="../include/plugin-JS.jsp"/>
-<jsp:include page="../include/mainHeader.jsp"/>
-
-<h4 class="border-bottom mx-5 py-3" id="wayPoint">
-	회원정보 관리</h4>
+<div class="subPageBanner" style="width:85%">
+   	<h2> 회원정보관리 </h2>
+   	<h4> member info</h4>
+</div>
 
 <!--회원의 개인관리 -->
-<div class='container pt-3' style="height: 800px">
+<div class='container pt-3' id="userInfo">
 
-	<div class="row">
-		<div class="col-md-2 list-group list-group-flush" id="user_info_menu">
-			<a class="list-group-item list-group-item-action
-		active list-group-item-light" data-toggle="list" href="#infoModify">회원정보수정</a>
-			<a class="list-group-item list-group-item-action
-	list-group-item-light" data-toggle="list" href="#orders">주문조회</a>
-			<a class="list-group-item list-group-item-action
-		list-group-item-light" data-toggle="list" href="#withdrawal">회원탈퇴</a>
-		</div>
+		<aside id="user_info_menu">		
+			<ul>
+				<li class="active">
+					개인정보수정
+				</li>
+				<li>
+					주문조회
+				</li>
+				<li>
+					회원탈퇴
+				</li>				
+			</ul>
+		</aside>
 
 
-		<div class="tab-content col-md-10">
+		<!-- 탭패널. (회원정보 수정)-->
+		<content style="display:block">
 
-			<!-- 탭패널. (회원정보 수정)-->
-			<div class="tab-pane fade show active" id="infoModify">
-				<form action="" method="post" name="modifyInfoForm">
+			<div id="infoModify">
+			
+	  			<form action="" method="post" name="modifyInfoForm" id="modifyInfoForm">
 
-					<div class="list-group">
-						<a href="#" class="list-group-item list-group-item-action" data-toggle="collapse">
-							Id</a>
-						<div class="collapse show mx-4 my-4">
+      				<fieldset class="form-group">
+	       				<div class="row">
+	          				<legend class="col-md-3 col-form-label pt-0 pr-5 text-right">
+	
+	            				<strong>기본정보</strong>
+	          				</legend>
+	          				<!--아이디, 비밀번호 폼-->
+	          				<div class="col-md-9 border-left">
+	            				<div class="form-group">
+	              					<label for="userId">아이디</label>
+	
+	              					<input type="text" class="form-control" id="userId" required="required" readonly="readonly" value="${login.userId}" name="userId">
+	
+	            				</div>
+	            				<div class="form-group">
+		              				<label for="userPwd">암호변경</label>
+		              				<input type="password" class="form-control" id="userPwd" required="required" placeholder="특수문자 포함 8자이상" name="userPwd">
+		                			<div class="valid-feedback">사용가능한 비밀번호입니다</div>
+		                			<div class="invalid-feedback">적절하지 않은 비밀번호입니다</div>
+	             				</div>
+	               				<div class="form-group">
+				                    <label for="userPwd2">암호확인</label>
+				                    <input type="password" class="form-control" id="userPwd2" required="required" placeholder="특수문자 포함 8자이상" name="userPwd2">
+				                    <div class="valid-feedback">일치하는 비밀번호입니다</div>
+				                    <div class="invalid-feedback">비밀번호가 일치하지 않습니다</div>
+	               				</div>
+	            			</div>
+	              		</div>
+            		</fieldset>
 
-							<div class="form-group row">
-								<label for="userId" class="col-md-2
-           		 col-form-label">아이디</label>
+            		<fieldset class="form-group">
+              			<div class="row" >
+               				<legend class="col-md-3 col-form-label pt-0 pr-5 text-right">
+                 		 		<strong>주소</strong>
+                			</legend>
+                	<!--주소 폼-->
+                			<div class="col-md-9 border-left">
+	                  			<div class="form-group row" style="margin-right:0; margin-left:0;">
+	
+		                    		<input type="text" class="form-control col-md-3 col-sm-5" placeholder="우편번호" value='${login.addrNum}' id="addrNum" name="addrNum" readonly="readonly">
+		                      		<button type="button" class="btn btn-white col-md-4 col-sm-5 " onclick="execPostCode();">우편번호검색</button>
+	                    		</div>
+		                    	<div class="form-group">
+		                    		<input type="text" class="form-control" id="addr1" readonly="readonly" name="addr1" placeholder="기본주소"  value="${login.addr1}">
+		                    	</div>
+		                      	<div class="form-group">
+		                        	<input type="text" class="form-control" id="addr2" required="required" placeholder="상세주소" name="addr2" value="${login.addr2}">
+		                        </div>
+                		 
+                     		<button type="button" id="modifyUserBtn" class="btn btn-danger">
+                      		수정하기
+                      		</button>
+            			 
+		                    </div>
+                		</div>
+            		</fieldset>
+                <!--제출 버튼-->
+            
+        	</form>
+        </div>
+	</content>
+			<!-- 탭패널 (회원주문 조회)-->
+	<content id="orders" style="display:none">		
+			준비중입니다
+	</content>
+			<!-- 탭패널 (회원 탈퇴)-->
+	<content id="withdrawal"style="display:none">
+		
+		<fieldset class="form-group">
+              <div class="row" >
+               		<legend class="col-md-3 col-form-label pt-0 pr-5 text-right">
+                 		 <strong>회원탈퇴</strong>
+                	</legend>
+                	
+                	<div class="col-md-9 border-left">
+	                  	<div class="form-group row" style="margin-right:0; margin-left:0;">
+	
+		                    <label for="withdrawal" class="col-md-2 col-form-label">아이디</label>
+   							<input type="text" class="form-control  col-md-5" id="userId" required="required" readonly="readonly" value="${login.userId}" name="userId">
+	                    </div>
+                     	<button type="button" id="withdrawalBtn" class="btn btn-danger">
+                      		회원탈퇴
+                      	</button>
+            			 
+		             </div>
+            </div>
+        </fieldset>
+	
+	</content>
+ 
+</div>
 
-								<input type="text" class="form-control
-           		 col-md-5" id="userId" required="required" readonly="readonly" value="${login.userId}" name="userId"></div>
-							</div>
-							<!-- collapse end -->
-						</div>
-						<!-- list-group end -->
 
-						<div class="list-group">
-							<a href="#" class="list-group-item list-group-item-action" data-toggle="collapse">
-								Password</a>
-							<div class="collapse show mx-4 my-4">
-
-								<div class="form-group row">
-									<label for="userPwd" class="col-md-2
-           		 col-form-label">암호</label>
-
-									<input type="password" class="form-control
-           		 col-md-5" placeholder="특수문자 포함 8자이상" id="userPwd" required="required" name="userPwd"></div>
-									<div class="valid-feedback">사용가능한 비밀번호입니다</div>
-									<div class="invalid-feedback">적절하지 않은 비밀번호입니다</div>
-
-									<div class="form-group row">
-										<label for="userPwd2" class="col-md-2
-           		 col-form-label">암호확인</label>
-
-										<input type="password" class="form-control
-           		 col-md-5" placeholder="특수문자 포함 8자이상" id="userPwd2" required="required" name="userPwd2"></div>
-										<div class="valid-feedback">일치하는 비밀번호입니다</div>
-										<div class="invalid-feedback">비밀번호가 일치하지 않습니다</div>
-
-									</div>
-									<!-- collapse end -->
-								</div>
-
-								<div class="list-group">
-									<a href="#" class="list-group-item list-group-item-action" data-toggle="collapse">
-										주소</a>
-
-									<div class="collapse show mx-4 my-4">
-
-										<div class="form-group row">
-
-											<input type="text" class="form-control col-md-2 ml-3" placeholder="우편번호" id="addrNum" name="addrNum" value='${login.addrNum}' readonly="readonly">
-												<button type="button" class="btn btn-white col-md-2 ml-2" onclick="execPostCode();">우편번호검색</button>
-											</div>
-											<div class="form-group">
-												<input type="text" class="form-control" id="addr1" readonly="readonly" name="addr1" value="${login.addr1}" placeholder="기본주소"></div>
-												<div class="form-group">
-													<input type="text" class="form-control" id="addr2" required="required" placeholder="상세주소" value="${login.addr2}" name="addr2"></div>
-
-													<div class="form-group row pt-4">
-														<div class="col-md-9">
-
-															<button type="button" id="modifyUserBtn" class="btn btn-white">수정하기</button>
-														</div>
-													</div>
-
-												</div>
-												<!-- collapse end -->
-											</div>
-											<!-- list-group end -->
-										</form>
-									</div>
-
-									<!-- 탭패널 (회원주문 조회)-->
-									<div class="tab-pane fade show" id="orders">준비중입니다</div>
-
-									<!-- 탭패널 (회원 탈퇴)-->
-									<div class="tab-pane fade show" id="withdrawal">
-
-										<div class="list-group">
-											<a href="#" class="list-group-item list-group-item-action" data-toggle="collapse">
-												회원탈퇴
-											</a>
-											<div class="collapse show mx-4 my-4">
-
-												<div class="form-group row">
-													<label for="withdrawal" class="col-md-2
-           		 col-form-label">아이디</label>
-
-													<input type="text" class="form-control  col-md-5" id="userId" required="required" readonly="readonly" value="${login.userId}" name="userId">
-
-														<button type="button" id="withdrawalBtn" class="btn btn-danger offset-md-1">탈퇴</button>
-													</div>
-
-												</div>
-												<!-- collapse end -->
-											</div>
-
-										</div>
-										<!-- 탭패널3-->
-									</div>
-									<!-- 탭끝 -->
-								</div>
-							</div>
 <jsp:include page="../include/mainFooter.jsp"/>
-
-<script src="<c:url value='/resources/js/common.js'/>"></script>
-<script src="<c:url value='/resources/js/addrNum.js'/>"></script>
-
 <script>
 const getIdCheck = RegExp(/^[a-zA-Z0-9]{4,14}$/);
 const getPwCheck = RegExp(/([a-zA-Z0-9].*[!,@,#,$,%,^,&,*,?,_,~])|([!,@,#,$,%,^,&,*,?,_,~].*[a-zA-Z0-9])/);
@@ -154,6 +145,7 @@ $('#userPwd').on('keyup', function () {
 	//비밀번호 공백 확인
 	if ($("#userPwd").val() === "") {
 		$('#userPwd').removeClass("is-invalid");
+		$('#userPwd').removeClass("is-valid");
 		chk2 =//비밀번호 유효성검사
 		false;
 	} else if (!getPwCheck.test($("#userPwd").val()) || $("#userPwd").val().length < 8) {
@@ -173,7 +165,8 @@ $('#userPwd2').on('keyup', function () {
 	//비밀번호 확인란 공백 확인
 	if ($("#userPwd2").val() === "") {
 		$('#userPwd2').removeClass("is-invalid");
-		chk3 =//비밀번호 확인란 유효성검사
+		$('#userPwd2').removeClass("is-valid");
+		chk3 = false;//비밀번호 확인란 유효성검사
 		false;
 	} else if ($("#userPwd2").val() != $("#userPwd").val()) {
 		$('#userPwd2').removeClass("is-valid");
@@ -188,9 +181,6 @@ $('#userPwd2').on('keyup', function () {
 
 $('#modifyUserBtn').on("click", function () {
 
-	console.log($ {
-		login.addr2
-	})
 	if (chk2 && chk3) {
 		const user = {
 			userId: $("#userId").val(),
@@ -199,7 +189,7 @@ $('#modifyUserBtn').on("click", function () {
 			addr1: $("#addr1").val(),
 			addr2: $("#addr2").val()
 		};
-		console.log(user);
+		//console.log(user);
 
 		$.ajax({
 			type: "POST",
@@ -227,7 +217,6 @@ $('#modifyUserBtn').on("click", function () {
 
 $('#withdrawalBtn').on("click", function () {
 	let x = confirm("회원 탈퇴 하시겠습니까?");
-	console.log(x)
 	if (x == true) {
 
 		$.ajax({
@@ -250,8 +239,14 @@ $('#withdrawalBtn').on("click", function () {
 	}
 }) //withdrawalBtn 끝
 
-
-console.log = function(){}
+$('#user_info_menu li').on("click", function(){
+	$(this).addClass("active");
+	var index = $(this).index() + 1;
+	 
+	$('#userInfo content:nth-of-type(' + index + ')').css("display","block");
+	$('#userInfo content:not(:nth-of-type(' + index + '))').css("display","none");	
+	$('#userInfo aside li:not(:nth-of-type(' + index + '))').removeClass("active");	
+});
 
 </script>
 </body>

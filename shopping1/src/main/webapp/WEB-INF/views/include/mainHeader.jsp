@@ -1,88 +1,249 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-	
-	<!-- Top으로 가는버튼. -->
-	<div id="btn_top"
-		style="position: fixed; bottom: 0; right: 0; width: 60px; height: 80px; z-index: 99; visibility: hidden">
-		<a href="#" onclick="$('body').animatescroll()"> <i
-			class="fas fa-arrow-up fa-2x text-body"></i>
-		</a>
-	</div>
-	
-	<!-- 스크롤 내리면 나타나는 nav -->
-	<div class="container-fluid">
-
-		<nav id="secondNav" style="visibility: hidden"
-			class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-				<div class="container">
-				
-				<a class='navbar-brand' href="<c:url value='/'/>">HOME</a>
- 				
-				<ul class="nav nav-pills">
-					<li class="nav-item "><a class='nav-link animatescroll'
-						href='<c:url value='/product/list?category=computer'/>'>desktop</a></li>
-					<li class="nav-item"><a class='nav-link animatescroll'
-						href='<c:url value='/product/list?category=NoteBook'/>'>Notebook</a></li>
-				</ul>
-				<button type='button' class='navbar-toggler' data-toggle='collapse'
-					data-target='#users2'>
-					<span class="navbar-toggler-icon"></span>
-				</button>	
-				<c:if test="${login==null}">
-						<div class='collapse navbar-collapse' id='users2'>
-							<ul class='navbar-nav text-right ml-auto'>
-								<li class="nav-item">
-									<a class=" text-white nav-link"
-										href="<c:url value='/user/login'/>">로그인
-									</a>
-								</li>
-								<li class="nav-item">
-									<a class="text-white nav-link" href="<c:url value='/user'/>">회원가입
-									</a>
-								</li>
-							</ul>
-						</div>
-					</c:if>
+ <header>
+    <div id="hd_content1">
+        <div id="content_inner"> 
+            <ul>
+                <li> 
+                    <a href="<c:url value='/'/>">
+                        <img src='<c:url value="/resources/images/logo.png"/>' width="110">
+                    </a>
+                </li>
+                
+            </ul>
+            <div id="searchBar">
+                <div>
+	                <input type="text">
+	                <a href="#">
+	                    <img src='<c:url value="/resources/images/icons/searchicon.png"/>' width="100%">
+	                </a>
+                </div>
+            </div>
+            <ul>
+	           	<c:if test="${login==null}">
+					
+					<li>
+	                    <a href="<c:url value='/user/login'/>">
+	                        <span>로그인</span>
+	                        <img src='<c:url value="/resources/images/icons/power.png"/>'>
+	                    </a>
+	                </li>
+	             	<li style="width:0;margin-left:0"></li>
+	                <li>
+	                    <a href="<c:url value='/cart/info'/>">
+	                        <span>장바구니</span>
+	                        <img src='<c:url value="/resources/images/icons/carticon.png"/>'>
+	                    </a>
+	                </li>
+	                <li>
+	                    <a href="#" onclick="alert('주문내역은 준비중입니다');">
+	                        <span>주문내역</span>
+	                        <img src='<c:url value="/resources/images/icons/book_13.png"/>'>
+	                    </a>
+	                </li>
+	                <li id="menuBtn">
+	                    <a>
+	                        <img src='<c:url value="/resources/images/icons/menu.png" />'/>
+	                    </a>
+	                </li>
+				</c:if>
 				<c:if test="${login.userId=='admin'}">
-						<div class='collapse navbar-collapse' id='users2'>
-							<ul class='navbar-nav text-right ml-auto'>
+					<li>
+	                    <a class="logoutBtn">
+	                        <span>로그아웃</span>
+	                        <img src='<c:url value="/resources/images/icons/power.png"/>'>
+	                    </a>
+	                </li>
+					<li>
+	                   <a href="<c:url value='/user/info'/>">
+	                       <span>회원정보</span>
+	                       <img src='<c:url value="/resources/images/icons/loginicon.png"/>'>
+	                   </a>
+	                </li>
+	                <li>
+	                    <a href="<c:url value='/manager'/>">
+	                        <span>상품관리</span>
+	                        <img src='<c:url value="/resources/images/icons/setting.png"/>'>
+	                    </a>
+	                </li>
+	                  <li>
+	                    <a href="<c:url value='/cart/info'/>">
+	                        <span>장바구니</span>
+	                        <img src='<c:url value="/resources/images/icons/carticon.png"/>'>
+	                    </a>
+	                </li>
+	             <%--    <li>
+	                    <a href="#" onclick="alert('주문내역은 준비중입니다');">
+	                        <span>주문내역</span>
+	                        <img src='<c:url value="/resources/images/icons/book_13.png"/>'>
+	                    </a>
+	                </li> --%>
+	                <li id="menuBtn">
+	                    <a>
+	                        <img src='<c:url value="/resources/images/icons/menu.png"/>'  />
+	                    </a>
+	                </li>
+				</c:if>
+				<c:if test="${login.userId!='admin' && login!=null}">
+					<li>
+	                    <a class="logoutBtn">
+	                        <span>로그아웃</span>
+	                        <img src='<c:url value="/resources/images/icons/power.png"/>'>
+	                    </a>
+	                </li>
+					<li>
+	                   <a href="<c:url value='/user/info'/>">
+	                       <span>회원정보</span>
+	                       <img src='<c:url value="/resources/images/icons/loginicon.png"/>'>
+	                   </a>
+	                </li>
+	                <li>
+	                    <a href="<c:url value='/cart/info'/>">
+	                        <span>장바구니</span>
+	                        <img src='<c:url value="/resources/images/icons/carticon.png"/>'>
+	                    </a>
+	                </li>
+	        <%--         <li>
+	                    <a href="#" onclick="alert('주문내역은 준비중입니다');">
+	                        <span>주문내역</span>
+	                        <img src='<c:url value="/resources/images/icons/book_13.png"/>'>
+	                    </a>
+	                </li> --%>
+	                <li id="menuBtn">
+	                    <a>
+	                        <img src='<c:url value="/resources/images/icons/menu.png" />'>
+	                    </a>
+	                </li>
+				</c:if> 
+            </ul>
+            
+        </div>
+    </div> <!--end hd_content1-->
+    
+    <div id="hd_content2"> 
+        <div id="content_inner"> 
+            <ul>
+                <c:if test="${login==null}">
+	                <li><a href="<c:url value='/user/login'/>">LOGIN</a></li>
+	                <li><a href="<c:url value='/user'/>">JOIN</a></li>
+            	</c:if>
+			
+				<c:if test="${login.userId=='admin'}">
+	                <li><a href="<c:url value='/user/info'/>">회원정보</a></li>
+					<li><a class="logoutBtn">LOGOUT</a></li>			
+				</c:if>
 
-								<li class="nav-item dropdown">
-								<a class="nav-link dropdown-toggle" href="#" role="button"
-									data-toggle="dropdown"> admin님
-								</a>
-									<div class="dropdown-menu">
-										<a class="dropdown-item" href="<c:url value='/manager'/>">상품관리</a> 
-										 
-										<a class="dropdown-item" href="<c:url value='/cart/info'/>">장바구니</a> 
-											
-										<a class="dropdown-item" href="<c:url value='/user/info'/>">정보수정</a> 
-										<a class="dropdown-item" href="<c:url value='/user/logout'/>">로그아웃</a>
-
-									</div>
-							</ul>
-						</div>
-					</c:if>
-
-					<c:if test="${login.userId!='admin' && login!=null}">
-
-						<div class='collapse navbar-collapse' id='users2'>
-							<ul class='navbar-nav text-right ml-auto'>
-								<li class="nav-item dropdown">
-									<a class="nav-link dropdown-toggle" href="#" role="button"
-									data-toggle="dropdown"> ${login.userId}님</a>
-									<div class="dropdown-menu">
-										<a class="dropdown-item" href="<c:url value='/user/info'/>">회원정보관리</a>
-									 	<a class="dropdown-item" href="<c:url value='/cart/info'/>">장바구니</a> 
-										<a class="dropdown-item" href="#">주문결제내역</a> 
-										<a class="dropdown-item" href="<c:url value='/user/logout'/>">로그아웃</a>
-									</div>
-							</ul>
-						</div>
-					</c:if>
-			</div>
-		</nav>
-	</div>
-
+				<c:if test="${login.userId!='admin' && login!=null}">
+	                <li><a href="<c:url value='/user/info'/>">회원정보</a></li>
+					<li><a class="logoutBtn">LOGOUT</a></li>
+				</c:if> 
+            </ul>
+            <ul>
+                <li>
+                    <a href="<c:url value='/product/list?category=computer'/>">데스크탑</a>
+                    <div class="subMenu">
+                        <dl>
+                            <dt>
+                                <a href="<c:url value='/product/list?category=computer'/>">삼성</a>
+                            </dt>
+                            <dd>
+                                <a href="<c:url value='/product/list?category=computer'/>">Apple</a>
+                            </dd>
+                            <dt>
+                                <a href="<c:url value='/product/list?category=computer'/>">LG</a>
+                            </dt>
+                            <dd>
+                                <a href="<c:url value='/product/list?category=computer'/>">hp</a>
+                            </dd>
+                           
+                        </dl>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">노트북</a>
+                    <div class="subMenu">
+                        <dl>
+                            <dt>
+                                <a href="<c:url value='/product/list?category=NoteBook'/>">삼성</a>
+                            </dt>
+                            <dd>
+                                <a href="<c:url value='/product/list?category=NoteBook'/>">Apple</a>
+                            </dd>
+                            <dt>
+                                <a href="<c:url value='/product/list?category=NoteBook'/>">레노바</a>
+                            </dt>
+                            <dd>
+                                <a href="<c:url value='/product/list?category=NoteBook'/>">LG</a>
+                            </dd>
+                         
+                        </dl>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">테블릿</a>
+                    <div class="subMenu">
+                        <dl>
+                            <dt>
+                                <a href="<c:url value='/product/list?category=tablet'/>">삼성</a>
+                            </dt>
+                            <dd>
+                                <a href="<c:url value='/product/list?category=tablet'/>">Apple</a>
+                            </dd>
+                            <dt>
+                                <a href="<c:url value='/product/list?category=tablet'/>">LG</a>
+                            </dt>
+                            <dd>
+                                <a href="<c:url value='/product/list?category=tablet'/>">아마존</a>
+                            </dd>
+                             
+                            
+                        </dl>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">스마트폰</a>
+                    <div class="subMenu">
+                        <dl>
+                            <dt>
+                                <a href="<c:url value='/product/list?category=phone'/>">삼성</a>
+                            </dt>
+                            <dd>
+                                <a href="<c:url value='/product/list?category=phone'/>">Apple</a>
+                            </dd>
+                            <dt>
+                                <a href="<c:url value='/product/list?category=phone'/>">샤오미</a>
+                            </dt>
+                            <dd>
+                                <a href="<c:url value='/product/list?category=phone'/>">LG</a>
+                            </dd>
+                        </dl>
+                    </div>
+                </li>
+                <li>
+                    <a>TV</a>
+                    <div class="subMenu">
+                        <dl>
+                            <dt>
+                                <a href="<c:url value='/product/list?category=tv'/>">삼성</a>
+                            </dt>
+                            <dd>
+                                <a href="<c:url value='/product/list?category=tv'/>">LG</a>
+                            </dd>
+                            <dt>
+                                <a href="<c:url value='/product/list?category=tv'/>">필립스</a>
+                            </dt>
+                            <dd>
+                                <a href="<c:url value='/product/list?category=tv'/>">소니</a>
+                            </dd>
+                           
+                        </dl>
+                    </div>
+                </li>
+                <li>
+                
+                </li>
+            </ul>  
+        </div>
+    </div> <!--end hd_content2-->
+</header> 	
