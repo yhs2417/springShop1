@@ -44,6 +44,18 @@
  				</div>
 			</div>
 		</div>	
+		<!-- 검색어 -->
+			<div class="form-group row pt-5">
+       		 		
+				<select	class="form-control col-md-1 offset-md-3" id="condition1">
+					<option selected value='productName'>제품명</option>
+					<option value='companyName'>제조사</option>
+				</select>
+				<input type="text" placeholder="검색어"
+						class="keyword1 form-control col-md-4 mr-2">
+				<input type="button"  value="검색"
+				class="form-control col-md-1 searchingBtn">
+			</div>
 		<!-- 각 탭 공통 ui 끝 -->
 
 		<!--각 카테고리 리스트(폼만 만들어 놓고, 각 카테로리 버튼 클릭시
@@ -80,18 +92,7 @@
 			</div>
 			<!-- class='table-responsive'>끝 -->
 			
-			<!-- 검색어 -->
-			<div class="form-group row pt-5">
-       		 		
-				<select	class="form-control col-md-1 offset-md-3" id="condition1">
-					<option selected value='productName'>제품명</option>
-					<option value='companyName'>제조사</option>
-				</select>
-				<input type="text" placeholder="검색어"
-						class="keyword1 form-control col-md-4 mr-2">
-				<input type="button"  value="검색"
-				class="form-control col-md-1 searchingBtn">
-			</div>
+			
 			
 			<!-- 페이징 오는 부분 -->
 

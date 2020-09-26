@@ -4,26 +4,26 @@ pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
 <html>
-<jsp:include page="../include/staticHead.jsp"/>
+<jsp:include page="../include/htmlHeader.jsp"/>
 
 <body>
+	<jsp:include page="../include/hiddenMenu.jsp" />
+    <jsp:include page="../include/mainHeader.jsp"/>
 
-  <jsp:include page="../include/plugin-JS.jsp"/>
-  <jsp:include page="../include/mainHeader.jsp"/>
-
-  <h4 class="border-bottom mx-5 py-3" id="wayPoint">
-    회원가입</h4>
-
-  <div class='container pt-3'>
+<div class="subPageBanner">
+   	<h2> 회원가입 </h2>
+   	<h4> member signUp </h4>
+</div>
+  <div class='container pt-3' style="width:60%;">
 
     <!--회원가입 폼.-->
-    <form action="" method="post" name="signUpForm">
+    <form action="" method="post" name="signUpForm" id="signUpForm">
 
       <fieldset class="form-group">
         <div class="row">
           <legend class="col-md-3 col-form-label pt-0 pr-5 text-right">
 
-            <strong>ID</strong>
+            <strong>기본정보</strong>
           </legend>
           <!--아이디, 비밀번호 폼-->
           <div class="col-md-9 border-left">
@@ -53,16 +53,16 @@ pageEncoding="UTF-8"%>
             </fieldset>
 
             <fieldset class="form-group">
-              <div class="row">
+              <div class="row" >
                 <legend class="col-md-3 col-form-label pt-0 pr-5 text-right">
                   <strong>주소</strong>
                 </legend>
                 <!--주소 폼-->
                 <div class="col-md-9 border-left">
-                  <div class="form-group row">
+                  <div class="form-group row" style="margin-right:0; margin-left:0;">
 
-                    <input type="text" class="form-control col-md-2 ml-3" placeholder="우편번호" id="addrNum" name="addrNum" readonly="readonly">
-                      <button type="button" class="btn btn-white col-md-2 ml-2" onclick="execPostCode();">우편번호검색</button>
+                    <input type="text" class="form-control col-md-3 col-sm-5" placeholder="우편번호" id="addrNum" name="addrNum" readonly="readonly">
+                      <button type="button" class="btn btn-white col-md-4 col-sm-5 " onclick="execPostCode();">우편번호검색</button>
                     </div>
                     <div class="form-group">
                       <input type="text" class="form-control" id="addr1" readonly="readonly" name="addr1" placeholder="기본주소"></div>
@@ -82,10 +82,7 @@ pageEncoding="UTF-8"%>
               </div>
 
 <jsp:include page="../include/mainFooter.jsp"/>
-
-<script src="<c:url value='/resources/js/common.js'/>"></script>
-<script src="<c:url value='/resources/js/addrNum.js'/>"></script>
-
+ 
 <script>
 
   $('#userId').focus();
@@ -101,7 +98,9 @@ pageEncoding="UTF-8"%>
   $('#userId').on('keyup', function () {
     if ($("#userId").val() === "") {
       $('#userId').removeClass("is-invalid");
-      console.log($('#userId').attr("class"));
+      $('#userId').removeClass("is-valid");
+
+      //console.log($('#userId').attr("class"));
       chk1 = false;
     }
 
@@ -113,9 +112,7 @@ pageEncoding="UTF-8"%>
       //ID 중복확인 비동기 처리(유효성 검사후 )
       chk1 =  false;
     
-    } 
-    else 
-    {
+    } else {
       $.ajax({
         type: "POST",
         url: "/shop1/user/idCheck",
@@ -140,7 +137,7 @@ pageEncoding="UTF-8"%>
           }
         },
         error: function (error) {
-          console.log("error : " + error);
+          //console.log("error : " + error);
         }
       }); //ajax 끝
     }
@@ -151,6 +148,8 @@ pageEncoding="UTF-8"%>
     //비밀번호 공백 확인
     if ($("#userPwd").val() === "") {
       $('#userPwd').removeClass("is-invalid");
+      $('#userPwd').removeClass("is-valid");
+
       chk2 =//비밀번호 유효성검사
       false;
     } else if (!getPwCheck.test($("#userPwd").val()) || $("#userPwd").val().length < 8) {
@@ -170,7 +169,9 @@ pageEncoding="UTF-8"%>
     //비밀번호 확인란 공백 확인
     if ($("#userPwd2").val() === "") {
       $('#userPwd2').removeClass("is-invalid");
-      chk3 =//비밀번호 확인란 유효성검사
+      $('#userPwd2').removeClass("is-valid");
+
+      chk3 = false;//비밀번호 확인란 유효성검사
       false;
     } else if ($("#userPwd2").val() != $("#userPwd").val()) {
       $('#userPwd2').removeClass("is-valid");
@@ -194,7 +195,7 @@ pageEncoding="UTF-8"%>
         addr1: $("#addr1").val(),
         addr2: $("#addr2").val()
       };
-      console.log(user);
+      //console.log(user);
 
       $.ajax({
         type: "POST",
@@ -218,7 +219,6 @@ pageEncoding="UTF-8"%>
     }
   }); //signupbtn 끝
   
-  console.log = function(){}
 </script>
 </body>
 </html>

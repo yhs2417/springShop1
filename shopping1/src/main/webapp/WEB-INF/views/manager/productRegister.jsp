@@ -4,99 +4,85 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <!-- 상품등록 탭패널.-->
-<div class="tab-content col-md-10">
-	<div class="tab-pane fade show active" id="register">
+<content style="display:block" id="register">
+  	<form action="<c:url value='manager/register'/>" method="post" enctype="multipart/form-data">
 
-		<form action="<c:url value='manager/register'/>" method="post"
-			enctype="multipart/form-data">
+     	<fieldset class="form-group">
+    		<div class="row">
+       			<legend class="col-md-3 col-form-label pt-0 pr-5 text-right">
 
-			<div class="list-group">
-				<a href="#" class="list-group-item list-group-item-action"
-					data-toggle="collapse"> 기본정보</a>
-
-				<div class="collapse show mx-4 my-4">
-
-					<div class="form-group row">
-						<label for="productName" class="col-md-2 col-form-label">상품이름</label>
-
-						<input type="text" class="form-control col-md-5" id="productName"
-							required name="productName">
-					</div>
-
-					<div class="form-group row">
-						<label for="price"
-							class="col-md-2
-           					 col-form-label">상품가격</label> <input
-							type="text" class="form-control col-md-5" id="price" required
-							name="price">
-					</div>
-					<div class="form-group row">
-						<label for="category"
-							class="col-md-2
-           					 col-form-label">분류</label>
-           				<select
-							class="form-control col-md-5 categorySelect" name="category">
-							<option selected>분류..</option>
-							<c:forEach var="i" items="${category}">
-								<option value='${i.category}'>${i.category}</option>
-							</c:forEach>
+         			<strong>기본정보</strong>
+       			</legend>
+       		
+       			<div class="col-md-9 border-left">
+         			<div class="form-group">
+           				<label for="productName">상품이름</label>
+           				<input type="text" class="form-control" id="productName" required="required" name="productName">
+         			</div>
+         			<div class="form-group">
+            			<label for="price">상품가격</label>
+            			<input type="password" class="form-control" id="price" required="required" name="price">
+              		 
+          			</div>
+            		<div class="form-group">
+                    	<label for="category">분류</label>
+                   		<select class="form-control categorySelect" name="category">
+				
+						<option selected>분류..</option>
+						<c:forEach var="i" items="${category}">
+							<option value='${i.category}'>${i.category}</option>
+						</c:forEach>
 
 						</select>
-					</div>
+            		</div>
+            		<div class="form-group">
+                    	<label for="company">제조사</label>
+            
+                    	<select class="form-control categorySelect" name="companyName">
+				
+						<option selected>제조사..</option>
+						<c:forEach var="i" items="${category}">
+							<option value='${i.category}'>${i.category}</option>
+						</c:forEach>
 
-					<div class="form-group row">
-						<label for="company"
-							class="col-md-2
-          					 col-form-label">제조사</label> <select
-							class="form-control col-md-5 companySelect" name="companyName">
-							<option selected>제조사..</option>
 						</select>
-					</div>
-
-					<div class="form-group row">
-						<label for="thumNail" class="col-md-2"> 썸네일사진</label> <input
-							type="file" class="form-control-file col-md-5" id="thumNail"
-							required name="img">
-					</div>
-
-					<div class="form-group row">
-						<label for="explain1"
-							class="col-md-2
-          					 col-form-label">간략 설명</label>
-
-						<textarea rows=3 class="form-control col-md-5" placeholder=""
+            		</div>
+            		<div class="form-group">
+                    	<label for="thumNail">썸네일</label>
+            
+                   		<input type="file" class="form-control-file" id="thumNail" required name="img">
+            		</div>
+            		<div class="form-group">
+                    	<label for="explain1">간략설명</label>
+            			<textarea rows=3 class="form-control" placeholder=""
 							required name="explain1"></textarea>
-					</div>
-				</div>	<!-- collapse end -->
-			</div>	<!-- list-group end -->
+            		</div>
+         		</div>
+           	</div>
+        </fieldset>
 
-
-			<div class="list-group">
-				<a href="#" class="list-group-item list-group-item-action"
-					data-toggle="collapse"> 제품 상세정보 </a>
-
-				<div class="collapse show mx-4 my-4">
-					<div class="form-group row">
-						<label for="explain2"
-							class="col-md-2
-           					 col-form-label">상세 설명</label>
-
-
-						<textarea class="form-control col-md-5 summerNote"
-							id="summerNote1" placeholder="" required name="explain2"></textarea>
-					</div>
-					<div class="form-group row pt-4">
-						<div class="col-md-9">
-
-							<button type="submit" id="registerBtn" 
-							class="btn btn-danger">등록하기</button>
-						</div>
-					</div>
-				</div><!-- collapse end -->
-
-			</div>	<!-- list-group end -->
-
-		</form>
-	</div><!-- tab-pane -->
+        <fieldset class="form-group">
+          	<div class="row" >
+           		<legend class="col-md-3 col-form-label pt-0 pr-5 text-right">
+             		 <strong>상세정보</strong>
+            	</legend>
+               
+               	<div class="col-md-9 border-left">
+                  	<div class="form-group">
+			             
+			            <textarea class="form-control summerNote" id="summerNote1" 
+			            		 placeholder="" required name="explain2">
+						</textarea>
+               		</div>
+             
+                	<button type="submit" id="registerBtn" class="btn btn-danger">
+                 		등록하기
+                 	</button>
+           			 
+	            </div>
+            </div>
+       </fieldset>   
+   </form>
+</content>
 
 <!-- 탭패널 1 끝 -->

@@ -5,14 +5,17 @@
 
 <!DOCTYPE html>
 <html>
-<jsp:include page="../include/staticHead.jsp" />
+<jsp:include page="../include/htmlHeader.jsp" />
 
-<body id="wayPoint">
+<body >
 
-	<jsp:include page="../include/plugin-JS.jsp" />
+	<jsp:include page="../include/hiddenMenu.jsp" />
 	<jsp:include page="../include/mainHeader.jsp" />
 
-	<h4 class="border-bottom mx-5 py-3 ">주문완료</h4>
+	<div class="subPageBanner" style="width:85%">
+	   	<h2>주문완료</h2>
+	   	<h4>Order Complete</h4>
+	</div>
 
 	<div class='container pt-3' style="min-height: 700px">
 		<div class="text-center pt-5">
@@ -34,6 +37,5 @@
 	
 <jsp:include page="../include/mainFooter.jsp" />
 
-<script src="<c:url value='/resources/js/common.js'/>"></script>
 
 	

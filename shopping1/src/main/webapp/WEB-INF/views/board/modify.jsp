@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 
-<jsp:include page="../include/staticHead.jsp" />
+<jsp:include page="../include/htmlHeader.jsp" />
 
 <body onload="form1.header.focus()">
 

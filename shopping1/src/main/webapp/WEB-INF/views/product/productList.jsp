@@ -5,16 +5,19 @@
 
 <!DOCTYPE html>
 <html>
-<jsp:include page="../include/staticHead.jsp" />
+<jsp:include page="../include/htmlHeader.jsp" />
 
 <body>
 
-<jsp:include page="../include/plugin-JS.jsp" />
-<jsp:include page="../include/mainHeader.jsp" />
+	<jsp:include page="../include/hiddenMenu.jsp" />
+	<jsp:include page="../include/mainHeader.jsp" />
 
-<h4 class="border-bottom mx-5 py-3" id="wayPoint">상품 목록</h4>
+<div class="subPageBanner">
+   	<h2> 제품리스트 </h2>
+   	<h4> {{제품 부류/ 제조사}} </h4>
+</div>
 
-<div class='container pt-3' style="min-height: 500px">
+<div class='container pt-3' style="min-height: 500px" id="productListContainer">
 		<!-- 정렬기준.
 		<div class="btn-toolbar justify-content-end pr-5">
 			<div class="btn-group btn-group-sm">
@@ -35,34 +38,34 @@
  				
 			</div>
 		</div>-->
-		<div class="form-group row pt-2">
+			
+	<!-- 검색 -->
+	<div class="form-group row mt-3" id="search-group">
        		 		
-		<select	class="form-control col-md-2 offset-md-10" id="productAlign">
+		<select	class="form-control" id="condition">
+			<option selected value='productName'>제품명</option>
+			<option value='companyName'>제조사</option>
+		</select>
+		<input type="text" id="keyword" placeholder="검색어"
+				class="form-control"/>
+		<input type="button" id="searchBtn" value="검색" class="form-control "/>
+	</div>
+	<div class="form-group row mt-2" id="sort">
+       		 		
+		<select	class="form-control" id="productAlign">
 			<option selected value=''>정렬기준</option>
 			<option value='priceDesc'>고가순</option>
 			<option value='priceAsc'>저가순</option>
 			<option value='regDateDesc'>최신등록순</option>
 			<option value='regDateAsc'>오래된 등록순</option>
 		</select>
-		</div>
+	</div>
 		
 	<!--제품 리스트 올곳 -->
 	<div class='card-columns products pt-4 justify-content-center'>
 	
 	</div>
-	
-	<!-- 검색 -->
-	<div class="form-group row pt-5">
-       		 		
-		<select	class="form-control col-md-1 offset-md-3" id="condition">
-			<option selected value='productName'>제품명</option>
-			<option value='companyName'>제조사</option>
-		</select>
-		<input type="text" id="keyword" placeholder="검색어"
-				class="form-control col-md-4 mr-2">
-		<input type="button" id="searchBtn" value="검색"
-				class="form-control col-md-1 ">
-	</div>
+
 	
 	<!-- 페이징 -->
 	<ul class="pagination justify-content-center paging mt-4">

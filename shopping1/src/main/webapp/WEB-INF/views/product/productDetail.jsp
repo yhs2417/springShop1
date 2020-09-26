@@ -5,16 +5,15 @@
 
 <!DOCTYPE html>
 <html>
-<jsp:include page="../include/staticHead.jsp" />
+	<jsp:include page="../include/htmlHeader.jsp" />
 
-<body id="wayPoint">
+<body>
+	<jsp:include page="../include/hiddenMenu.jsp" />
+	<jsp:include page="../include/mainHeader.jsp" />
 
-<jsp:include page="../include/plugin-JS.jsp" />
-<jsp:include page="../include/mainHeader.jsp" />
+<h4 class="mx-5 py-5"></h4>
 
-<h4 class="border-bottom mx-5 py-3 ">상품 보기</h4>
-
-<div class='container pt-3' style="min-height: 500px">
+<div class='container pt-3' id="productDetailContainer"style="min-height: 500px">
 
 	<div class="form-row pl-3">
 		<div class="form-group col-md-4" >
@@ -24,32 +23,32 @@
 		
 		<div class="form-group col-md-8">
 			<div class="form-group row">
-					<label class="col-md-2 col-form-label border-right">제품명</label>
-					<label class="col-md-3 col-form-label  border-right" >${product.productName} </label> 
-					<label class="col-md-2 col-form-label border-right">가격</label>
-					<label class="col-md-3 col-form-label" > 
-						<fmt:formatNumber value="${product.price}" pattern="#,###"/> 원
-					</label> 
+				<label class="col-md-2 col-form-label">제품명</label>
+				<label class="col-md-3 col-form-label" >${product.productName} </label> 
+				<label class="col-md-2 col-form-label">가격</label>
+				<label class="col-md-3  col-form-label" > 
+					<fmt:formatNumber value="${product.price}" pattern="#,###"/> 원
+				</label> 
 			</div>
 		 
 			<div class="form-group row">
-					<label class="col-md-2 col-form-label border-right">제조사</label>
-					<label class="col-md-3 col-form-label  border-right" >${product.companyName} </label> 
-					<label class="col-md-2 col-form-label border-right">
+					<label class="col-md-2 col-form-label ">제조사</label>
+					<label class="col-md-3 col-form-label " >${product.companyName} </label> 
+					<label class="col-md-2  col-form-label ">
 						등록일
 					</label>
-					<label class="col-md-3	col-form-label" >
+					<label class="col-md-3 col-form-label" >
 						<fmt:formatDate value='${product.regDate}' 
 							pattern="YYYY-MM-dd"/> 
 					</label> 
 			</div>
 			 
 			<div class="form-group row">
-					<label class="col-md-2 col-form-label border-right">간략 설명</label>
+					<label class="col-md-2 col-form-label ">간략 설명</label>
 					<label class="col-md-5 col-form-label" >${product.explain1} </label> 
 			</div>
 			<div class="form-group row">
-				<label class="col-md-2 col-form-label border-right">수량</label>
+				<label class="col-md-2 col-form-label">수량</label>
 				<input type="text" class="col-md-1 form-control ml-2" id="productCount" value='1'/>
 					<div class="btn-group ">
 						<button type="button" id="productPlusCount" class="btn btn-white mr-1">
@@ -82,9 +81,9 @@
 	</div>  <!-- from-row -->
 
 	<!-- 상세보기, 구매후기,q&a 버튼 -->
-	<div class="pt-5" id="productDetailAndReview">
+	<div class="mt-5" id="productDetailAndReview">
 	
-		<!-- 숨겨진것 -->
+		<!-- 숨겨진것 
 		<ul class="nav nav-tabs nav-fill detailHidden" 
 		 	style="position:fixed; visibility:hidden;top:55px; z-index:100; width:88%"	>
 			<li class="nav-item">
@@ -105,44 +104,44 @@
 				Q&A
 				 </a>
 			</li>
-		</ul>
+		</ul>-->
 		<!-- 보이던것 -->
-		<ul class="nav nav-tabs nav-fill detailVisible"
-			style="visibility:visible">
-		 
+		<ul class="nav nav-tabs nav-fill">
+			 
 			<li class="nav-item">
 				<a class="nav-link text-body bg-light active border border-dark" href="#detail"
-				data-toggle="tab">
-				상세보기
-				 </a>
+				data-toggle="tab" style="font-size:15px;">
+					상세보기
+				</a>
 			</li>
 			<li class="nav-item ">
 				<a class="nav-link text-body bg-light border border-dark" href="#review"
-				data-toggle="tab">
-				구매후기
-				 </a>
+				data-toggle="tab" style="font-size:15px;">
+					구매후기
+				</a>
 			</li>
 			<li class="nav-item ">
 				<a class="nav-link text-body bg-light border border-dark" href="#question"
-				data-toggle="tab">
-				Q&A
-				 </a>
+				data-toggle="tab" style="font-size:15px;">
+					Q&A
+				</a>
 			</li>
 		</ul>
 	</div>
-	<div class="tab-content  pt-3" style="min-height :500px">
-		<div class="tab-pane fade show active " id="detail">
-			'${product.explain2}'
+	
+	<div class="tab-content mt-3" style="min-height :500px">
+		<div class="tab-pane fade show active " id="detail" style="border:0">
+			${product.explain2}
 		
 		</div><!-- detail 끝 -->
 		 
-		<div class="tab-pane fade" id="review">
+		<div class="tab-pane fade" id="review" style="border:0">
 			<jsp:include page="review.jsp" />
 		
 		</div><!-- review끝 -->
 	
 		
-		<div class="tab-pane fade" id="question">
+		<div class="tab-pane fade" id="question" style="border:0 ">
 		준비중입니다.
 		
 		</div><!-- question끝 -->
@@ -169,7 +168,7 @@
 	<a href="#review{{reviewId}}" class="mr-0 list-group-item list-group-item-action"
 			data-toggle="collapse">
 		<div class="row">
-			<div class='col-md-6'>
+			<div class='col-md-6 text-center'>
 				{{header}}
 			</div>
 			<div class='col-md-3 pt-1 text-center'>

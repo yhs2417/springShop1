@@ -5,264 +5,350 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 
-<html>
-
-<jsp:include page="include/staticHead.jsp" />
-
-<body data-spy="scroll" data-target="#secondNav">
-
-	<jsp:include page="include/plugin-JS.jsp" />
-	<jsp:include page="include/mainHeader.jsp" />
-	<jsp:include page="include/mainHeader2.jsp" />
-	
-
-	<div class="container-fruid">
-
-		<!-- 메인 캐러셀1 -->
-		<div id="carousel1" class="carousel slide carousel-fade"
-			style="width: 100%; padding-top: -1px; margin-right:-10px">
-			<!-- 캐러셀 이미지. -->
-			<div class="carousel-inner  ">
-				<div class="carousel-item active">
-					<img src="<c:url value='/resources/images/pic1.jpg'/>"
-						style="width: 100%; max-height: 450px">
-				</div>
-				<div class="carousel-item">
-					<img src="<c:url value='/resources/images/pic2.jpg'/>"
-						style="width: 100%; max-height: 450px">
-				</div>
-				<div class="carousel-item">
-					<img src="<c:url value='/resources/images/pic3.jpg'/>"
-						style="width: 100%; max-height: 450px">
-				</div>
-				<div class="carousel-item">
-					<img src="<c:url value='/resources/images/pic4.jpg'/>"
-						style="width: 100%; max-height: 450px">
-				</div>
-				<div class="carousel-item">
-					<img src="<c:url value='/resources/images/pic5.jpg'/>"
-						style="width: 100%; max-height: 450px">
-				</div>
-			</div>
-			<a class="carousel-control-prev" href="#carousel1" role="button"
-				data-slide="prev"> <i class="fas fa-angle-left fa-4x text-body"></i>
-			</a> <a class="carousel-control-next" href="#carousel1" role="button"
-				data-slide="next"> <i class="fas fa-angle-right fa-4x text-body"></i>
-			</a>
-		</div>
-
-		<ul id="indicatior1" class="nav bg-dark nav-pills nav-fill">
-			<li class="nav-item"   ><a href="#carousel1" data-slide-to="0"
-				data-toggle='tab' class="nav-link active text-white rounded-0"> 문구1</a></li>
-
-			<li class="nav-item"><a href="#carousel1" data-slide-to="1"
-				data-toggle='tab' class="nav-link text-white rounded-0"> 문구2</a></li>
-
-			<li class="nav-item"><a href="#carousel1" data-slide-to="2"
-				data-toggle='tab' class="nav-link text-white rounded-0"> 문구3</a></li>
-
-			<li class="nav-item"><a href="#carousel1" data-slide-to="3"
-				data-toggle='tab' class="nav-link text-white rounded-0">문구4</a></li>
-			<li class="nav-item"><a href="#carousel1" data-slide-to="4"
-				data-toggle='tab' class="nav-link text-white rounded-0"> 문구5</a></li>
-		</ul>
+<html lang="ko">
+	<jsp:include page="include/htmlHeader.jsp" />
  
-		<div class="pt-5" id="wayPoint">
-		
-			<div class="row">
-				<div class=" col-sm-6 col-md-3 border-left border-dark pt-3 text-center">
-					<a href="#introduce" class="animatescroll" ><i class="fas fa-home fa-5x text-body  "></i></a><br>
-					<br>회사 소개
-				</div>
-				<div
-					class=" col-sm-6 col-md-3 border-left border-dark
-		text-center pt-3">
-					<a href="#contact" class="animatescroll"><i class="fas fa-comments fa-5x text-body "></i></a> <br>
-					<br>Contact
-				</div>
-				<div
-					class=" col-sm-6 col-md-3 border-left
-border-dark text-center pt-3">
-					<a href="" onclick="alert('준비중입니다.')"><i class="fas fa-edit fa-5x text-body "></i></a>
-					<br> <br>공지사항
-				</div>
-				<div
-					class=" col-sm-6 col-md-3 border-left
-border-dark text-center pt-3">
-					<a href=""><i class="fas fa-address-book fa-5x text-body "></i></a> <br>
-					<br>.
-				</div>
-			</div>
-		</div>
+<body>
+	 
+	<jsp:include page="include/hiddenMenu.jsp" />
+  
+    <div id="wrap">
+      
+    	<jsp:include page="include/mainHeader.jsp" />
 
-		<!-- 컴퓨터 추천 -->
-		<div class="mt-5 px-5 " id="desktop">
+       
+        <section id="slide">
+             
+            <div class="imgs"></div>
+            <div class="imgs"></div>
+            <div class="imgs"></div>
 
-			<div style="width: 100%" class="my-5  border-top border-dark">
-				<h3 class="text-secondary pt-2">추천 desktop &nbsp;&nbsp;
-				
-					<a href="#carouselCom" data-slide="prev">
-						<i class="fas fa-angle-left text-body"></i>
-					</a>
-					<a href="#carouselCom" data-slide="next">
-					<i class="fas fa-angle-right text-body"></i>
-					</a>
-				
-				</h3>
-				
-				<h5 class="text-right">	
-					
-					<a href="<c:url value='/product/list?category=computer'/>"> 
-					<small class="text-primary">상품 더 보기</small> </a>
-				 </h5>
-				<br>
+            <span> <img src='<c:url value="/resources/images/icons/left.png" />' width="45"> </span>
+            <span> <img src='<c:url value="/resources/images/icons/right.png" />' width="45"> </span>
 
-				<div id="carouselCom" class="carousel" data-ride="carousel">
-					<!-- 추천제품 올곳 -->
+            <div class="dots">
+                <a class="select"></a>
+                <a></a>
+                <a></a>
+            </div>
+        </section>
 
-				</div>
-			</div>
+        <section id="events">
+            <ul id="inner">
+                <li>
+                    <strong>new & event</strong>
+                </li>
+                <li>
+                    <strong>HYUN MALL의 다양한 혜택과<br>
+                    이벤트 그리고 신제품
+                    </strong>
+                    <p>have a good time;</p>
+                    
+                </li>
+                <li>
+                    <span><a href="#" onclick="alert('이벤트는 준비중입니다');">바로 보러가기</a></span>
+                </li>
+                <span>
+                    <a href="#" onclick="alert('이벤트는 준비중입니다');">전체 이벤트 보기</a>
+                </span>
+               
+            </ul>
+            <div id="inner2">
+                <h1>MD'S PICK</h1>
+                <div id="recommand_area">
+                
+                </div>
+                <%-- <ul class="card_events">
+                    <li>
+                        <dl>
+                            <dt>
+                                <img src='<c:url value="/resources/images/gal1.gif"/>'>
+                            </dt>
+                            <dd>메모1</dd>
+                            <dt>부메모11111</dt>
+                            <dd></dd>
+                        </dl>
+                    </li>
+                    <li>
+                        <dl>
+                            <dt>
+                                <img src='<c:url value="/resources/images/gal2.gif"/>'>
+                            </dt>
+                            <dd>메모2</dd>
+                            <dt>부메모2222</dt>
+                            <dd></dd>
+                        </dl>
+                    </li>
+                    <li>
+                        <dl>
+                            <dt>
+                                <img src="/resources/images/han_note1.gif">
+                            </dt>
+                            <dd>메모3</dd>
+                            <dt>부메모33333</dt>
+                            <dd></dd>
+                        </dl>
+                    </li>
+                    <li>
+                        <dl>
+                            <dt>
+                                <img src="/resources/images/lg_note1.gif">
+                            </dt>
+                            <dd>메모4</dd>
+                            <dt>부메모444444</dt>
+                            <dd></dd>
+                        </dl>
+                    </li>
+                </ul>
+                
+                <ul class="card_events">
+                    <li>
+                        <dl>
+                            <dt>
+                                <img src="/resources/images/lg_tv1.gif">
+                            </dt>
+                            <dd>메모1</dd>
+                            <dt>부메모11111</dt>
+                            <dd></dd>
+                        </dl>
+                    </li>
+                    <li>
+                        <dl>
+                            <dt>
+                                <img src="/resources/images/refre1.gif">
+                            </dt>
+                            <dd>메모2</dd>
+                            <dt>부메모2222</dt>
+                            <dd></dd>
+                        </dl>
+                    </li>
+                    <li>
+                        <dl>
+                            <dt>
+                                <img src="/resources/images/refre2.gif">
+                            </dt>
+                            <dd>메모3</dd>
+                            <dt>부메모33333</dt>
+                            <dd></dd>
+                        </dl>
+                    </li>
+                    <li>
+                        <dl>
+                            <dt>
+                                <img src="/resources/images/refre2.gif">
+                            </dt>
+                            <dd>메모4</dd>
+                            <dt>부메모444444</dt>
+                            <dd></dd>
+                        </dl>
+                    </li>
+                </ul>
+                <ul class="card_events">
+                    <li>
+                        <dl>
+                            <dt>
+                                <img src="/resources/images/sam_tv2.gif">
+                            </dt>
+                            <dd>메모1</dd>
+                            <dt>부메모11111</dt>
+                            <dd></dd>
+                        </dl>
+                    </li>
+                    <li>
+                        <dl>
+                            <dt>
+                                <img src="images/tab1.gif">
+                            </dt>
+                            <dd>메모2</dd>
+                            <dt>부메모2222</dt>
+                            <dd></dd>
+                        </dl>
+                    </li>
+                    <li>
+                        <dl>
+                            <dt>
+                                <img src="/resources/images/tab2.gif">
+                            </dt>
+                            <dd>메모3</dd>
+                            <dt>부메모33333</dt>
+                            <dd></dd>
+                        </dl>
+                    </li>
+                    <li>
+                        <dl>
+                            <dt>
+                                <img src="/resources/images/tab2.gif">
+                            </dt>
+                            <dd>메모4</dd>
+                            <dt>부메모444444</dt>
+                            <dd></dd>
+                        </dl>
+                    </li>
+                </ul> --%>
+                <div class="dots">
+                    <a class="select"></a>
+                    <a ></a>
+                    <a ></a>
+                 
+            </div>
+        </div>
+        </section>
 
-			<!-- 노트북 추천 -->
-				<div style="width: 100%" class="my-5 border-top border-dark">
-				<h3 class="text-secondary pt-2">추천 NoteBook  &nbsp;&nbsp;
-					<a href="#carouselNote" data-slide="prev">
-						<i class="fas fa-angle-left text-body"></i>
-					</a>
-					<a href="#carouselNote" data-slide="next">
-					<i class="fas fa-angle-right text-body"></i>
-					</a>
-				 </h3>
-				
-				<h5 class="text-right">
-					<a href="<c:url value='/product/list?category=NoteBook'/>"> 
-					<small class="text-primary">상품 더 보기</small> </a>
-				</h5>
-				<br>
-				<div id="carouselNote" class="carousel" data-ride="carousel">
-  					<!-- 추천제품 올곳 -->
+        <section id="scroll_img1">
+            <div class="circle_section">
+                <div>
+                    <h2>매장찾기</h2>
+                    <p>합리적 가격의<br>
+                        HYUN 매장을 만나보세요
+                    </p>
+                    <a href="#">more</a>
+                </div>
+            </div>
+            <div class="span_section">
+                <div>
+                    <h2>매장찾기</h2>
+                    <p><br><br>합리적 가격의<br>
+                        HYUN 매장을 만나보세요
+                    </p>
+                    <a href="#">more</a>
+                </div>
+            </div>
+        </section>
+        <section id="sns">
+            <p><strong>SNS</strong></p>
+            <p><span>HYUN's 함께하는 sns</span></p>
+            <ul>
+                <li>
+                    <a href="">
+                    <img src='<c:url value="/resources/images/icons/sns1.png"/>'>   
+                    </a>
+                </li>
 
-				</div>
-			</div>
+                <li>
+                    <a href="">
+                    <img src='<c:url value="/resources/images/icons/sns2.png"/>'>   
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                    <img src='<c:url value="/resources/images/icons/sns3.png"/>'>  
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                    <img src='<c:url value="/resources/images/icons/sns4.png"/>'>  
+                    </a>
+                </li>
+                 
+            </ul>
+        </section>
+        <section id="img_row">
+            <ul>
+                <li>
+                    <img src='<c:url value="/resources/images/footer_07.jpg"/>'>
+                    <a href="">
+                        <span>데스크탑 <br>바로 보러가기</span>
+                    </a>
+                </li>
+                <li>
+                    <img src='<c:url value="/resources/images/footer_21.jpg"/>'>
+                    <a href="">
+                        <span>스마트폰<br> 바로 보러가기</span>
+                    </a>
+                </li>
+                <li>
+                    <img src='<c:url value="/resources/images/footer_13.jpg"/>'>
+                    <a href="">
+                        <span>태블릿 <br>바로 보러가기</span>
+                    </a>
+                </li>
+                <li>
+                    <img src='<c:url value="/resources/images/footer_16.gif"/>'>
+                    <a href="">
+                        <span>TV <br>바로 보러가기</span>
+                    </a>
+                </li>
+                <li>
+                    <img src='<c:url value="/resources/images/footer_19.jpg"/>'>
+                    <a href="">
+                        <span>노트북 <br>바로 보러가기</span>
+                    </a>
+                </li>
+                
+                
+            </ul>
+        </section>
+        
+        <jsp:include page="include/mainFooter.jsp" />
+    
+    </div> <!--wrap-->
 
-			<!-- 회사 소개란 -->
-			<div class="pt-4 border-top border-dark" id="introduce">
-				<div class="row">
-					<div class="col-md-6 border-right">
-						<h3 class="text-secondary">회사소개</h3>
-						<br>
-
-						<div class="list-group list-group-flush">
-							<a href="#" class="list-group-item list-group-item-action"
-								data-toggle="collapse"> 제목1</a>
-							<div class="collapse show mx-4 my-4" id="cl1">내용1</div>
-							<a href="#" class="list-group-item list-group-item-action"
-								data-toggle="collapse"> 제목2</a>
-							<div class="collapse show mx-4 my-4" id="id2">내용2</div>
-						</div>
-					</div>
-					
-					<div  class="col-md-6">
-						<h5 class="text-secondary"> </h5>
-						<br>
-						<div class="list-group list-group-flush pt-4">
-							<a href="#" class="list-group-item list-group-item-action"
-								data-toggle="collapse"> 제목3</a>
-							<div class="collapse show mx-4 my-4" id="cl1">내용3</div>
-							<a href="#" class="list-group-item list-group-item-action"
-								data-toggle="collapse"> 제목4</a>
-							<div class="collapse show mx-4 my-4" id="id2">내용4</div>
-						</div>
-					</div>
-				</div>
-			</div> <!-- 회사소개 끝 -->
-		
-			<!-- contact -->
-			<div class="pt-4 mb-5 border-top border-bottom border-dark" id="contact">
-				<h3 class="text-secondary ">Contact</h3>
-				
-				<div class="form-group row pl-3 pt-3">
-					<label class="col-md-2 col-form-label">회사 이메일</label>
-
-					<input type="text" class="form-control col-md-5" 
-							value="example@company.com">
-				</div>
-				<div class="form-group row pl-3 ">
-					<label class="col-md-2 col-form-label">제목</label>
-
-					<input type="text" class="form-control col-md-5" >  
-							
-				</div>
-				<div class="form-group row pl-3 ">
-					<label class="col-md-2 col-form-label">내용</label>
-
-					<textarea rows="8" class="form-control col-md-5" >
-					</textarea>	  
-				</div>
-						
-			</div> <!-- contact 끝 -->
-		
-	
-	</div>
-</div>
-
-<jsp:include page="include/mainFooter.jsp" />
-
-<script src="<c:url value='/resources/js/common.js'/>"></script>
-
-<!-- 데스크톱 추천란 template -->
-<script id="recommandedComputer" type="text/x-handlebars-template">
-<div class="carousel-inner">
-<div class="carousel-item active">
-<div class="card-deck row">
-{{#computer}}   {{!--5번 인덱스까지지 루프 --}}
-	{{#loopCheck @index}}
-			
-		<div class="card col-md-2" id={{productId}}>
-			<img src="{{thumNail}}"  class="card-img-top">
-
-			<div class="card-body">
-			  <h5 class="card-title">{{companyName}}</h5>
-			  <h6 class="card-subtitle mb-2 text-muted">제품명 {{productName}}</h6>
-			  <h6 class="card-subtitle mb-2 text-danger">
-				{{#comma price}} {{/comma}} 원</h6>
-			  {{{explain1}}} 
-			  
-			</div>
-		</div>
+<!--md's pick template -->
+<script id="recommandItem" type="text/x-handlebars-template">
+<ul class="card_events">
+{{#computer}}   {{!--0~3번 인덱스까지 루프 --}}
+	{{#loopCheck @index 0 3}}
+		 
+	<li>
+        <dl id={{productId}}>
+        	<dt>
+        		<img src='{{thumNail}}'>
+        	</dt>
+        	<dd>[{{companyName}}] <br>{{productName}}</dd>
+        	<dt> <span style="color:white; background-color:red;font-size:17px;"> 특가!  </span>
+				 {{#comma price}} {{/comma}} 원 
+			<br> {{{explain1}}} 
+			</dt>
+         
+        </dl>
+    </li>
+ 
 	{{/loopCheck}}
 {{/computer}}
-</div>
-</div>
+</ul>
 
-<div class="carousel-item">
-<div class="card-deck row">
-{{#computer}}  {{!--6~10번 루프까지해당 --}}
-		{{#loopCheck @index}}
-
-		{{else}}
-		<div class="card col-md-2" id={{productId}}>
-			<img src="{{thumNail}}" class="card-img-top">
-
-			<div class="card-body"> 
-			  <h5 class="card-title">{{companyName}}</h5>
-			  <h6 class="card-subtitle mb-2 text-muted">제품명 : {{productName}}</h6>
-			  <h6 class="card-subtitle mb-2 text-danger">
-				{{#comma price}} {{/comma}} 원
-			 </h6>
-			   {{{explain1}}}
-		 
-			</div>
-		</div>		
-		{{/loopCheck}}
+<ul class="card_events">
+{{#computer}}  {{!--4~7번 루프까지해당 --}}
+	{{#loopCheck @index 4 7}}
+ 		
+		<li id={{productId}}>
+        	<dl>
+        		<dt>
+        			<img src='{{thumNail}}'>
+        		</dt>
+        		<dd><span style="color:white; background-color:red;font-size:17px;"> 특가! 
+					[{{companyName}}] {{productName}}</dd>
+        			<dt>{{price}}원<br>{{{explain1}}} </dt>
+        		<dd></dd>
+        	</dl>
+    	</li>
+	{{/loopCheck}}
 {{/computer}}
-</div>
-</div>
-</div>	
+</ul>
+<ul class="card_events">
+{{#computer}}  {{!--8~11번 루프까지해당 --}}
+	{{#loopCheck @index 8 11}} 
+ 
+		<li id={{productId}}>
+        	<dl>
+        		<dt>
+        			<img src='{{thumNail}}'>
+        		</dt>
+        		<dd><span style="color:white; background-color:red;font-size:17px;"> 특가! 
+				[{{companyName}}]{{productName}}</dd>
+        		<dt>{{price}}원<br>{{{explain1}}} </dt>
+        		<dd></dd>
+        	</dl>
+    	</li>
+	{{/loopCheck}}
+{{/computer}}
+</ul>
+ 
 </script>
 
-<!-- 노트북 추천란 template -->
 
+<!-- 노트북 추천란 template -->
+<!--
 <script id="recommandedNotebook" type="text/x-handlebars-template">
 <div class="carousel-inner">
 
@@ -308,66 +394,55 @@ border-dark text-center pt-3">
 		{{/loopCheck}}
 {{/notebook}}
 </script>
-
+-->
 <script type="text/javascript">
-$(document).ready(function(){
-	
-//if문 헬퍼
-Handlebars.registerHelper("loopCheck",function(index,options)
-	{
-	if(index <= 4)
-		{
-			return options.fn(this);
-		}
-	else
-	{
-		return options.inverse(this);
-		}
-});
-
+ 
 $.getJSON("/shop1/manager/recommended",function(data)
 		{
-			let template = $('#recommandedComputer').html();
+			console.log(data);
+			let template = $('#recommandItem').html();
 			let ctemplate = Handlebars.compile(template);
 			let html = ctemplate(data);
-			$("#carouselCom").html(html);	
+			$("#recommand_area").html(html);	
 			
-			let template2 = $('#recommandedNotebook').html();
+			/* let template2 = $('#recommandedNotebook').html();
 			let ctemplate2 = Handlebars.compile(template2);
 			let html2 = ctemplate2(data);
-			$("#carouselNote").html(html2);	
+			$("#carouselNote").html(html2);	 */
 			
-})//getjson
-
-$('#carousel1').on('slide.bs.carousel', function() {
-	$('#indicatior1 li a').removeClass('active')
-
-});
-	
-$('#carousel1').on('slid.bs.carousel', function()
-{
-	let current = $('.carousel-item.active').index();
-	$('#indicatior1 li a').eq(current).addClass('active')
-});
-
-$('#carouselCom').on("click",".card",function(){
+}) 
+$('#recommand_area').on("click", "dl", function(){
 	let productId=$(this).attr('id');
 	console.log("제품 자세히 보기 클릭됨 id="+productId);
 	
 	self.location="product/detail?id="+productId
-})
+});
 
-$('#carouselNote').on("click",".card",function(){
+$(window).on('scroll' , function(){
+	var hd = $('#scroll_img1').offset().top - 350;
+	 //console.log("offset="+hd);
+	
+    var sc = $(window).scrollTop(); // 스크롤 위 공간 높이
+    //console.log("scrollTOP="+sc);
+    if (sc < hd) {
+    	$('#scroll_img1 .span_section').removeClass('on2');
+        $('#scroll_img1 span:nth-of-type(1)').removeClass('scroll_left');
+        $('#scroll_img1 span:nth-of-type(2)').removeClass('scroll_right');
+        $('#scroll_img1 .circle_section').removeClass('on');
+    }
+    else if (sc >= hd) {
+        $('#scroll_img1 .span_section').addClass('on2');
+        $('#scroll_img1 span:nth-of-type(1)').addClass('scroll_left');
+        $('#scroll_img1 span:nth-of-type(2)').addClass('scroll_right');
+        $('#scroll_img1 .circle_section').addClass('on');
+    }   
+}); 
+/* $('#carouselNote').on("click",".card",function(){
 	let productId=$(this).attr('id');
 	console.log("제품 자세히 보기 클릭됨 id="+productId);
 	
 	self.location="product/detail?id="+productId 
-})
-
-})//readyfunction
-
-console.log = function(){}
-
+}) */
 </script>
 </body>
 </html>
