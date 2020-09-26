@@ -5,59 +5,51 @@
 
 <!DOCTYPE html>
 <html>
-<jsp:include page="../include/staticHead.jsp" />
+<jsp:include page="../include/htmlHeader.jsp" />
 
 <body>
 
-<jsp:include page="../include/plugin-JS.jsp" />
+<jsp:include page="../include/hiddenMenu.jsp" />
+ 
 <jsp:include page="../include/mainHeader.jsp" />
 
-<h4 class="border-bottom mx-5 py-3" id="wayPoint">상품 관리</h4>
-
-
-<div class='container pt-3' style="min-height: 500px">
-
-<div class="row">
-
-	 <!-- 좌측 메뉴. -->
-	<div class="col-md-2 list-group list-group-flush">
-		<a
-			class="list-group-item list-group-item-action
-			active list-group-item-light"
-			data-toggle="list" href="#register">상품등록</a> <a
-			class="list-group-item list-group-item-action
-		list-group-item-light"
-			data-toggle="list" href="#manage">상품관리</a> <a
-			class="list-group-item list-group-item-action
-			list-group-item-light"
-			data-toggle="list" href="#orders">주문조회</a>
+	<div class="subPageBanner" style="width:85%">
+	   	<h2>상품관리</h2>
+	   	<h4>Item Management</h4>
 	</div>
+
+<div class='container pt-3' id="productMa" >
+
+	<aside id="product_manage_menu">		
+			<ul>
+				<li class="active">
+					상품등록
+				</li>
+				<li>
+					상품관리
+				</li>
+				<li>
+					주문조회
+				</li>				
+			</ul>
+	</aside>
 
 	<!-- 탭패널 (상품등록)-->
 	<jsp:include page="productRegister.jsp" />
 	<!-- 탭패널 (상품관리(수정, 삭제, 추천상품 등록))-->
 	<jsp:include page="productModify.jsp" />
 
-
 	<!-- 탭패널 (주문조회) -->
-	<div class="tab-pane fade" id="orders">
-		<div class="list-group">
-			<a href="#" class="list-group-item list-group-item-action"
-				data-toggle="collapse"> 준비중입니다</a>
-		</div>
-
-	</div><!-- 탭패널 (주문조회 )end-->
-</div> <!-- tab-content end -->
-</div> <!-- row end -->
+	<content id="orders" style="display:none">		
+			준비중입니다
+	</content>
 
 </div><!-- container end -->
 
 
 
 <jsp:include page="../include/mainFooter.jsp" />
-
-<script src="<c:url value='/resources/js/common.js'/>"></script>
-
+ 
 <!--상품리스트 템플릿-->
 <script id="ProductListTemplate" type="text/x-handlebars-template">
 	{{#product}}
@@ -112,11 +104,11 @@ keyword="";
 //상품등록 form의 select 에 카테고리 불러오기
 $('.categorySelect').on("change",function()
 {
-console.log($(this).val());
+//console.log($(this).val());
 $.getJSON(
 		"/shop1/manager/companies/"+ $(this).val(),
 		function(data) {
-			console.log(data)
+			//console.log(data)
 			let str = "";
 			$(data).each(function() {
 								str += "<option value='"+this.companyName+"'>"
@@ -145,7 +137,7 @@ function getProducts(page)
 			keyword:keyword
 		}),
 		success : function(data) {
-			console.log(data);
+			//console.log(data);
 			
 			//상품정보 div에 반영
 			let template = $('#ProductListTemplate').html();
@@ -179,7 +171,7 @@ function getProducts(page)
 
           	$(".productPaging").html(str);
 			
-          	console.log("product lists success") 
+          	//console.log("product lists success") 
 			} 
 		}); //ajax
 };//getProducts(page) 끝
@@ -189,7 +181,7 @@ $('#productMenu a').on("click",function()
 {
 	category = $(this).text(); //현재 카테고리 변수
 	
-	console.log(category + "의 내역 불러오기");
+	//console.log(category + "의 내역 불러오기");
 	
 	checkedIds = new Set(); //체크된 행 넣는 set초기화(페이지 바뀌어도 유지)
 	
@@ -211,7 +203,7 @@ $(".pagination").on("click","li a",function(e)
 //정렬 선택시 
 $("#Align").on("change",function()
 {
-	console.log("정렬선택됨 옵션="+$(this).val());
+	//console.log("정렬선택됨 옵션="+$(this).val());
 	align=$(this).val();//페이지 바뀌어도 이값로 계속 유지되도록
 	getProducts(1);
 	
@@ -223,8 +215,8 @@ $(".searchingBtn").on("click",function()
 	//페이지 바뀌어도 이값로 계속 유지되도록
 	condition=$(this).prev().prev().val(); 
 	keyword=$(this).prev().val();
-	console.log("검색 조건="+condition);
-	console.log("검색어="+keyword);
+	//console.log("검색 조건="+condition);
+	//console.log("검색어="+keyword);
 	getProducts(1);
 	
 });
@@ -232,7 +224,7 @@ $(".searchingBtn").on("click",function()
 //모두 선택 체크 버튼 클릭시
 $('.allCheck').on("click", function() 
 {
-	console.log("allcheck클릭됨"+$(this).prop("checked"));
+	//console.log("allcheck클릭됨"+$(this).prop("checked"));
 	const chk = $(this).prop("checked");//allcheck체크버튼의 클릭여부
 	if (chk) {
 		//모든 체크 모든 활성화
@@ -240,9 +232,9 @@ $('.allCheck').on("click", function()
 		
 		//해당페이지의 행들 id를 다 set에 넣기
 		$("input[class='chkBox']").each(function(){
-		checkedIds.add($(this).attr("id"));
+			checkedIds.add($(this).attr("id"));
 		})
-		console.log(checkedIds);
+		//console.log(checkedIds);
 	}	
 	else 
 	{
@@ -250,9 +242,9 @@ $('.allCheck').on("click", function()
 	 
 		//해당페이지의 행들 id를 다 set에서빼기
 		$("input[class='chkBox']").each(function(){
-		checkedIds.delete($(this).attr("id"));
+			checkedIds.delete($(this).attr("id"));
 		})
-	console.log(checkedIds);
+	//console.log(checkedIds);
 	}
 });
 
@@ -263,7 +255,7 @@ $('tbody.productList').on("click",'.chkBox', function(e)
 	
 	if($(this).prop("checked")) //체크한경우
 	{
-		console.log("클릭된 체크버튼 id:"+	$(this).attr("id"));
+		//console.log("클릭된 체크버튼 id:"+	$(this).attr("id"));
 		checkedIds.add($(this).attr("id"));
 	}
 	else if(!$(this).prop("checked"))//체크해체한경우
@@ -271,7 +263,7 @@ $('tbody.productList').on("click",'.chkBox', function(e)
 		console.log("클릭해체된 체크버튼 id:"+$(this).attr("id"));
 		checkedIds.delete($(this).attr("id"));
 	}
-	console.log(checkedIds);
+	//console.log(checkedIds);
 });
 
 //추천상품 추가 클릭
@@ -288,14 +280,14 @@ $('#recommendAddBtn').on("click",function()
 			{
 				checkedIds.add(String(this)) //""씌워서 들어가야함. 
 			})
-		console.log("기존 추천 상품 아이디:"+data);
-		console.log("총 추천상품수:"+checkedIds.size);
+		//console.log("기존 추천 상품 아이디:"+data);
+		//console.log("총 추천상품수:"+checkedIds.size);
 		for(let i of checkedIds)
 		{console.log("추천상품:"+i)};
 		
 		if(checkedIds.size>10)
 		{
-			console.log("추천상품 고른게 10개 초과함");
+			//console.log("추천상품 고른게 10개 초과함");
 			alert("추천상품이 10개가 넘습니다");
 		}
 		else if(checkedIds.size<=10)	
@@ -306,7 +298,7 @@ $('#recommendAddBtn').on("click",function()
 				{
 				array.push(i);
 				}
-			console.log("추천상품:"+array);
+			//console.log("추천상품:"+array);
 		  
 		$.ajax({
 			type : "PUT",
@@ -318,7 +310,7 @@ $('#recommendAddBtn').on("click",function()
 			},
 			data : JSON.stringify(array),
 			success : function(data) {
-				console.log(data);
+				//console.log(data);
 				alert("추천상품 변경되었습니다");
 				checkedIds.clear() //체크된거 초기화
 				getProducts($('.current').attr('href'),category);
@@ -337,11 +329,11 @@ $('#recommendDelBtn').on("click",function()
 		{
 		array.push(i);
 		}
-	console.log("추천상품에서 제거할 것:"+array);
+	//console.log("추천상품에서 제거할 것:"+array);
  	
 	if(array!="")
 	{
-		console.log("ajax진입");
+		//console.log("ajax진입");
 		$.ajax({
 		type : "PUT",
 		url : "/shop1/manager/recommendDel/",
@@ -352,7 +344,7 @@ $('#recommendDelBtn').on("click",function()
 		},
 		data : JSON.stringify(array),
 		success : function(data) {
-			console.log(data);
+			//console.log(data);
 			alert("추천상품에서 제거되었습니다");
 			checkedIds.clear(); //체크됬던거 초기화
 			getProducts($('.current').attr('href'),category);
@@ -382,7 +374,7 @@ $('tbody.productList').on("click", ".productMod", function(e) {
 })
 //상품행 삭제
 $('tbody.productList').on("click", '.productDel', function(e) {
-	console.log($(this).parent().parent().siblings().eq(1).text());
+	//console.log($(this).parent().parent().siblings().eq(1).text());
 	let con = confirm("삭제 하시겠습니까?");
 	if (con) {
 		console.log("productDel 클릭");
@@ -428,7 +420,7 @@ $('.productModBtn')
 								'#productModForm div input[name="thumnail"]')
 								.val()
 					};
-					console.log(data);
+					//console.log(data);
 					$.ajax({
 						type : "PUT",
 						url : "/shop1/manager/productUpdate",
@@ -449,7 +441,15 @@ $('.productModBtn')
 })//.productModBtn끝
 
 
-console.log = function(){}
+$('#productMa aside li').on("click", function(){
+	
+	$(this).addClass("active");
+	var index = $(this).index() + 1;
+	$('#productMa content:nth-of-type(' + index + ')').css("display","block");
+	$('#productMa content:not(:nth-of-type(' + index + '))').css("display","none");	
+	$('#productMa aside li:not(:nth-of-type(' + index + '))').removeClass("active");	
+
+});
 
 </script>
 </body>

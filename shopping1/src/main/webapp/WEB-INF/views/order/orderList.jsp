@@ -5,19 +5,24 @@
 
 <!DOCTYPE html>
 <html>
-<jsp:include page="../include/staticHead.jsp" />
+<jsp:include page="../include/htmlHeader.jsp" />
 
-<body id="wayPoint">
-
-	<jsp:include page="../include/plugin-JS.jsp" />
+<body>
+	<jsp:include page="../include/hiddenMenu.jsp" />
 	<jsp:include page="../include/mainHeader.jsp" />
 
-	<h4 class="border-bottom mx-5 py-3 ">주문확인</h4>
+	<div class="subPageBanner" style="width:85%">
+	   	<h2>주문확인</h2>
+	   	<h4>Order Confirm</h4>
+	</div>
 
 	<div class='container pt-3' style="min-height: 700px">
-
-		<div class="card mt-5">
-			<div class="card-header bg-primary text-white py-1">주문확인</div>
+		 <legend>
+			<img src='<c:url value="/resources/images/icons/select_red.png" />'>
+            <strong>주문내역</strong>
+          </legend>
+		<div class="card mt-3">
+			 
 			<div class="card-body">
 				<div class="table-responsive px-2">
 					<table class="table table-hover">
@@ -40,8 +45,12 @@
 		</div>
 		<!-- card -->
 
-		<div class="card mt-5">
-			<div class="card-header bg-primary text-white py-1">배송주소 확인</div>
+	 	<legend style="margin-top:50px">
+			<img src='<c:url value="/resources/images/icons/select_red.png" />'>
+            <strong>배송주소 확인</strong>
+          </legend>
+		<div class="card mt-3">
+			 
 			<div class="card-body">
 				<div class="table-responsive px-2">
 					<table class="table table-hover">
@@ -81,8 +90,7 @@
 	<!-- container end -->
 
 	<jsp:include page="../include/mainFooter.jsp" />
-
-	<script src="<c:url value='/resources/js/common.js'/>"></script>
+ 
 	<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
 	
 	<!-- 

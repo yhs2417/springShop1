@@ -4,16 +4,18 @@ pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
 <html>
-  <jsp:include page="../include/staticHead.jsp"/>
+  <jsp:include page="../include/htmlHeader.jsp"/>
 
   <body>
-
-    <jsp:include page="../include/plugin-JS.jsp"/>
+  	<jsp:include page="../include/hiddenMenu.jsp" />
+  
     <jsp:include page="../include/mainHeader.jsp"/>
 
-    <h4 class="border-bottom mx-5 py-3" id="wayPoint">
-      로그인</h4>
-
+	<div class="subPageBanner">
+    	<h2> 로그인 </h2>
+    	<h4> member login</h4>
+	</div>
+	
     <div class='container pt-3' style="min-height:500px">
 
       <!--login form.-->
@@ -41,10 +43,10 @@ pageEncoding="UTF-8"%>
 
             </div>
             <!--자동로그인과 제출버튼.-->
-            <div class="form-row py-3 text-center">
-              <div class="form-group col-md-6 offset-md-3">
+            <div class="form-row py-3 text-center  ">
+              <div class="form-group col-md-6 offset-md-3 ">
 
-                <div class="custom-control custom-checkbox">
+                <div class="custom-control custom-checkbox ">
                   <input type="checkbox" class="custom-control-input" checked="checked" id="autoLogin" name="autoLogin">
                     <label class="custom-control-label" for="autoLogin">자동로그인</label>
 					<!--  
@@ -54,15 +56,14 @@ pageEncoding="UTF-8"%>
 
                       <button type="button" id="loginBtn" class="ml-3 btn btn-danger">로그인</button>
 
-                    </div>
+                  </div>
+                  <p> 회원이 아니신가요? <a href="<c:url value='/user'/>" style="color:#75675c; font-size:18px">회원가입 하러 가기</a>
                   </div>
                 </div>
               </form>
 
 </div><!-- container -->
 <jsp:include page="../include/mainFooter.jsp"/>
-
-<script src="<c:url value='/resources/js/common.js'/>"></script>
 
 <script>
 
@@ -138,8 +139,7 @@ $('#loginBtn').on("click", function () {
     alert('입력정보를 다시 확인하세요.');
   }
 }); //signupbtn 끝
-
-console.log = function(){}
+ 
 
 </script>
 </body>

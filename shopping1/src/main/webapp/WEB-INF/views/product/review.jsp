@@ -3,17 +3,18 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
-<div class="form-group row pt-2">
-       		 		
-		<select	class="form-control col-md-2 offset-md-8" id="reviewAlign">
+<div class="form-group row py-2" style="width:100%; height:30px;margin:0;position:relative">
+   		 		
+		<select	class="form-control" id="reviewAlign" style="width:150px ;position:absolute; right:85px" >
 			<option selected value=''>정렬기준</option>
 			 
 			<option value='regDateDesc'>최신등록순</option>
 			<option value='regDateAsc'>오래된 등록순</option>
 		</select>
 		
-		<input type="button" class="btn btn-secondary col-md-1 ml-3"
+		<input type="button" class="btn btn-secondary ml-3" style="width:80px; position:absolute; right:0"
 			value="후기작성" id="reviewRegister" > 
+	
 </div>
 
 <!-- 리뷰 등록 모달. -->
@@ -64,13 +65,15 @@
 		</div>
 </div><!-- 모달 끝 -->
 
-<div class="accordion mx-5 pt-3" id="accordion1">
+<div class="accordion  mt-3" id="accordion1">
 	<div class="card border">
-		<div class="card-header bg-info px-0 py-0" id="headline">
+		<div class="card-header px-0 py-3" id="headline">
 			<div class="row">
-				<div class="col-md-6 text-center  ">제목</div>
+				<div class="col-md-6 text-center  ">
+					<span>제목</span>
+				</div>
 				<div
-					class="col-md-3 text-center border-left border-right border-dark">
+					class="col-md-3 text-center">
 					작성자</div>
 				<div class="col-md-3 text-center">작성일</div>
 			</div>
