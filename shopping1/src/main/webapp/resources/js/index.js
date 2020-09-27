@@ -10,13 +10,14 @@ $('#slide span:nth-of-type(1)').on('click', function(){
     $('#slide .dots a').eq(slide_index).removeClass('select');
 
     slide_index = ((slide_index - 1) == -1)? 2 : slide_index - 1;
-    console.log(slide_index); 
+    //console.log(slide_index); 
     $('#slide .imgs').eq(slide_index).html(
         "<style>#slide .imgs:nth-of-type(" + (slide_index + 1) + ")::before { width: 100%; transition: all 0.1s;}</style>");
 
     $('#slide .dots a').eq(slide_index).addClass('select');
 
 });
+
 //header slide to right click
 $('#slide span:nth-of-type(2)').on('click', function(){
     //이전 슬라이드의 html 변경
@@ -32,8 +33,8 @@ $('#slide span:nth-of-type(2)').on('click', function(){
         "<style>#slide .imgs:nth-of-type(" + (slide_index + 1) + ")::after { width: 100%; transition: all 0.1s;}</style>");
         
     $('#slide .dots a').eq(slide_index).addClass('select');
-
 });
+
 //slide dots click
 $('#slide .dots a').on('click', function(){
     
@@ -53,6 +54,7 @@ $('#slide .dots a').on('click', function(){
     $('#slide .imgs').eq(now_index).html(
         "<style>#slide .imgs:nth-of-type(" + (now_index + 1) + ")::after { width: 100%; transition: all 0.1s;}</style>");   
 });
+
 //card events dots click
 $('#events .dots a').on('click', function(){
      
@@ -70,8 +72,6 @@ $('#events .dots a').on('click', function(){
    
 });
 
- 
-
 $('header #menuBtn').on("click",function(){
     
     $('#hiddenMenu').css("width","60%");
@@ -81,26 +81,27 @@ $('#hiddenMenu #closeBtn').on("click",function(){
     $('#hiddenMenu').css("width","0%");
 });
 
-$('#hiddenMenu #menu a').on("click",function(){
+$('#hiddenMenu #menu li').on("click",function(){
     //alert($(this).next().css('height'));
-    var height = $(this).next().css('height');
-    
+    var height = $(this).children('dl').css('height');
+    var index = $(this).index() + 1 ;
     if (height == '0px') { //추가 메뉴 닫혀있는 경우
-        $(this).next().css('height','auto');
-        //$(this).parent().css('height','150px');
+    	$(this).children('dl').css('height','auto');
+        $('#hiddenMenu #menu li:not(:nth-of-type(' + index + ')').children('dl').css('height','0');
     } else {
-        $(this).next().css('height','0');
+    	$(this).children('dl').css('height','0');
        
     }
 });
- 
+
+$('#hiddenMenu #searchBtn').on("click", function(){
+	//alert("Aaaa");
+});
+
 $('.logoutBtn').on("click",function(){
 	if (confirm("로그아웃 하시겠습니까?")) {
 		location.href='/shop1/user/logout';
 	}
 });
- 
 
-
- 
  

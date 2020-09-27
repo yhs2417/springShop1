@@ -207,7 +207,7 @@
             <div class="span_section">
                 <div>
                     <h2>매장찾기</h2>
-                    <p><br><br>합리적 가격의<br>
+                    <p>합리적 가격의<br>
                         HYUN 매장을 만나보세요
                     </p>
                     <a href="#">more</a>
@@ -295,8 +295,8 @@
         		<img src='{{thumNail}}'>
         	</dt>
         	<dd>[{{companyName}}] <br>{{productName}}</dd>
-        	<dt> <span style="color:white; background-color:red;font-size:17px;"> 특가!  </span>
-				 {{#comma price}} {{/comma}} 원 
+        	<dt> <span style="color:white; background-color:red;font-size:17px;"> 특가! 
+				 {{#comma price}} {{/comma}} 원  </span>
 			<br> {{{explain1}}} 
 			</dt>
          
@@ -316,9 +316,11 @@
         		<dt>
         			<img src='{{thumNail}}'>
         		</dt>
-        		<dd><span style="color:white; background-color:red;font-size:17px;"> 특가! 
-					[{{companyName}}] {{productName}}</dd>
-        			<dt>{{price}}원<br>{{{explain1}}} </dt>
+        		<dd> 
+					[{{companyName}}] <br>{{productName}}</dd>
+        		<dt>
+					<span style="color:white; background-color:red;font-size:17px;"> 특가!  
+					{{price}}원</span><br>{{{explain1}}} </dt>
         		<dd></dd>
         	</dl>
     	</li>
@@ -334,9 +336,14 @@
         		<dt>
         			<img src='{{thumNail}}'>
         		</dt>
-        		<dd><span style="color:white; background-color:red;font-size:17px;"> 특가! 
-				[{{companyName}}]{{productName}}</dd>
-        		<dt>{{price}}원<br>{{{explain1}}} </dt>
+        		<dd>
+					[{{companyName}}] <br> {{productName}}
+				</dd>
+        		<dt>
+					<span style="color:white; background-color:red;font-size:17px;"> 특가!  
+					{{price}}원</span>
+					<br>{{{explain1}}}
+				 </dt>
         		<dd></dd>
         	</dl>
     	</li>
@@ -419,7 +426,7 @@ $('#recommand_area').on("click", "dl", function(){
 });
 
 $(window).on('scroll' , function(){
-	var hd = $('#scroll_img1').offset().top - 350;
+	var hd = $('#scroll_img1').offset().top - 550;
 	 //console.log("offset="+hd);
 	
     var sc = $(window).scrollTop(); // 스크롤 위 공간 높이

@@ -25,14 +25,16 @@
     <div id="searchArea">
         
 	        <input type="text">
-	        <a href="#">
+	        <a id="searchBtn" href="#">
 	            <img src='<c:url value="/resources/images/icons/searchicon.png"/>' >
 	        </a>
         
     </div>  
     <ul id="menu" >
         <li>
-            <a class="submenu">데스크탑</a>
+            <a class="submenu">
+            	<img src='<c:url value="/resources/images/icons/select_green.png"/>'>
+            	데스크탑</a>
             <dl>
                 <dt><a href="#" >삼성</a> </dt>
                 <dd><a href="#">Apple</a> </dd>
@@ -41,7 +43,9 @@
             </dl>
         </li>
         <li>
-            <a href="#" class="submenu">노트북</a>
+            <a href="#" class="submenu">
+                  	<img src='<c:url value="/resources/images/icons/select_green.png"/>'>
+            	노트북</a>
             <dl>
                 <dt><a href="#">삼성</a> </dt>
                 <dd><a href="#">Apple</a> </dd>
@@ -50,7 +54,8 @@
             </dl>
         </li>
         <li>
-            <a href="#" class="submenu">태블릿</a>
+            <a href="#" class="submenu"><img src='<c:url value="/resources/images/icons/select_green.png"/>'>
+            태블릿</a>
             <dl>
                 <dt><a href="#">삼성</a> </dt>
                 <dd><a href="#">Apple</a> </dd>
@@ -59,7 +64,8 @@
             </dl>
         </li>
         <li>
-            <a href="#" class="submenu">스마트폰</a>
+            <a href="#" class="submenu"><img src='<c:url value="/resources/images/icons/select_green.png"/>'>
+            스마트폰</a>
             <dl>
                 <dt><a href="#">삼성</a> </dt>
                 <dd><a href="#">Apple</a> </dd>
@@ -68,7 +74,8 @@
             </dl>             
         </li>
         <li>
-            <a href="#" class="submenu">TV</a>
+            <a href="#" class="submenu"><img src='<c:url value="/resources/images/icons/select_green.png"/>'>
+            TV</a>
             <dl>
                 <dt><a href="#">삼성</a> </dt>
                 <dd><a href="#">LG</a> </dd>
@@ -79,4 +86,6 @@
     </ul>
 </div> <!--END hiddenMenu -->
 
+<script>
 
+</script>

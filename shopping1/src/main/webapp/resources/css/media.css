@@ -1,5 +1,5 @@
 @media screen and (max-width: 1120px){
-/* 1100짜리 width100%로 */
+    /* 1100짜리 width100%로 */
     #hd_content1 #content_inner {
         width:95%;
         margin:auto;
@@ -16,25 +16,18 @@
     #sns {
         width:100%;
     }
-    #sns li {
-        /* margin-right: 12px */
-    }
     footer section{
-        width:100%;
-        
-    }
-    #events #inner li {
-        /* width: 210px; */
+        width:100%;    
     }
     #img_row li span {
         display: inline;
         color:white;
     }
+    
 }
 
-
 @media screen and (max-width: 961px){
-    /* menu 버튼화 / card event height 나 개수 조정 */
+    /* menu 버튼화 */
     #hd_content1 h3 {
         width:40%;
     }
@@ -92,37 +85,32 @@
         background: url(/shop1/resources/images/mobile_slide2_03.gif) no-repeat;
         background-size : 100% 100%;
     }
-
     #events #inner li:nth-of-type(1) {
         display :none;
     }
-
     #events #inner span:last-of-type {
         bottom:0%;
         left:0%;
     }
-   
-
+   	#events #inner li:nth-of-type(2) 
+   	{
+   		width:40%;
+   	}
     #scroll_img1 {
         background: url("/shop1/resources/images/mobile_back_02.gif");
         background-size : 100% 100%;
         background-attachment:fixed;
-        position: relative;
-         width:100%;
-         height:500px;
     }
-    .circle_section{
-         
-        width: 250px;
-        height: 250px;
-         
+    .circle_section{   
+        width: 300px;
+        height: 300px;  
     }
      #cartListContainer {
  		width:97%; max-width:960px;
  	}
-    
 }
-/*bootstrap 용  */
+
+
 @media screen and (max-width: 768px){
 	
 	#signUpForm legend {
@@ -217,7 +205,10 @@
 	#productListContainer #search-group {
 		width:80%;;
 	}
-	
+	.circle_section{   
+        width: 250px;
+        height: 250px;  
+    }
 }
 
 @media screen and (max-width: 650px){
@@ -264,7 +255,8 @@
         display:none;
     }
     #slide {
-        height:500px;
+        height:auto;
+        padding-top:70%; 
     }
     #slide span:nth-of-type(1){
         bottom:50%;
@@ -276,7 +268,7 @@
     }
     #events {
         margin-top:15px;
-        height:1100px;
+        
     }
     #events #inner li:nth-of-type(2){
         width:100%;
@@ -284,7 +276,6 @@
        
     }
     #events #inner li:nth-of-type(3){
-    
         width:100%;
         height:50%;
         text-align:center;
@@ -294,18 +285,18 @@
         right:1%;
         left: auto;
     }
-    #events .card_events {
-        height:90%;
-    }
+   	#recommand_area {
+    	padding-top: 160%;
+	}
     #events .card_events li{
         width:48%;
-        height:50%;
+        
     }
     #events .card_events li dt:nth-of-type(1) {
-    	height:53%;
+    	 
     }
     #events .dots {
-    	bottom:20px;
+    	 
     }
     #scroll_img1 .circle_section {
         display: none;
@@ -347,6 +338,17 @@
 }
 
 @media screen and (max-width: 530px){
+	#recommand_area {
+    	padding-top: 190%;
+	}
+	#scroll_img1 {
+   
+    padding-top: 70%;
+	}
+	#scroll_img1 .span_section p, a
+	{
+		font-size:14px;
+	}
 	#productDetailContainer {
 		max-width:530px;
 		width:90%;
