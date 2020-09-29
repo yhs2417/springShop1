@@ -93,9 +93,6 @@ function execPostCode() {
                fullRoadAddr += extraRoadAddr;
            }
 
-           //console.log(data.zonecode);
-           //console.log(fullRoadAddr);
-           
            $("#addrNum").val(data.zonecode);
            $("#addr1").val(fullRoadAddr);
            

@@ -52,41 +52,41 @@
  
 <!--상품리스트 템플릿-->
 <script id="ProductListTemplate" type="text/x-handlebars-template">
-	{{#product}}
-	<tr>
-	<th scope="row">
+{{#product}}
+	<ul>
+	<li scope="row">
 	<input type="checkbox" class="chkBox" id={{productId}}>
-	</th>
-	<td>{{productId}}</td>
-	<td>
+	</li>
+	<li>{{productId}}</li>
+	<li>
 		{{#if recommend}}
 			추천
  		{{/if}}
-	</td>
+	</li>
 
-	<td>{{productName}}</td>
-	<td>{{#comma price}}{{/comma}}
-	</td>
-	<td>{{category}}</td>
-	<td>{{companyName}}</td>
-	<td>{{{explain1}}}</td>
+	<li>{{productName}}</li>
+	<li>{{#comma price}}{{/comma}}
+	</li>
+	<li>{{category}}</li>
+	<li>{{companyName}}</li>
+	<li>{{{explain1}}}</li>
 
-	<td hidden>
+	<li hidden>
 	{{explain2}}
-	</td>
-	<td>
+	</li>
+	<li>
 		<img src='{{thumNail}}' width="70" height="70"/>
-	</td>
-	<td>
+	</li>
+	<li>
 	<div class="btn-group-vertical btn-group-sm">
 	<button type="button" class="btn btn-secondary productMod"
 			data-toggle="modal" data-target="#productModModal">
 	수정</button>
 	  <button type="button" class="btn btn-secondary mt-1 productDel">삭제</button>
 	</div>
-	 </td>
-	</tr>
-	{{/product}}
+	 </li>
+	</ul>
+{{/product}}
 </script>
 
 
@@ -105,7 +105,7 @@ keyword="";
 $('.categorySelect').on("change",function()
 {
 //console.log($(this).val());
-$.getJSON(
+	$.getJSON(
 		"/shop1/manager/companies/"+ $(this).val(),
 		function(data) {
 			//console.log(data)
@@ -125,7 +125,7 @@ function getProducts(page)
 {
 	$.ajax({
 		type : "POST",
-		url : "/shop1/manager/productList/"+category+"/"+page,
+		url : "/shop1/manager/productList/" + page,
 		dataType : "json",
 		headers : {
 			"Content-type" : "application/json",
@@ -147,7 +147,7 @@ function getProducts(page)
 
 			//페이징 반영
 			let str="";
-			if(data.paging.startPg>10)
+			if(data.paging.startPg > 10)
 			{
           	 str+="<li><a href='"+(data.paging.startPg-1)+"'>이전</a></li>"
 			}
@@ -177,18 +177,18 @@ function getProducts(page)
 };//getProducts(page) 끝
 
 //최상단 카테고리 클릭시 해당 카테고리 자료 불러오기
-$('#productMenu a').on("click",function()
+$('#product_manage_menu li:nth-of-type(2)').on("click",function()
 {
-	category = $(this).text(); //현재 카테고리 변수
+	//category = $(this).text(); //현재 카테고리 변수
 	
-	//console.log(category + "의 내역 불러오기");
+	console.log("상품 내역 불러오기");
 	
 	checkedIds = new Set(); //체크된 행 넣는 set초기화(페이지 바뀌어도 유지)
 	
 	//기존 정렬, 검색 초기화
-	align=""; 
-	condition="";
-	keyword="";
+	align = ""; 
+	condition = "";
+	keyword = "";
 	$('.keyword1').val('');
 	$('#Align').val('');
 	getProducts(1);

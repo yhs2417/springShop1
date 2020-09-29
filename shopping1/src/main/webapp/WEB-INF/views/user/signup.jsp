@@ -14,7 +14,7 @@ pageEncoding="UTF-8"%>
    	<h2> 회원가입 </h2>
    	<h4> member signUp </h4>
 </div>
-  <div class='container pt-3' style="width:60%;">
+  <div class='container pt-3' id="signUpContainer">
 
     <!--회원가입 폼.-->
     <form action="" method="post" name="signUpForm" id="signUpForm">
@@ -105,7 +105,7 @@ pageEncoding="UTF-8"%>
     }
 
     //아이디 유효성검사
-    if (!getIdCheck.test($("#userId").val())) {
+    else if (!getIdCheck.test($("#userId").val())) {
 
       $('#userId').removeClass("is-valid")
       $('#userId').addClass("is-invalid")

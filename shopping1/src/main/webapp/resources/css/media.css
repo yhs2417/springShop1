@@ -428,5 +428,7 @@
 	#sns li img {
 		width:70%;
 	}
-
+	 #signUpContainer {
+        width:80%;
+    }
 }

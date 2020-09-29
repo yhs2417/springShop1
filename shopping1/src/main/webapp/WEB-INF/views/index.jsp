@@ -185,11 +185,10 @@
                         </dl>
                     </li>
                 </ul> --%>
-                <div class="dots">
+            <div class="dots">
                     <a class="select"></a>
-                    <a ></a>
-                    <a ></a>
-                 
+                    <a></a>
+                    <a></a>
             </div>
         </div>
         </section>

@@ -588,6 +588,15 @@ header li {
 #events #inner2 h1{
     font-size: 20px;
 }
+#events #inner2 h1::before{
+    content:"";
+    position: absolute;
+    left: 0px;
+    top: -5px;
+    width: 93px;
+    height: 2px;
+    background: #ab9b7f;
+}
 #events .card_events {
     position: absolute;
     z-index:3;
@@ -612,9 +621,7 @@ header li {
     margin-right:5px;
     border-radius: 5px;
 }
-#events .card_events li:hover dl{
-	border : 2px solid #75675c;
-}
+
 #events .card_events li:last-of-type {
     margin-right:0px;
 }
@@ -651,6 +658,13 @@ header li {
     border-top:1px solid #d1cccb;
     padding-left:7px;
     box-sizing: border-box;
+}
+#events .card_events li:hover dl{
+	border : 2px solid #75675c;
+}
+#events .card_events li:hover dt:nth-of-type(1) img{
+ 	transition: all 0.5s;
+	padding:10px 10px;
 }
 #events .dots {
     width:50px;
@@ -797,7 +811,7 @@ header li {
 }
 #sns ul {
     width:55%;
-    padding:40px 0;
+    padding:65px 0;
     margin:auto;
     text-align: center;
     position:relative
@@ -907,7 +921,7 @@ header li {
 
 /* footer */
 footer {
-    background-color: #001A13;
+    background-color: #130c0a;
     /* margin-top:35px; */
     /* border-top:solid 1px #75675c; */
     width:100%;
@@ -1055,4 +1069,65 @@ footer section ul li{
 #productListContainer #sort {
 	width:120px;
 }
- 
+#signUpContainer {
+    width:60%;
+    padding-bottom:120px;
+}
+#productModify {
+	margin-top:30px;
+}
+#productModify #row1{
+	width:95%;
+	margin:auto;
+	position:relative;
+	padding:20px 0;
+}
+#productModify #row1 #category{
+	width:100px;
+	position:absolute;
+	left:0;
+	top:0;
+}
+#productModify #row1 #Align{
+	width:86px;
+	position:absolute;
+	left:100px;
+	top:0;
+}
+#productModify #row1 > .btn-group {
+	width:200px;	
+	position:absolute;
+	right:0;
+	top:0;
+}
+#productModify #row2 {
+	position:relative;
+	width:95%;
+	padding-bottom:30px;
+	margin:auto;
+}
+#productModify #row2 select {
+	width:86px;
+	position:absolute;
+	left:0;
+	top:0;
+}
+#productModify #row2 .keyword1{
+	width:100%;
+	padding:0px 60px 0px 90px;
+	
+}
+#productModify #row2 .searchingBtn{
+	width:58px;
+	position:absolute;
+	right:0;
+	top:0;
+}
+#productModList li {
+	float:left;
+	text-align:center;
+	border:1px solid gray;
+	background-color:#d9d9d9;
+	padding:5px 0;
+}
+
