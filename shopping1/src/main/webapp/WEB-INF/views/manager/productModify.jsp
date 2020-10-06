@@ -8,7 +8,7 @@
 	<!-- 검색어 등 ui -->
 	<div class="form-group row " id="row1">
       	<select	class="form-control" id="category">	 
-	      	<option selected value=''>제품분류</option>
+	      	<!-- <option selected value=''>제품분류</option> -->
 	      	
 	      	<c:forEach var="i" items="${category}" varStatus="status">
 				<option value='${i.category}'>${i.category}</option>
@@ -42,27 +42,32 @@
 	
 	</div>	<!--end UI -->
 	
-	<ul id="productModList">
-		<li style="width: 5%">
-			<input type="checkbox"
-						class="allCheck">
-					</li>
-					<li style="width: 5%" >No</li>
-					<li style="width: 8%">추천</li>
-
-					<li style="width: 35%" >상품명</li>
-					<li style="width: 15%">가격</li>
-					<li style="width: 15%" >분류</li>
-					<li style="width: 15%" >회사명</li>
-					<li style="width: 80%" >간략설명</li>
-					<li style="width: 10%" hidden>상세설명</li>
-					<li style="width: 52" >썸네일</li>
-					<li style="width: 6%" >수정</li>
+	 
 	
-	</ul>
-	<div class="productList">
+	<table class='table table-hover text-center'>
+		<thead class='thead-light'>
+			<tr>
+				<th style="width: 2%" scope='col'><input type="checkbox"
+					class="allCheck">
+				</th>
+				<th style="width: 1%" scope='col'>No</th>
+				<th style="width: 8%" scope='col'>추천</th>
 	
-	</div>
+				<th style="width: 10%" scope='col'>상품명</th>
+				<th style="width: 10%" scope='col'>가격</th>
+				<th style="width: 10%" scope='col'>분류</th>
+				<th style="width: 10%" scope='col'>회사명</th>
+				<th style="width: *%" scope='col'>간략설명</th>
+				<th style="width: 10%" scope='col' hidden>상세설명</th>
+				<th style="width: 52" scope='col'>썸네일</th>
+				<th style="width: 3%" scope='col'></th>
+			</tr>
+		</thead>
+		<tbody class="productList">
+		
+		</tbody>
+	</table>
+	
 	<div>
 		<!-- 페이징 오는 부분 -->
 		<ul class="pagination justify-content-center productPaging">

@@ -1,9 +1,11 @@
+/* 공용사용 */
+
 * {
     margin:0;
     padding:0;
     font-size:13px;
     color: #75675c; 
-    font-family: "Nanum Barun Gothic", "나눔고딕", "NanumGothic", "돋움", "Dotum", sans-serif;
+    font-family: "Nanum Barun Gothic", "나눔고딕", "NanumGothic", "돋움", "Dotum", sans-serif !important;
     line-height: 1.5;
     letter-spacing: -.05em;
     -webkit-text-size-adjust: none;
@@ -34,7 +36,7 @@ strong, a span, a, label, h1, h2, h3{
 	font-weight:bold;
 }
 .card:hover {
-	border : 2px solid #75675c;
+	border : 1px solid #75675c;
 }
 .subPageBanner {
 	border-bottom: 1px solid #ffba00;
@@ -44,6 +46,21 @@ strong, a span, a, label, h1, h2, h3{
 	text-align:center;
 	position:relative;
 }
+h1 {
+	
+}
+h2{
+	
+}
+h3{
+	
+}
+h4 {
+	
+}
+h5 {
+	
+}
 .subPageBanner h2 {
 	height:50%;
 	line-height:2.4;
@@ -52,7 +69,17 @@ strong, a span, a, label, h1, h2, h3{
 	height:50%;
 	line-height:1;	
 }
- 
+.vertical-center {
+	top:50% !important;
+	transform:translateY(-50%);
+}
+.horizon-center{
+	left:50% !important;
+	transform:translateX(-50%);
+}
+/* end 공용사용 */
+
+
 #wrap {
     position: absolute;
     top:0;
@@ -61,6 +88,7 @@ strong, a span, a, label, h1, h2, h3{
     height:auto;
     z-index: 1;
     overflow: hidden;
+    max-width:1280px;
    
 }
 #hiddenMenu {
@@ -111,10 +139,16 @@ strong, a span, a, label, h1, h2, h3{
     height:30px;
     margin-top :10px;
 }
+#hiddenMenu #searchArea select{
+	width:60px;
+	position: absolute;
+	height:100%;
+	left:0;
+}
 #hiddenMenu #searchArea input{
     width:100%;
     height:100%;
-    padding:0 30px 0 10px; 
+    padding:0 30px 0 70px; 
     font-size:1.3rem;    
 }
 #hiddenMenu #searchArea a {
@@ -220,11 +254,17 @@ header li {
 	transform:translateY(-50%);
 	
 }
+#hd_content1 #content_inner #searchBar select{
+	width:80px;
+	position: absolute;
+	height:100%;
+	left:0;
+}
 #hd_content1 #content_inner #searchBar input{
-    width:100%;
+    width: 100%;
     height:100%;
     font-size: 1.5em;
-    padding:0 30px 0 10px; 
+    padding:0 30px 0 90px; 
 }
 #hd_content1 #content_inner #searchBar a {
     position: absolute;
@@ -397,21 +437,27 @@ header li {
     border-radius: 10px;
     background-color: #75675c;
 }
-#slide span {
-     
+.dots a:hover{
+   transform:scale(1.3,1.3);
+}
+#slide > span {
     position: absolute;
     /* border-bottom:solid 1px #75675c; */
     cursor: pointer;
 }
+#slide > span:hover img{
+	width:47px;
+	
+}
 #slide span:nth-of-type(1){
-    left:6%;
-    bottom:35%;
+    left:5%;
+    top:50%;
     transform :translateY(-50%);
     text-align:right;
 }
 #slide span:nth-of-type(2){
-    right:6%;
-    bottom:35%;
+    right:5%;
+    top:50%;
     transform :translateY(-50%);
 }
 #slide .imgs {
@@ -493,44 +539,20 @@ header li {
 #events #inner{
     position:relative;
     width:100%;
-    height:275px;
+    overflow:auto;
+    -ms-overflow-style: none;  /* IE and Edge */
+  	scrollbar-width: none;  /* Firefox */
 }
+#events #inner::-webkit-scrollbar {
+  display: none;
+}
+ 
 #events #inner li{
     width:25%;
     height:100%; 
     float:left;
 }
-#events #inner li:last-of-type{
-    float:right;
-    width:50%;
-    background: url(/shop1/resources/images/evevt1.jpg) no-repeat;
-    background-size: 100% 100%;
-    text-align: center;
-    position: relative;
-    transition: all 0.5s;
-}
-#events #inner li:last-of-type span{
-    position: absolute;
-    left:50%;
-    bottom:-1%;
-    transform: translate(-50%,-50%);
-    display: none;
-     
-    
-}
-#events #inner li:last-of-type span a {
-	font-size:15px;
-}
-#events #inner li:last-of-type:hover{
-     opacity: 0.5;
-}
-#events #inner li:last-of-type:hover span{
-    display: block;
-    opacity:1;
-    font-weight:bold;
-   
-    
-}
+
 #events #inner li:nth-of-type(2){
     position: relative;
 }
@@ -559,6 +581,47 @@ header li {
     padding-top: 10px;
     color: #a19e99;
     font-size: 11px;
+}
+#events #inner li:last-of-type{
+    float:right;
+    width:50%;
+    <!--background: url(/shop1/resources/images/evevt1.jpg) no-repeat;
+    background-size: 100% 100%;-->
+    text-align: center;
+    position: relative;
+    transition: all 0.5s;
+}
+
+
+#events #inner li:last-of-type strong{
+    display: inline-block;
+    color: #392213;
+    font-size: 20px;
+}
+#events #inner li:last-of-type dl {
+	border : 1px solid lightgray;
+	width:94%;
+	background-color:white;
+	box-shadow:1px 1px 3px black;
+}
+#events #inner li:last-of-type dt,
+#events #inner li:last-of-type dd{
+	
+	position:relative;
+	font-weight:400;
+	font-size:16px;
+	padding:5px 0 0 30px;
+}
+#events #inner li:last-of-type span{
+    position: absolute;
+    left:7px;
+    right:auto;
+    top:0%;
+    bottom:auto;
+    border:0;
+}
+#events #inner li:last-of-type dl a{
+    font-size:15px;
 }
 #events #inner span:last-of-type{
     position: absolute;
@@ -661,6 +724,7 @@ header li {
 }
 #events .card_events li:hover dl{
 	border : 2px solid #75675c;
+	cursor:pointer;
 }
 #events .card_events li:hover dt:nth-of-type(1) img{
  	transition: all 0.5s;
@@ -671,9 +735,10 @@ header li {
     height:15px;
     top:0%;
     left:auto;
-    right:0;
+    right:2%;
     text-align:center;
     z-index: 10;
+    transform: translateX(0);
 }
 #events .dots a{   
     background-color: #c1ae96;
@@ -716,7 +781,7 @@ header li {
     position: absolute;
     z-index:6;
     left: 10%;
-    top: -15%;
+    top: -10%;
     width: 380px;
     height: 380px;
     border-radius: 50%;
@@ -823,8 +888,10 @@ header li {
     text-align:center;
     position:absolute;  
     top:50%;
-    transform:translate(-50%,-50%);
-     
+    transform:translate(-50%,-50%);   
+}
+#sns li:hover img{
+	transform: scale(1.1, 1.1);
 }
 #sns li:nth-of-type(1) {
 	left:12.5%;
@@ -882,13 +949,14 @@ header li {
 }
 #userInfo {
 	position:relative;
-	min-height: 450px;
+	min-height: 650px;
 	margin-top:50px;
 	width:90%;
 }
 #userInfo aside, #productMa aside  {
 	border-top :2px solid #75675c;
 	width:15%;
+	float:left;
 }
 #userInfo aside ul, #productMa aside ul{
 	 
@@ -901,29 +969,45 @@ header li {
 	box-sizing: border-box;
 	text-align:center;
 	line-height:3.5;
-	cursor:pointer;
-	
+	cursor:pointer;	
+	 
 }
-#userInfo content, #productMa content {
+#userInfo content {
 	position:absolute;
 	left:20%;
 	top:0;
 	z-index:2;
 	width:70%;
 }
-
 #productMa {
 	position:relative;
 	margin-top:50px;
+	margin-bottom:50px;
 	width:90%;
-	height: 1150px ;
+	min-height: 650px ;
+	overflow:auto;
+}
+#productMa content {
+	width:80%;
+	float:right;
 }
 
+#productMa .productList td span {
+	display:none;
+	width:80px;
+	height:100%;
+	float:left;
+	text-align:left;
+	font-weight:bold;
+	
+	
+}
 /* footer */
 footer {
+    background-color:#59493B;
+    /* margin-top:35px;  
     background-color: #130c0a;
-    /* margin-top:35px; */
-    /* border-top:solid 1px #75675c; */
+     border-top:solid 1px #75675c; */
     width:100%;
     height:200px;
 }
@@ -1037,7 +1121,7 @@ footer section ul li{
 }
  
 #cartListContainer .item-rows li:nth-of-type(3) {
-	width:134px; 
+	width:145px; 
  	right:100px;	 
 }
 #cartListContainer .item-rows li:nth-of-type(4) {
@@ -1074,7 +1158,7 @@ footer section ul li{
     padding-bottom:120px;
 }
 #productModify {
-	margin-top:30px;
+	margin-top:0px;
 }
 #productModify #row1{
 	width:95%;
@@ -1083,22 +1167,17 @@ footer section ul li{
 	padding:20px 0;
 }
 #productModify #row1 #category{
-	width:100px;
-	position:absolute;
-	left:0;
-	top:0;
+	width:86px;
+	float:left
 }
 #productModify #row1 #Align{
 	width:86px;
-	position:absolute;
-	left:100px;
-	top:0;
+	float:left;
 }
 #productModify #row1 > .btn-group {
-	width:200px;	
-	position:absolute;
-	right:0;
-	top:0;
+	width:200px;
+	 
+	margin-left:auto;
 }
 #productModify #row2 {
 	position:relative;
@@ -1123,11 +1202,5 @@ footer section ul li{
 	right:0;
 	top:0;
 }
-#productModList li {
-	float:left;
-	text-align:center;
-	border:1px solid gray;
-	background-color:#d9d9d9;
-	padding:5px 0;
-}
+
 

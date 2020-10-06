@@ -86,12 +86,20 @@
 		<if test="condition==''">
 			where category=#{category}
 		</if>
-		<if test="condition !=''">
+		<if test="condition !='' and category !=''">
 			<if test="condition=='productName'">
 				where category=#{category} and product_name like CONCAT('%',#{keyword},'%')
 			</if>
 			<if test="condition=='companyName'">
 				where category=#{category} and company_name like CONCAT('%',#{keyword},'%')
+			</if>
+		</if>
+		<if test="condition !='' and category ==''">
+			<if test="condition=='productName'">
+				where product_name like CONCAT('%',#{keyword},'%')
+			</if>
+			<if test="condition=='companyName'">
+				where company_name like CONCAT('%',#{keyword},'%')
 			</if>
 		</if>
 	</sql>
@@ -119,9 +127,13 @@
 	</delete>
 
 	
-	<select id="getRecommendProduct" resultMap="ResultMap3">
+	<select id="getRecommendProduct11" resultMap="ResultMap3">
 		select * from product
 		where category=#{category} and recommend=1
+	</select>
+	<select id="getRecommendProduct" resultMap="ResultMap3">
+		select * from product
+		where recommend=1
 	</select>
 	
 	<select id="recommendedList" parameterType="String" resultType="int">

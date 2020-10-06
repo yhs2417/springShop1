@@ -13,7 +13,10 @@
 	
 	<!-- Enables the Spring MVC @Controller programming model -->
 	<mvc:annotation-driven />
-
+	
+	<context:component-scan base-package="kr.hyunnn.shop1" />
+	<tx:annotation-driven transaction-manager="txManager"/>
+	
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
 	<mvc:resources mapping="/resources/**" location="/resources/" />
 
@@ -28,10 +31,7 @@
 		<beans:property name="defaultEncoding" value="UTF-8"/>
 		
 	</beans:bean>
-	
-	<context:component-scan base-package="kr.hyunnn.shop1" />
-	<tx:annotation-driven transaction-manager="txManager"/>
-	
+
 	<mvc:interceptors>
 		<mvc:interceptor>
 			<mvc:mapping path="/**/" /> <!-- 싸이트들오자마자 적용-->

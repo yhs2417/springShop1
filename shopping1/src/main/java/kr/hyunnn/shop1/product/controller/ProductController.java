@@ -23,10 +23,19 @@ public class ProductController
 	private ProductService service;
 	
 	@GetMapping("/list")
-	public ModelAndView productList(@RequestParam("category") String category) throws Exception
+	public ModelAndView productList(@RequestParam("category") String category,
+							@RequestParam("keyword") String keyword,
+							@RequestParam("condition") String condition
+							) throws Exception
 	{
 		System.out.println("productList.jsp진입"+category);
-		return  new ModelAndView("product/productList","category",category);
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("product/productList");
+		mav.addObject("category",category);
+		mav.addObject("keyword",keyword);
+		mav.addObject("condition",condition);
+
+		return mav;
 	}
 	
 	@GetMapping("/detail")

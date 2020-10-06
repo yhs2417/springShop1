@@ -14,10 +14,10 @@
 
 <div class="subPageBanner">
    	<h2> 제품리스트 </h2>
-   	<h4> {{제품 부류/ 제조사}} </h4>
+   	<h4> ${category} </h4>
 </div>
 
-<div class='container pt-3' style="min-height: 500px" id="productListContainer">
+<div class='container pt-3' style="min-height: 650px" id="productListContainer">
 		<!-- 정렬기준.
 		<div class="btn-toolbar justify-content-end pr-5">
 			<div class="btn-group btn-group-sm">
@@ -48,7 +48,7 @@
 		</select>
 		<input type="text" id="keyword" placeholder="검색어"
 				class="form-control"/>
-		<input type="button" id="searchBtn" value="검색" class="form-control "/>
+		<input  type="button" id="searchBtn" value="검색" class="form-control "/>
 	</div>
 	<div class="form-group row mt-2" id="sort">
        		 		
@@ -75,8 +75,6 @@
 </div><!-- container end -->
 
 <jsp:include page="../include/mainFooter.jsp" />
-
-<script src="<c:url value='/resources/js/common.js'/>"></script>
 
 <!--상품리스트 템플릿-->
 <script id="ProductsTemplate" type="text/x-handlebars-template">
@@ -107,18 +105,20 @@
 
 <script>
 
-category='${category}'; //JSP에서 넘긴값
-//이후 select선택시 그 선택값으로 유지되도록
-align="";
-condition="";
-keyword="";
+category = '${category}'; //JSP에서 넘긴값
+condition = '${condition}';
+keyword = '${keyword}';
 
+//검색등 이후 select선택시 그 선택값으로 유지되도록
+align = "";
+
+//alert("category=" + category +"/condition=" + condition + "/keyword =" + keyword);
 //상품목록 불러오기 함수구현
 function getProducts(page)
 {
 	$.ajax({
 		type : "POST",
-		url : "/shop1/manager/productList/"+category+"/"+page,
+		url : "/shop1/manager/productList?category=" + category + "&pg="+page,
 		dataType : "json",
 		headers : {
 			"Content-type" : "application/json",
@@ -164,7 +164,7 @@ function getProducts(page)
 
           	$(".paging").html(str);
 			
-          	console.log("product lists success") 
+          	//console.log("product lists success") 
 			} 
 		}); //ajax
 	/*	
@@ -223,20 +223,20 @@ $(".pagination").on("click","li a",function(e)
 //정렬 선택시 
 $("#productAlign").on("change",function()
 {
-	console.log("정렬선택됨 옵션="+$(this).val());
+	//console.log("정렬선택됨 옵션="+$(this).val());
 	align=$(this).val();//페이지 바뀌어도 이값로 계속 유지되도록
 	getProducts(1);
 	
 });
 
 //검색어 입력시
-$("#searchBtn").on("click",function()
+$('#productListContainer #searchBtn').on("click",function()
 {
-	console.log("검색 조건="+$('#condition').val());
-	console.log("검색어="+$('#keyword').val());
+	//console.log("검색 조건="+$('#condition').val());
+	//console.log("검색어="+$('#keyword').val());
 
-	condition=$('#condition').val(); //페이지 바뀌어도 이값로 계속 유지되도록
-	keyword=$('#keyword').val();
+	condition=$('#productListContainer #condition').val(); //페이지 바뀌어도 이값로 계속 유지되도록
+	keyword=$('#productListContainer #keyword').val();
 	getProducts(1);
 	
 });
@@ -244,11 +244,10 @@ $("#searchBtn").on("click",function()
 
 $('.products').on("click",".card",function(){
 	let productId=$(this).attr('id');
-	console.log("제품 자세히 보기 클릭됨 id="+productId);
+	//console.log("제품 자세히 보기 클릭됨 id="+productId);
 	
 	self.location="detail?id="+productId
 })
-
-  console.log = function(){}
+ 
 
 </script>

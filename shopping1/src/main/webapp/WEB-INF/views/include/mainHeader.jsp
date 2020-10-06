@@ -14,8 +14,12 @@
             </ul>
             <div id="searchBar">
                 <div>
-	                <input type="text">
-	                <a href="#">
+                	<select id="condition">
+						<option selected value='productName'>제품명</option>
+						<option value='companyName'>제조사</option>
+					</select>
+	                <input type="text" id="keyword">
+	                <a>
 	                    <img src='<c:url value="/resources/images/icons/searchicon.png"/>' width="100%">
 	                </a>
                 </div>
@@ -139,62 +143,64 @@
 					<li><a class="logoutBtn">LOGOUT</a></li>
 				</c:if> 
             </ul>
+            
+           
             <ul>
                 <li>
-                    <a href="<c:url value='/product/list?category=computer'/>">데스크탑</a>
+                    <a href="<c:url value='/product/list?category=computer&condition=&keyword='/>">데스크탑</a>
                     <div class="subMenu">
                         <dl>
                             <dt>
-                                <a href="<c:url value='/product/list?category=computer'/>">삼성</a>
+                                <a href="<c:url value='/product/list?category=computer&condition=companyName&keyword=samsung'/>">삼성</a>
                             </dt>
                             <dd>
-                                <a href="<c:url value='/product/list?category=computer'/>">Apple</a>
+                                <a href="<c:url value='/product/list?category=computer&condition=companyName&keyword=apple'/>">Apple</a>
                             </dd>
                             <dt>
-                                <a href="<c:url value='/product/list?category=computer'/>">LG</a>
+                                <a href="<c:url value='/product/list?category=computer&condition=companyName&keyword=lg'/>">LG</a>
                             </dt>
                             <dd>
-                                <a href="<c:url value='/product/list?category=computer'/>">hp</a>
+                                <a href="<c:url value='/product/list?category=computer&condition=companyName&keyword=hp'/>">hp</a>
                             </dd>
                            
                         </dl>
                     </div>
                 </li>
                 <li>
-                    <a href="#">노트북</a>
+                    <a href="<c:url value='/product/list?category=NoteBook&condition=&keyword='/>">노트북</a>
                     <div class="subMenu">
                         <dl>
                             <dt>
-                                <a href="<c:url value='/product/list?category=NoteBook'/>">삼성</a>
+                                <a href="<c:url value='/product/list?category=NoteBook&condition=companyName&keyword=samsung'/>">삼성</a>
                             </dt>
                             <dd>
-                                <a href="<c:url value='/product/list?category=NoteBook'/>">Apple</a>
+                                <a href="<c:url value='/product/list?category=NoteBook&condition=companyName&keyword=apple'/>">Apple</a>
                             </dd>
                             <dt>
-                                <a href="<c:url value='/product/list?category=NoteBook'/>">레노바</a>
+                                <a href="<c:url value='/product/list?category=NoteBook&condition=companyName&keyword=lenova'/>">레노바</a>
                             </dt>
                             <dd>
-                                <a href="<c:url value='/product/list?category=NoteBook'/>">LG</a>
+                                <a href="<c:url value='/product/list?category=NoteBook&condition=companyName&keyword=lg'/>">LG</a>
                             </dd>
                          
                         </dl>
                     </div>
                 </li>
                 <li>
-                    <a href="#">테블릿</a>
+                    <a href="<c:url value='/product/list?category=tablet&condition=&keyword='/>">테블릿</a>
                     <div class="subMenu">
                         <dl>
                             <dt>
-                                <a href="<c:url value='/product/list?category=tablet'/>">삼성</a>
+                                <a href="<c:url value='/product/list?category=tablet&condition=companyName&keyword=samsung'/>">삼성</a>
                             </dt>
                             <dd>
-                                <a href="<c:url value='/product/list?category=tablet'/>">Apple</a>
+                                <a href="<c:url value='/product/list?category=tablet&condition=companyName&keyword=apple'/>">Apple</a>
                             </dd>
                             <dt>
-                                <a href="<c:url value='/product/list?category=tablet'/>">LG</a>
+                                <a href="<c:url value='/product/list?category=tablet&condition=companyName&keyword=lg'/>">LG</a>
                             </dt>
                             <dd>
-                                <a href="<c:url value='/product/list?category=tablet'/>">아마존</a>
+                                <a href="<c:url value='/product/list?category=tablet&condition=companyName&keyword=amazon'/>">아마존</a>
                             </dd>
                              
                             
@@ -202,39 +208,39 @@
                     </div>
                 </li>
                 <li>
-                    <a href="#">스마트폰</a>
+                    <a href="<c:url value='/product/list?category=smartPhone&condition=&keyword='/>">스마트폰</a>
                     <div class="subMenu">
                         <dl>
                             <dt>
-                                <a href="<c:url value='/product/list?category=phone'/>">삼성</a>
+                                <a href="<c:url value='/product/list?category=smartPhone&condition=companyName&keyword=samsung'/>">삼성</a>
                             </dt>
                             <dd>
-                                <a href="<c:url value='/product/list?category=phone'/>">Apple</a>
+                                <a href="<c:url value='/product/list?category=smartPhone&condition=companyName&keyword=apple'/>">Apple</a>
                             </dd>
                             <dt>
-                                <a href="<c:url value='/product/list?category=phone'/>">샤오미</a>
+                                <a href="<c:url value='/product/list?category=smartPhone&condition=companyName&keyword=mi'/>">샤오미</a>
                             </dt>
                             <dd>
-                                <a href="<c:url value='/product/list?category=phone'/>">LG</a>
+                                <a href="<c:url value='/product/list?category=smartPhone&condition=companyName&keyword=lg'/>">LG</a>
                             </dd>
                         </dl>
                     </div>
                 </li>
                 <li>
-                    <a>TV</a>
+                    <a href="<c:url value='/product/list?category=refrigerator&condition=&keyword='/>">냉장고</a>
                     <div class="subMenu">
                         <dl>
                             <dt>
-                                <a href="<c:url value='/product/list?category=tv'/>">삼성</a>
+                                <a href="<c:url value='/product/list?category=refrigerator&condition=companyName&keyword=samsung'/>">삼성</a>
                             </dt>
                             <dd>
-                                <a href="<c:url value='/product/list?category=tv'/>">LG</a>
+                                <a href="<c:url value='/product/list?category=refrigerator&condition=companyName&keyword=lg'/>">LG</a>
                             </dd>
                             <dt>
-                                <a href="<c:url value='/product/list?category=tv'/>">필립스</a>
+                                <a href="<c:url value='/product/list?category=refrigerator&condition=companyName&keyword=philips'/>">필립스</a>
                             </dt>
                             <dd>
-                                <a href="<c:url value='/product/list?category=tv'/>">소니</a>
+                                <a href="<c:url value='/product/list?category=refrigerator&condition=companyName&keyword=daewoo'/>">위니아</a>
                             </dd>
                            
                         </dl>

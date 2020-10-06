@@ -17,21 +17,19 @@
 	</div>
 
 	<div class='container pt-3'  id="cartListContainer" style="min-height: 700px">
-
-		
-			 
-							<ul id="cartListheader">
-								  
-									<li>제품명</li>
-									<li>금액</li>
-									<li>수량</li>
-							</ul>
  
-						<div id="cartLists" >
-							
-							<!--내용 이 들어올곳 --> 
+		<ul id="cartListheader">
+			  
+				<li>제품명</li>
+				<li>금액</li>
+				<li>수량</li>
+		</ul>
 
-						</div>	
+		<div id="cartLists" >
+			
+			<!--내용 이 들어올곳 --> 
+
+		</div>	
 	</div>
 	<!-- container end -->
 	
@@ -66,14 +64,14 @@ productvo=ProductVO(productId, productName, companyName, explain1, explain2, thu
 	<li class="row">
 		<input type="text" style="width: 60px"
 			class="form-control productCount" value='{{count}}' />
-		<div class="btn-group ml-2">
+		<div class="btn-group">
 			<button type="button"
 					class="btn btn-white mr-1 productPlusCount">
-				<i class="fas fa-plus"></i>
+				<img src='<c:url value="/resources/images/icons/plusicon.png"/>' width="17">
 			</button>
 			<button type="button"
 					class="btn btn-white productMinusCount">
-				<i class="fas fa-minus"></i>
+				<img src='<c:url value="/resources/images/icons/minusicon.png"/>' width="17">
 			</button>
 		</div>
 	</li>

@@ -52,7 +52,7 @@ public class ManagerService implements IManagerService
 		map.put("condition",cri.getCondition());
 		map.put("keyword",cri.getKeyword());
 		
-		System.out.println("서비스에서인수값 확인"+category+cri.getAlign()+cri.getCondition()+cri.getKeyword());
+		System.out.println("서비스에서인수값 확인:"+category+cri.getAlign()+cri.getCondition()+cri.getKeyword());
 		
 		return dao.productList(map);
 	}

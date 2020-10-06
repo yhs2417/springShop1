@@ -93,6 +93,7 @@ public class OrderController
 			List<CartVO> cart=service.cartList(user);
 			for (CartVO vo1 : cart)
 			{
+				//주문db저장
 				orderService.addOrder(vo1);
 				//기존 장바구니 삭제
 				service.delCart(vo1.getCartId());

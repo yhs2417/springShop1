@@ -104,4 +104,67 @@ $('.logoutBtn').on("click",function(){
 	}
 });
 
- 
+
+//검색어 입력시
+$('#hd_content1 #searchBar a img').on("click",function()
+{
+	var condition = $('#hd_content1 #searchBar #condition').val();
+	var keyword = $('#hd_content1 #searchBar #keyword').val();
+    location.href="/shop1/product/list?category=&condition=" + condition + "&keyword=" + keyword;
+});
+$('#hiddenMenu #searchArea a img').on("click",function()
+{
+	var condition = $('#hiddenMenu #searchArea #condition').val();
+	var keyword = $('#hiddenMenu #searchArea #keyword').val();
+    location.href="/shop1/product/list?category=&condition=" + condition + "&keyword=" + keyword;
+});
+$("#hiddenMenu #searchArea #keyword").keydown(function(key) {
+
+	if (key.keyCode == 13) {
+		condition = $('#hiddenMenu #searchArea #condition').val();
+		keyword = $('#hiddenMenu #searchArea #keyword').val();
+	    location.href="/shop1/product/list?category=&condition=" + condition + "&keyword=" + keyword;
+	}
+});
+$("#hd_content1 #searchBar #keyword").keydown(function(key) {
+
+	if (key.keyCode == 13) {
+		condition = $('#hd_content1 #searchBar #condition').val();
+		keyword = $('#hd_content1 #searchBar #keyword').val();
+	    location.href="/shop1/product/list?category=&condition=" + condition + "&keyword=" + keyword;
+	}
+});
+
+var event_rank_index = 0;
+var index_random ;
+
+setInterval(function(){
+	 //console.log(event_rank_index);
+	$('.event_ranking dl a').eq(event_rank_index).animate({
+        opacity: '0%'
+    }, 80, function() {
+      $('.event_ranking dl a').eq(event_rank_index).animate( {
+        opacity: '100%'
+      }, 80 );});
+	
+	if (event_rank_index < 8) {	
+		setTimeout(function(){
+			event_rank_index++;	
+		},160)
+	} else if (event_rank_index == 8) {
+		setTimeout(function(){
+			index_random = Math.floor(Math.random() * 8);
+			if (index_random == 0) { index_random = 1};
+			next_text = $('.event_ranking dl a').eq(index_random).text();
+			pre_text = $('.event_ranking dl a').eq(index_random - 1).text();
+			//$('.event_ranking dl a').eq(index_random).replaceWith($('.event_ranking dl a').eq(index_random - 1));
+			$('.event_ranking dl a').eq(index_random - 1).text(next_text);
+			$('.event_ranking dl a').eq(index_random).text(pre_text);
+			event_rank_index = 0;			 
+		},160)
+	}
+},320);
+
+$('#events #inner li:last-of-type dl a').on('click',function(){
+	alert("이벤트는 준비중입니다");
+});

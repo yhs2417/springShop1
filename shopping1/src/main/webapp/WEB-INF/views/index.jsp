@@ -12,7 +12,7 @@
 	 
 	<jsp:include page="include/hiddenMenu.jsp" />
   
-    <div id="wrap">
+    <div id="wrap" class="horizon-center">
       
     	<jsp:include page="include/mainHeader.jsp" />
 
@@ -45,8 +45,20 @@
                     <p>have a good time;</p>
                     
                 </li>
-                <li>
-                    <span><a href="#" onclick="alert('이벤트는 준비중입니다');">바로 보러가기</a></span>
+                <li class="event_ranking">
+                		<strong>실시간 <i style="color:#f9b234; font-size:20px;">Hot</i> 이벤트 순위</strong>
+                	<dl>
+                		<dt><span>1.</span><a>회원가입시 무료쿠폰! </a></dt>
+                		<dd><span>2.</span><a>기계식 키보드 증정 룰렛돌리기</a></dd>
+                		<dt><span>3.</span><a>애플 iphone10s 체험단 모집</a></dt>
+                		<dd><span>4.</span><a>삼성 갤럭시 10 선착순 할인!</a></dd>
+                		<dt><span>5.</span><a>ipad 구매후기 이벤트!</a></dt>
+                		<dd><span>6.</span><a>삼성 데스크탑 출시 기념!</a></dd>
+                		<dt><span>7.</span><a>레노바 신모델을 30만원에</a></dt>
+                		<dd><span>8.</span><a>샤오미 미노트 출시임박!</a></dd>
+                 
+                	
+                	</dl>
                 </li>
                 <span>
                     <a href="#" onclick="alert('이벤트는 준비중입니다');">전체 이벤트 보기</a>
@@ -58,133 +70,7 @@
                 <div id="recommand_area">
                 
                 </div>
-                <%-- <ul class="card_events">
-                    <li>
-                        <dl>
-                            <dt>
-                                <img src='<c:url value="/resources/images/gal1.gif"/>'>
-                            </dt>
-                            <dd>메모1</dd>
-                            <dt>부메모11111</dt>
-                            <dd></dd>
-                        </dl>
-                    </li>
-                    <li>
-                        <dl>
-                            <dt>
-                                <img src='<c:url value="/resources/images/gal2.gif"/>'>
-                            </dt>
-                            <dd>메모2</dd>
-                            <dt>부메모2222</dt>
-                            <dd></dd>
-                        </dl>
-                    </li>
-                    <li>
-                        <dl>
-                            <dt>
-                                <img src="/resources/images/han_note1.gif">
-                            </dt>
-                            <dd>메모3</dd>
-                            <dt>부메모33333</dt>
-                            <dd></dd>
-                        </dl>
-                    </li>
-                    <li>
-                        <dl>
-                            <dt>
-                                <img src="/resources/images/lg_note1.gif">
-                            </dt>
-                            <dd>메모4</dd>
-                            <dt>부메모444444</dt>
-                            <dd></dd>
-                        </dl>
-                    </li>
-                </ul>
-                
-                <ul class="card_events">
-                    <li>
-                        <dl>
-                            <dt>
-                                <img src="/resources/images/lg_tv1.gif">
-                            </dt>
-                            <dd>메모1</dd>
-                            <dt>부메모11111</dt>
-                            <dd></dd>
-                        </dl>
-                    </li>
-                    <li>
-                        <dl>
-                            <dt>
-                                <img src="/resources/images/refre1.gif">
-                            </dt>
-                            <dd>메모2</dd>
-                            <dt>부메모2222</dt>
-                            <dd></dd>
-                        </dl>
-                    </li>
-                    <li>
-                        <dl>
-                            <dt>
-                                <img src="/resources/images/refre2.gif">
-                            </dt>
-                            <dd>메모3</dd>
-                            <dt>부메모33333</dt>
-                            <dd></dd>
-                        </dl>
-                    </li>
-                    <li>
-                        <dl>
-                            <dt>
-                                <img src="/resources/images/refre2.gif">
-                            </dt>
-                            <dd>메모4</dd>
-                            <dt>부메모444444</dt>
-                            <dd></dd>
-                        </dl>
-                    </li>
-                </ul>
-                <ul class="card_events">
-                    <li>
-                        <dl>
-                            <dt>
-                                <img src="/resources/images/sam_tv2.gif">
-                            </dt>
-                            <dd>메모1</dd>
-                            <dt>부메모11111</dt>
-                            <dd></dd>
-                        </dl>
-                    </li>
-                    <li>
-                        <dl>
-                            <dt>
-                                <img src="images/tab1.gif">
-                            </dt>
-                            <dd>메모2</dd>
-                            <dt>부메모2222</dt>
-                            <dd></dd>
-                        </dl>
-                    </li>
-                    <li>
-                        <dl>
-                            <dt>
-                                <img src="/resources/images/tab2.gif">
-                            </dt>
-                            <dd>메모3</dd>
-                            <dt>부메모33333</dt>
-                            <dd></dd>
-                        </dl>
-                    </li>
-                    <li>
-                        <dl>
-                            <dt>
-                                <img src="/resources/images/tab2.gif">
-                            </dt>
-                            <dd>메모4</dd>
-                            <dt>부메모444444</dt>
-                            <dd></dd>
-                        </dl>
-                    </li>
-                </ul> --%>
+          
             <div class="dots">
                     <a class="select"></a>
                     <a></a>
@@ -196,20 +82,20 @@
         <section id="scroll_img1">
             <div class="circle_section">
                 <div>
-                    <h2>매장찾기</h2>
+                    <h2>가을바람의 <br> 냉장고</h2>
                     <p>합리적 가격의<br>
-                        HYUN 매장을 만나보세요
+                        HYUN 매장에서 만나보세요
                     </p>
-                    <a href="#">more</a>
+                    <a href="<c:url value='/product/list?category=aircon&condition=&keyword='/>">more</a>
                 </div>
             </div>
             <div class="span_section">
                 <div>
-                    <h2>매장찾기</h2>
+                    <h2>가을바람의 냉장고</h2>
                     <p>합리적 가격의<br>
                         HYUN 매장을 만나보세요
                     </p>
-                    <a href="#">more</a>
+                    <a href="<c:url value='/product/list?category=aircon&condition=&keyword='/>">more</a>
                 </div>
             </div>
         </section>
@@ -285,11 +171,11 @@
 <!--md's pick template -->
 <script id="recommandItem" type="text/x-handlebars-template">
 <ul class="card_events">
-{{#computer}}   {{!--0~3번 인덱스까지 루프 --}}
+{{#recommend}}   {{!--0~3번 인덱스까지 루프 --}}
 	{{#loopCheck @index 0 3}}
 		 
-	<li>
-        <dl id={{productId}}>
+	<li id={{productId}}>
+        <dl >
         	<dt>
         		<img src='{{thumNail}}'>
         	</dt>
@@ -303,11 +189,11 @@
     </li>
  
 	{{/loopCheck}}
-{{/computer}}
+{{/recommend}}
 </ul>
 
 <ul class="card_events">
-{{#computer}}  {{!--4~7번 루프까지해당 --}}
+{{#recommend}}  {{!--4~7번 루프까지해당 --}}
 	{{#loopCheck @index 4 7}}
  		
 		<li id={{productId}}>
@@ -316,7 +202,7 @@
         			<img src='{{thumNail}}'>
         		</dt>
         		<dd> 
-					[{{companyName}}] <br>{{productName}}</dd>
+					 [{{companyName}}]<br>{{productName}}</dd>
         		<dt>
 					<span style="color:white; background-color:red;font-size:17px;"> 특가!  
 					{{price}}원</span><br>{{{explain1}}} </dt>
@@ -324,10 +210,10 @@
         	</dl>
     	</li>
 	{{/loopCheck}}
-{{/computer}}
+{{/recommend}}
 </ul>
 <ul class="card_events">
-{{#computer}}  {{!--8~11번 루프까지해당 --}}
+{{#recommend}}  {{!--8~11번 루프까지해당 --}}
 	{{#loopCheck @index 8 11}} 
  
 		<li id={{productId}}>
@@ -336,7 +222,7 @@
         			<img src='{{thumNail}}'>
         		</dt>
         		<dd>
-					[{{companyName}}] <br> {{productName}}
+					 [{{companyName}}]<br> {{productName}}
 				</dd>
         		<dt>
 					<span style="color:white; background-color:red;font-size:17px;"> 특가!  
@@ -347,7 +233,7 @@
         	</dl>
     	</li>
 	{{/loopCheck}}
-{{/computer}}
+{{/recommend}}
 </ul>
  
 </script>
@@ -417,7 +303,7 @@ $.getJSON("/shop1/manager/recommended",function(data)
 			$("#carouselNote").html(html2);	 */
 			
 }) 
-$('#recommand_area').on("click", "dl", function(){
+$('#recommand_area').on("click", "li", function(){
 	let productId=$(this).attr('id');
 	console.log("제품 자세히 보기 클릭됨 id="+productId);
 	
@@ -443,6 +329,7 @@ $(window).on('scroll' , function(){
         $('#scroll_img1 .circle_section').addClass('on');
     }   
 }); 
+
 /* $('#carouselNote').on("click",".card",function(){
 	let productId=$(this).attr('id');
 	console.log("제품 자세히 보기 클릭됨 id="+productId);

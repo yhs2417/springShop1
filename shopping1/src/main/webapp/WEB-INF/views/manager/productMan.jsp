@@ -37,8 +37,9 @@
 	<!-- 탭패널 (상품등록)-->
 	<jsp:include page="productRegister.jsp" />
 	<!-- 탭패널 (상품관리(수정, 삭제, 추천상품 등록))-->
+	 
 	<jsp:include page="productModify.jsp" />
-
+	 
 	<!-- 탭패널 (주문조회) -->
 	<content id="orders" style="display:none">		
 			준비중입니다
@@ -53,39 +54,57 @@
 <!--상품리스트 템플릿-->
 <script id="ProductListTemplate" type="text/x-handlebars-template">
 {{#product}}
-	<ul>
-	<li scope="row">
-	<input type="checkbox" class="chkBox" id={{productId}}>
-	</li>
-	<li>{{productId}}</li>
-	<li>
+<tr>
+	<td scope="row">
+		<input type="checkbox" class="chkBox" id={{productId}}>
+	</td>
+	<td>
+		<span>No</span>
+		{{productId}}
+	</td>
+	<td>
+		<span>추천</span>
 		{{#if recommend}}
 			추천
  		{{/if}}
-	</li>
+	</td>
 
-	<li>{{productName}}</li>
-	<li>{{#comma price}}{{/comma}}
-	</li>
-	<li>{{category}}</li>
-	<li>{{companyName}}</li>
-	<li>{{{explain1}}}</li>
+	<td>
+		<span>상품명</span>
+		{{productName}}
+	</td>
+	<td>
+		<span>가격</span>
+		{{#comma price}}{{/comma}}
+	</td>
+	<td>
+		<span>분류</span>
+		{{category}}
+	</td>
+	<td>
+		<span>회사명</span>
+		{{companyName}}
+	</td>
+	<td>
+		<span>간략설명</span>
+		{{{explain1}}}
+	</td>
 
-	<li hidden>
+	<td hidden>
 	{{explain2}}
-	</li>
-	<li>
+	</td>
+	<td>
 		<img src='{{thumNail}}' width="70" height="70"/>
-	</li>
-	<li>
-	<div class="btn-group-vertical btn-group-sm">
-	<button type="button" class="btn btn-secondary productMod"
+	</td>
+	<td>
+		<div class="btn-group-vertical btn-group-sm">
+			<button type="button" class="btn btn-secondary productMod"
 			data-toggle="modal" data-target="#productModModal">
-	수정</button>
-	  <button type="button" class="btn btn-secondary mt-1 productDel">삭제</button>
-	</div>
-	 </li>
-	</ul>
+				수정</button>
+	  		<button type="button" class="btn btn-secondary mt-1 productDel">삭제</button>
+		</div>
+	</td>
+</tr>
 {{/product}}
 </script>
 
@@ -97,9 +116,10 @@ if ('${redirectMsg}' != "")
 	alert('${redirectMsg}')
 };
 
-align="";
-condition="";
-keyword="";
+align = "";
+condition = "";
+keyword = "";
+category = "";
 
 //상품등록 form의 select 에 카테고리 불러오기
 $('.categorySelect').on("change",function()
@@ -123,9 +143,12 @@ $('.categorySelect').on("change",function()
 //상품목록 불러오기 함수구현
 function getProducts(page)
 {
+	category = $('#category').val();
+	
+	console.log("카테고리="+category);
 	$.ajax({
 		type : "POST",
-		url : "/shop1/manager/productList/" + page,
+		url : "/shop1/manager/productList?category=" + category + "&pg=" + page,
 		dataType : "json",
 		headers : {
 			"Content-type" : "application/json",
@@ -137,7 +160,7 @@ function getProducts(page)
 			keyword:keyword
 		}),
 		success : function(data) {
-			//console.log(data);
+			console.log("상품내역=" + data);
 			
 			//상품정보 div에 반영
 			let template = $('#ProductListTemplate').html();
@@ -176,7 +199,7 @@ function getProducts(page)
 		}); //ajax
 };//getProducts(page) 끝
 
-//최상단 카테고리 클릭시 해당 카테고리 자료 불러오기
+//aside 의 상품관리 클릭시
 $('#product_manage_menu li:nth-of-type(2)').on("click",function()
 {
 	//category = $(this).text(); //현재 카테고리 변수
@@ -200,6 +223,14 @@ $(".pagination").on("click","li a",function(e)
 	e.preventDefault();
 	getProducts($(this).attr("href"));
 });
+
+//카테고리 선택시 
+$("#category").on("change",function()
+{
+	category = $(this).val(); 
+	getProducts(1);
+});
+
 //정렬 선택시 
 $("#Align").on("change",function()
 {

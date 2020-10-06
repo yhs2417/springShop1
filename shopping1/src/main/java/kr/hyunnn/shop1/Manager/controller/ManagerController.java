@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
@@ -88,12 +89,14 @@ public class ManagerController
 		return new ModelAndView("redirect:/manager");
 	}
 	
-	@PostMapping("/productList/{category}/{pg}")
+	@PostMapping("/productList")
 	public Map<String,Object> productList(
-						@PathVariable String category,@PathVariable int pg,
+						@RequestParam("category") String category,
+						@RequestParam("pg") int pg,
 						@RequestBody SearchCriteria cri) throws Exception
 	{	
 		System.out.println("상품 조회 진입"+category+pg+cri);
+		//int pg = Integer.parseInt(pg);
 		cri.setPg(pg);
 		//cri.setPerPage(10);
 		
@@ -160,9 +163,10 @@ public class ManagerController
 	public Map<String,Object> recommended() throws Exception
 	{
 		Map<String, Object> map=new HashMap<String, Object>();
-		map.put("computer",service.getRecommendProduct("computer"));
-		map.put("notebook",service.getRecommendProduct("NoteBook"));
-		 
+		//map.put("computer",service.getRecommendProduct("computer"));
+		//map.put("notebook",service.getRecommendProduct("NoteBook"));
+		map.put("recommend",service.getRecommendProduct(""));
+
 		System.out.println("추천상품 데이터"+map);
 		
 		return map;

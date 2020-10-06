@@ -52,10 +52,13 @@
 				<input type="text" class="col-md-1 form-control ml-2" id="productCount" value='1'/>
 					<div class="btn-group ">
 						<button type="button" id="productPlusCount" class="btn btn-white mr-1">
-							<i class="fas fa-plus"></i>
+								<img src='<c:url value="/resources/images/icons/plusicon.png"/>' width="17">
+
 						</button>
 						<button type="button" id="productMinusCount" class="btn btn-white">
-							<i class="fas fa-minus"></i>
+							<!-- <i class="fas fa-minus"></i> -->
+							<img src='<c:url value="/resources/images/icons/minusicon.png"/>' width="17">
+							
 						</button>
 					</div>
 			</div><!-- form-group row. -->
@@ -182,7 +185,7 @@
 		
 		<div class="collapse mx-4 my-4" id="review{{reviewId}}">
 		 	<div>{{content}}</div> 
-			
+			<div class="text-right reviewDate" style="display:none;"> 작성일 : {{#dating regDate}} {{/dating}}</div>
  			<div class="btn-toolbar justify-content-end">	
 				<div class="btn-group btn-group-sm">
 					<button type="button" id="{{reviewId}}" 
@@ -433,13 +436,13 @@ $("#reviewsList").on("click",".collapse .btn-toolbar .btn-group .reviewDelBtn",f
 });
 
 $('#addCart').on("click",function(){
-	console.log("장바구니 클릭됨");
+	//console.log("장바구니 클릭됨");
 	if('${login.userId}'=='')
 	{
 		alert("로그인이 필요합니다");
 	}
 	
-	else{
+	else{ 
 		$.ajax({
 			type : "POST",
 			url : "/shop1/cart/add",
