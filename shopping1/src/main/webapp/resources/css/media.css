@@ -97,9 +97,9 @@
    		width:40%;
    	}
     #scroll_img1 {
-        background: url("/shop1/resources/images/mobile_back_02.gif");
+        background: url("/shop1/resources/images/mobile_back_02.jpg");
         background-size : 100% 100%;
-        background-attachment:fixed;
+        /* background-attachment:fixed; */
     }
     .circle_section{   
         width: 300px;
@@ -312,13 +312,13 @@
         height: 50%;
        
     }
-    #events #inner li:last-of-type{
+    #events #inner li:nth-of-type(3){
         width:100%;
         height:50%;
         text-align:center;
     }
-    #events #inner li:last-of-type dl {
-    	width:50%;
+    #events #inner li:nth-of-type(3) dl {
+    	width:100%;
     	margin:auto;
     }
     #events #inner span:last-of-type {

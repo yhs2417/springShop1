@@ -142,15 +142,16 @@ setInterval(function(){
 	 //console.log(event_rank_index);
 	$('.event_ranking dl a').eq(event_rank_index).animate({
         opacity: '0%'
-    }, 80, function() {
+    }, 200, function() {
       $('.event_ranking dl a').eq(event_rank_index).animate( {
         opacity: '100%'
-      }, 80 );});
+      },200 );});
 	
 	if (event_rank_index < 8) {	
+		$('#events #inner li:nth-of-type(3) h2').text($('.event_ranking dl').children().eq(event_rank_index).text());
 		setTimeout(function(){
 			event_rank_index++;	
-		},160)
+		},400)
 	} else if (event_rank_index == 8) {
 		setTimeout(function(){
 			index_random = Math.floor(Math.random() * 8);
@@ -161,10 +162,28 @@ setInterval(function(){
 			$('.event_ranking dl a').eq(index_random - 1).text(next_text);
 			$('.event_ranking dl a').eq(index_random).text(pre_text);
 			event_rank_index = 0;			 
-		},160)
+		},400)
 	}
-},320);
+},800);
 
-$('#events #inner li:last-of-type dl a').on('click',function(){
+$('#events #inner li:nth-of-type(3) dl a').on('click',function(){
 	alert("이벤트는 준비중입니다");
 });
+
+$('.bx_events').bxSlider({
+	auto:'true',
+	mode:'horizontal',
+	speed:700,
+	pause:2000
+})
+
+$('#events #inner li:nth-of-type(3) h2').on('click',
+		function(){
+			 
+			$('#events #inner li:nth-of-type(3) dl').show();
+});  
+$('#events #inner li:nth-of-type(3) dl').on('click',
+		function(){
+			 
+			$('#events #inner li:nth-of-type(3) dl').hide();
+}); 

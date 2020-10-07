@@ -46,7 +46,10 @@
                     
                 </li>
                 <li class="event_ranking">
-                		<strong>실시간 <i style="color:#f9b234; font-size:20px;">Hot</i> 이벤트 순위</strong>
+                	<strong>실시간 <i style="color:#f9b234; font-size:20px;">Hot</i> 이벤트 순위</strong>
+                	<h2>
+                	<img style="border:1px solid lightgray" src='<c:url value="/resources/images/icons/right.png"/>' width="3" height="15"/>
+                	</h2>
                 	<dl>
                 		<dt><span>1.</span><a>회원가입시 무료쿠폰! </a></dt>
                 		<dd><span>2.</span><a>기계식 키보드 증정 룰렛돌리기</a></dd>
@@ -56,9 +59,16 @@
                 		<dd><span>6.</span><a>삼성 데스크탑 출시 기념!</a></dd>
                 		<dt><span>7.</span><a>레노바 신모델을 30만원에</a></dt>
                 		<dd><span>8.</span><a>샤오미 미노트 출시임박!</a></dd>
-                 
-                	
                 	</dl>
+                	<ul class="bx_events">
+                		<li> 
+                			<img src='<c:url value="/resources/images/event1.jpg" />' width="100%">
+                		</li>
+                		<li>
+                		     <img src='<c:url value="/resources/images/event2.jpg" />' width="100%">
+                		</li>
+                	
+                	</ul>
                 </li>
                 <span>
                     <a href="#" onclick="alert('이벤트는 준비중입니다');">전체 이벤트 보기</a>
@@ -131,38 +141,38 @@
             <ul>
                 <li>
                     <img src='<c:url value="/resources/images/footer_07.jpg"/>'>
-                    <a href="">
+                  <!--   <a href="">
                         <span>데스크탑 <br>바로 보러가기</span>
-                    </a>
+                    </a> -->
                 </li>
                 <li>
                     <img src='<c:url value="/resources/images/footer_21.jpg"/>'>
-                    <a href="">
+                   <!--  <a href="">
                         <span>스마트폰<br> 바로 보러가기</span>
-                    </a>
+                    </a> -->
                 </li>
                 <li>
                     <img src='<c:url value="/resources/images/footer_13.jpg"/>'>
-                    <a href="">
+                   <!--  <a href="">
                         <span>태블릿 <br>바로 보러가기</span>
-                    </a>
+                    </a> -->
                 </li>
                 <li>
                     <img src='<c:url value="/resources/images/footer_16.gif"/>'>
-                    <a href="">
+                   <!--  <a href="">
                         <span>TV <br>바로 보러가기</span>
-                    </a>
+                    </a> -->
                 </li>
                 <li>
                     <img src='<c:url value="/resources/images/footer_19.jpg"/>'>
-                    <a href="">
+                   <!--  <a href="">
                         <span>노트북 <br>바로 보러가기</span>
-                    </a>
+                    </a> -->
                 </li>
                 
                 
             </ul>
-        </section>
+        </section> 
         
         <jsp:include page="include/mainFooter.jsp" />
     
