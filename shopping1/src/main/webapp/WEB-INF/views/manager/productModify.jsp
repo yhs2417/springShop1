@@ -90,42 +90,46 @@
 					<form id="productModForm">
 						<div class="form-group row">
 							<input type="hidden" class="form-control col-md-5"
-								name="productId"> <label class="col-md-2 col-form-label">상품이름</label>
-							<input type="text" class="form-control col-md-5" required
+								name="productId"> 
+							<label class="col-md-2 col-form-label">상품이름</label>
+							<input type="text" class="form-control mx-3" required
 								name="productName">
 						</div>
 
 						<div class="form-group row">
-							<label class="col-md-2 col-form-label">상품가격</label> <input
-								type="text" class="form-control col-md-5" required name="price">
+							<label class="col-md-2 col-form-label">상품가격</label> 
+							<input
+								type="text" class="form-control mx-3" required name="price">
 						</div>
 						<div class="form-group row">
-							<label class="col-md-2 	col-form-label">분류</label> <input
-								class="form-control col-md-5" name="category" readonly>
-						</div>
-
-						<div class="form-group row">
-							<label class="col-md-2  col-form-label">제조사</label> <input
-								class="form-control col-md-5" name="companyName" readonly>
+							<label class="col-md-2 	col-form-label">분류</label> 
+							<input	class="form-control mx-3" name="category" readonly>
 						</div>
 
 						<div class="form-group row">
-							<label class="col-md-2"> 썸네일사진</label> <input type="file"
-								class="form-control-file col-md-5" required name="thumnail">
+							<label class="col-md-2  col-form-label">제조사</label> 
+							<input
+								class="form-control mx-3" name="companyName" readonly>
 						</div>
 
 						<div class="form-group row">
-							<label class="col-md-2  col-form-label">간략설명</label>
+							<label class="col-md-4"> 썸네일사진</label> 
+							<input type="file"
+								class="form-control-file mx-3" required name="img">
+						</div>
 
-							<textarea rows=3 class="form-control col-md-5" placeholder=""
+						<div class="form-group row">
+							<label class="col-md-4  col-form-label">간략설명</label>
+
+							<textarea rows=3 class="form-control mx-3" placeholder=""
 								required name="explain1"></textarea>
 						</div>
 
 						<div class="form-group row">
-							<label for="explain2" class="col-md-2  col-form-label">
+							<label for="explain2" class="col-md-4  col-form-label">
 								상세 설명</label>
 
-							<textarea class="form-control col-md-5 summerNote" required
+							<textarea class="form-control summerNote  mx-3 " required
 								name="explain2"></textarea>
 						</div>
 					</form>

@@ -96,7 +96,7 @@
                     <p>합리적 가격의<br>
                         HYUN 매장에서 만나보세요
                     </p>
-                    <a href="<c:url value='/product/list?category=aircon&condition=&keyword='/>">more</a>
+                    <a href="<c:url value='/product/list?category=refrigerator&condition=&keyword='/>">more</a>
                 </div>
             </div>
             <div class="span_section">
@@ -105,7 +105,7 @@
                     <p>합리적 가격의<br>
                         HYUN 매장을 만나보세요
                     </p>
-                    <a href="<c:url value='/product/list?category=aircon&condition=&keyword='/>">more</a>
+                    <a href="<c:url value='/product/list?category=refrigerator&condition=&keyword='/>">more</a>
                 </div>
             </div>
         </section>

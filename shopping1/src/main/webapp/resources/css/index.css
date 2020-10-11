@@ -1019,7 +1019,7 @@ header li {
 	float:right;
 }
 
-#productMa .productList td span {
+#productMa .productList td span:nth-of-type(1) {
 	display:none;
 	width:80px;
 	height:100%;

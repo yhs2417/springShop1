@@ -21,7 +21,7 @@
          			</div>
          			<div class="form-group">
             			<label for="price">상품가격</label>
-            			<input type="password" class="form-control" id="price" required="required" name="price">
+            			<input type="text" class="form-control" id="price" required="required" name="price">
               		 
           			</div>
             		<div class="form-group">
@@ -38,12 +38,10 @@
             		<div class="form-group">
                     	<label for="company">제조사</label>
             
-                    	<select class="form-control categorySelect" name="companyName">
+                    	<select class="form-control companySelect" name="companyName">
 				
 						<option selected>제조사..</option>
-						<c:forEach var="i" items="${category}">
-							<option value='${i.category}'>${i.category}</option>
-						</c:forEach>
+					
 
 						</select>
             		</div>

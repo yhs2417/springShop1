@@ -60,34 +60,36 @@
 	</td>
 	<td>
 		<span>No</span>
-		{{productId}}
+		<span>{{productId}}</span>
 	</td>
 	<td>
 		<span>추천</span>
+		<span>
 		{{#if recommend}}
 			추천
  		{{/if}}
+		</span>
 	</td>
 
 	<td>
 		<span>상품명</span>
-		{{productName}}
+		<span>{{productName}}</span>
 	</td>
 	<td>
 		<span>가격</span>
-		{{#comma price}}{{/comma}}
+		<span>{{#comma price}}{{/comma}}</span>
 	</td>
 	<td>
 		<span>분류</span>
-		{{category}}
+		<span>{{category}}</span>
 	</td>
 	<td>
 		<span>회사명</span>
-		{{companyName}}
+		<span>{{companyName}}</span>
 	</td>
 	<td>
-		<span>간략설명</span>
-		{{{explain1}}}
+		<span></span> 
+		<span>{{{explain1}}}</span>
 	</td>
 
 	<td hidden>
@@ -128,15 +130,15 @@ $('.categorySelect').on("change",function()
 	$.getJSON(
 		"/shop1/manager/companies/"+ $(this).val(),
 		function(data) {
-			//console.log(data)
+			console.log(data)
 			let str = "";
 			$(data).each(function() {
 								str += "<option value='"+this.companyName+"'>"
 										+ this.companyName
 										+ "</option>"
 							});
-
 			$('.companySelect').html(str);
+
 		});//getjson
 }) //#category.change()끝
 
@@ -386,20 +388,20 @@ $('#recommendDelBtn').on("click",function()
 		{ alert("상품을 선택해주세요")}
 });
 
-//각행의 수정 버튼 클릭
+//각행의 수정 버튼(productMod) 클릭
 $('tbody.productList').on("click", ".productMod", function(e) {
-	let $from = $(this).parent().parent().siblings(); //각 td
+	let $from = $(this).parent().parent().siblings(); //해당 tr의 td들
 
 	let $to1 = $("#productModForm div").children('input');
 	let $to3 = $("#productModForm div").children('textarea');
 
 	$to1.eq(0).val($from.eq(1).text()); //아이디
-	$to1.eq(1).val($from.eq(3).text()); //이름
-	$to1.eq(2).val($from.eq(4).text()); //가격
-	$to1.eq(3).val($from.eq(5).text()); //분류
-	$to1.eq(4).val($from.eq(6).text()); //제조사
+	$to1.eq(1).val($from.eq(3).children().eq(1).text()); //이름
+	$to1.eq(2).val($from.eq(4).children().eq(1).text()); //가격
+	$to1.eq(3).val($from.eq(5).children().eq(1).text()); //분류
+	$to1.eq(4).val($from.eq(6).children().eq(1).text()); //제조사
 
-	$to3.eq(0).val($from.eq(7).text()); //간략설명
+	$to3.eq(0).val($from.eq(7).children().eq(1).text()); //간략설명
 	$to3.eq(1).val($from.eq(8).text()); //상세설명
 
 })
@@ -427,27 +429,24 @@ $('tbody.productList').on("click", '.productDel', function(e) {
 })//productDel 끝
 
 //수정 모달의 수정버튼 클릭
-$('.productModBtn')
-		.on(
-				"click",
-				function() {
+$('.productModBtn').on("click",function() {
 					let data = {
-						productId : $(
+						productId : Number($(
 								'#productModForm div input[name="productId"]')
-								.val(),
+								.val()),
 						productName : $(
 								'#productModForm div input[name="productName"]')
 								.val(),
-						price : $(
+						price : Number($(
 								'#productModForm div input[name="price"]')
-								.val(),
+								.val()),
 						explain1 : $(
 								'#productModForm div textarea[name="explain1"]')
 								.val(),
 						explain2 : $(
 								'#productModForm div textarea[name="explain2"]')
 								.val(),
-						img : $(
+						thumnail : $(
 								'#productModForm div input[name="thumnail"]')
 								.val()
 					};

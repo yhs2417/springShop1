@@ -117,7 +117,7 @@
 	
 	<sql id="thum">
 		<if test="thumNail !='' ">
-			,thumnail=thumNail
+			,thumnail=#{thumNail}
 		</if>
 	</sql>
 	

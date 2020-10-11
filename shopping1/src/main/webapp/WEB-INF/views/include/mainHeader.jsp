@@ -55,26 +55,26 @@
 				<c:if test="${login.userId=='admin'}">
 					<li>
 	                    <a class="logoutBtn">
-	                        <span>로그아웃</span>
 	                        <img src='<c:url value="/resources/images/icons/power.png"/>'>
+	                        <span>로그아웃</span>
 	                    </a>
 	                </li>
 					<li>
 	                   <a href="<c:url value='/user/info'/>">
-	                       <span>회원정보</span>
 	                       <img src='<c:url value="/resources/images/icons/loginicon.png"/>'>
+	                       <span>회원정보</span>
 	                   </a>
 	                </li>
 	                <li>
 	                    <a href="<c:url value='/manager'/>">
-	                        <span>상품관리</span>
 	                        <img src='<c:url value="/resources/images/icons/setting.png"/>'>
+	                        <span>상품관리</span>
 	                    </a>
 	                </li>
 	                  <li>
 	                    <a href="<c:url value='/cart/info'/>">
-	                        <span>장바구니</span>
 	                        <img src='<c:url value="/resources/images/icons/carticon.png"/>'>
+	                        <span>장바구니</span>
 	                    </a>
 	                </li>
 	             <%--    <li>
@@ -92,20 +92,20 @@
 				<c:if test="${login.userId!='admin' && login!=null}">
 					<li>
 	                    <a class="logoutBtn">
-	                        <span>로그아웃</span>
 	                        <img src='<c:url value="/resources/images/icons/power.png"/>'>
+	                        <span>로그아웃</span>
 	                    </a>
 	                </li>
 					<li>
 	                   <a href="<c:url value='/user/info'/>">
-	                       <span>회원정보</span>
 	                       <img src='<c:url value="/resources/images/icons/loginicon.png"/>'>
+	                       <span>회원정보</span>
 	                   </a>
 	                </li>
 	                <li>
 	                    <a href="<c:url value='/cart/info'/>">
-	                        <span>장바구니</span>
 	                        <img src='<c:url value="/resources/images/icons/carticon.png"/>'>
+	                        <span>장바구니</span>
 	                    </a>
 	                </li>
 	        <%--         <li>
