@@ -111,7 +111,7 @@
 
 						<div class="form-group row">
 							<label class="col-md-2"> 썸네일사진</label> <input type="file"
-								class="form-control-file col-md-5" required name="img">
+								class="form-control-file col-md-5" required name="thumnail">
 						</div>
 
 						<div class="form-group row">

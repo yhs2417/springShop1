@@ -16,7 +16,7 @@
 	   	<h4>Order Confirm</h4>
 	</div>
 
-	<div class='container pt-3' style="min-height: 700px">
+	<div id="order_container" class='container pt-3' style="min-height: 700px">
 		 <legend>
 			<img src='<c:url value="/resources/images/icons/select_red.png" />'>
             <strong>주문내역</strong>
@@ -105,17 +105,19 @@ productvo=ProductVO(productId, productName, companyName, explain1, explain2, thu
 				width=100% height=100%/>
 	</td>
 	<td>
-		{{productvo.productName}} 
+		<span style="display:none">상품명 : </span>{{productvo.productName}} 
 	</td>
 	<td>
+		<span style="display:none">가격 : </span>
 	 	 {{#comma productvo.price}}
 		{{/comma}}
 	</td>
 	<td>
+		<span style="display:none">개수 : </span>
 		{{count}}
 	</td>
 	<td class="productPrice"> 
-
+			<span style="display:none">총 : </span>
 			{{#multiply productvo.price count}}
 			{{/multiply}}
 			 

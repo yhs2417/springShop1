@@ -84,7 +84,7 @@ productvo=ProductVO(productId, productName, companyName, explain1, explain2, thu
 			</button>
 			<button type="button" 
 					class="btn btn-link cartDelRow">
-				<i class="fas fa-trash-alt text-dark"></i>
+				<img src='<c:url value="/resources/images/icons/trash.png"/>' width="17">
 			</button>
 		</div>
 	</li>  

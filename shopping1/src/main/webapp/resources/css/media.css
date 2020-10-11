@@ -61,6 +61,10 @@
         font-size: 15px;
         line-height: 3;
     }
+    #slide {
+    	height:0;
+    	padding-top:100%;
+    }
     #slide .imgs:nth-of-type(1)::before {
         background: url(/shop1/resources/images/mobile_slide_01.gif) no-repeat;
         background-size : 100% 100%;
@@ -240,6 +244,11 @@
         width: 250px;
         height: 250px;  
     }
+    #order_container {
+    	max-width:768px;
+    	width:90%;
+    	margin:auto;
+    }
 }
 
 @media screen and (max-width: 650px){
@@ -287,7 +296,7 @@
     }
     #slide {
         height:auto;
-        padding-top:70%; 
+        padding-top:100%; 
     }
     #slide > span:nth-of-type(1){
         /*bottom:50%;*/
@@ -347,8 +356,6 @@
         display: block;
     }
     #sns {
-        margin-top:10px;
-        margin-bottom: 30px;
         
     }
     #sns ul{
@@ -377,6 +384,44 @@
 		text-align:left;
 		width:35%;
 	}
+	#order_container .card:nth-of-type(1) table thead{
+		display:none;
+	}
+	#order_container .card:nth-of-type(1) table tr{
+		position:relative;
+	}
+	#order_container .card:nth-of-type(1) table tr td{
+		display:inline-block;
+	}
+	#order_container .card:nth-of-type(1) table tr td span{
+		display:inline-block !important;
+		padding:10px 0;
+	}
+	#order_container .card:nth-of-type(1) table tr td:nth-of-type(1){
+		position:absolute;
+		width:100px;
+		left:0;
+	}
+	#order_container .card:nth-of-type(1) table tr td:nth-of-type(2){
+	
+		width: 100%;
+		 
+		padding-left: 105px;
+	}
+	#order_container .card:nth-of-type(1) table tr td:nth-of-type(3){
+	
+		width: 100%;
+		 
+		padding-left: 105px;
+	}
+	#order_container .card:nth-of-type(1) table tr td:nth-of-type(4){
+	
+		width: 50%;
+		 
+		padding-left: 105px;
+	}
+	
+	
 }
 
 @media screen and (max-width: 530px){

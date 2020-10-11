@@ -157,7 +157,7 @@
                                 <a href="<c:url value='/product/list?category=computer&condition=companyName&keyword=apple'/>">Apple</a>
                             </dd>
                             <dt>
-                                <a href="<c:url value='/product/list?category=computer&condition=companyName&keyword=lg'/>">LG</a>
+                                <a href="<c:url value='/product/list?category=computer&condition=companyName&keyword=LG'/>">LG</a>
                             </dt>
                             <dd>
                                 <a href="<c:url value='/product/list?category=computer&condition=companyName&keyword=hp'/>">hp</a>
@@ -177,10 +177,10 @@
                                 <a href="<c:url value='/product/list?category=NoteBook&condition=companyName&keyword=apple'/>">Apple</a>
                             </dd>
                             <dt>
-                                <a href="<c:url value='/product/list?category=NoteBook&condition=companyName&keyword=lenova'/>">레노바</a>
+                                <a href="<c:url value='/product/list?category=NoteBook&condition=companyName&keyword=Lenovo'/>">레노바</a>
                             </dt>
                             <dd>
-                                <a href="<c:url value='/product/list?category=NoteBook&condition=companyName&keyword=lg'/>">LG</a>
+                                <a href="<c:url value='/product/list?category=NoteBook&condition=companyName&keyword=LG'/>">LG</a>
                             </dd>
                          
                         </dl>
@@ -197,7 +197,7 @@
                                 <a href="<c:url value='/product/list?category=tablet&condition=companyName&keyword=apple'/>">Apple</a>
                             </dd>
                             <dt>
-                                <a href="<c:url value='/product/list?category=tablet&condition=companyName&keyword=lg'/>">LG</a>
+                                <a href="<c:url value='/product/list?category=tablet&condition=companyName&keyword=LG'/>">LG</a>
                             </dt>
                             <dd>
                                 <a href="<c:url value='/product/list?category=tablet&condition=companyName&keyword=amazon'/>">아마존</a>
@@ -221,7 +221,7 @@
                                 <a href="<c:url value='/product/list?category=smartPhone&condition=companyName&keyword=mi'/>">샤오미</a>
                             </dt>
                             <dd>
-                                <a href="<c:url value='/product/list?category=smartPhone&condition=companyName&keyword=lg'/>">LG</a>
+                                <a href="<c:url value='/product/list?category=smartPhone&condition=companyName&keyword=LG'/>">LG</a>
                             </dd>
                         </dl>
                     </div>
@@ -234,10 +234,10 @@
                                 <a href="<c:url value='/product/list?category=refrigerator&condition=companyName&keyword=samsung'/>">삼성</a>
                             </dt>
                             <dd>
-                                <a href="<c:url value='/product/list?category=refrigerator&condition=companyName&keyword=lg'/>">LG</a>
+                                <a href="<c:url value='/product/list?category=refrigerator&condition=companyName&keyword=LG'/>">LG</a>
                             </dd>
                             <dt>
-                                <a href="<c:url value='/product/list?category=refrigerator&condition=companyName&keyword=philips'/>">필립스</a>
+                                <a href="<c:url value='/product/list?category=refrigerator&condition=companyName&keyword=carrier'/>">carrier</a>
                             </dt>
                             <dd>
                                 <a href="<c:url value='/product/list?category=refrigerator&condition=companyName&keyword=daewoo'/>">위니아</a>
