@@ -1233,3 +1233,6 @@ footer section ul li{
 .bx-wrapper .bx-controls-direction a {
 	z-index:5 !important;
 }
+.bx-wrapper .bx-viewport {
+	max-height:340px !important;
+}
