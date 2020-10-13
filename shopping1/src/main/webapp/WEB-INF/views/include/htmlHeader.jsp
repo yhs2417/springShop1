@@ -26,8 +26,14 @@
 	<script src="<c:url value='/resources/js/common.js'/>" defer></script>
 	<script src="<c:url value='/resources/js/index.js'/>" defer></script>
  	<script src="<c:url value='/resources/js/bootstrap.min.js'/>"></script>
+ 	
 <!--	<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.js"></script>
 	<script src="<c:url value='/resources/js/animatescroll.js'/>"></script>
  -->	
+ 
+ 	<!-- [if lt IE 9]>
+ 	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+ 	<script src="<c:url value='/resources/js/respond.min.js'/>"></script> 	
+ 	<![endif] -->
 </head>
 
